@@ -1,6 +1,6 @@
 # This is the default format. 
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /:categories/:year/:month/:day/:title 
+permalink: /:categories/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
@@ -9,8 +9,8 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Leeon Blog
-tagline: Site Tagline
+title : Leeon
+tagline: 仰望星空 脚踏实地
 author :
   name : Leeon
   email : leeon.ly@foxmail.com
@@ -128,3 +128,6 @@ JB :
   
   markdown: rdiscount
   #set the markdown parser
+  javascripts :
+  enabled : true
+  

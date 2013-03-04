@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About me
+title: Yang Lee
 tagline: 仰望星空 脚踏实地
 ---
 {% include JB/setup %}

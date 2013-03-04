@@ -1,3 +1,22 @@
+/*learn from jade */
+#custom_sidebar {
+	padding:20px 30px;
+	width:150px;
+	background:#EEE;
+	position:absolute;
+	top:40px;
+	right:0;
+	text-align:right;
+}
+#custom_sidebar p{
+	font-size:11px;
+}
+#me {
+	background:#FFF;
+	padding:2px;
+	border:1px solid #ccc;
+}
+
 /* Override some defaults */
 html, body {
   background-color: #eee;
