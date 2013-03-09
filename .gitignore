@@ -1,5 +1,6 @@
 _site/*
 _theme_packages/*
+_temp_folder/*
 
 Thumbs.db
 .DS_Store
@@ -8,3 +9,4 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
