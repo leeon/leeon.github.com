@@ -3,7 +3,7 @@
 # https://github.com/imathis/octopress
 */
 .highlight, html .gist .gist-file .gist-syntax .gist-highlight {
-  border: 1px solid #05232b !important;
+  border: 1px solid #84BAC9 !important;
 }
 .highlight table td.code, html .gist .gist-file .gist-syntax .gist-highlight table td.code {
   width: 100%;
@@ -127,7 +127,7 @@ p code, li code {
   background: #fff;
   font-size: 1em;
   line-height: 1.5em;
-  color: #555;
+  color: #179755;
   border: 1px solid #ddd;
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
@@ -152,7 +152,7 @@ p pre code, li pre code {
   padding: .8em !important;
   overflow-x: auto;
   line-height: 1.45em;
-  background: #002b36 url('/assets/images/noise.png?1328348723') top left !important;
+  background: #F1F5EC url('/assets/images/noise.png?1328348723') top left !important;
   color: #93a1a1 !important;
   /* Comment */
   /* Comment.Multiline */
@@ -398,7 +398,7 @@ p pre code, li pre code {
 
 .highlight, .gist-highlight {
   margin-bottom: 1.8em;
-  background: #002b36;
+  background: #84BAC9;
   overflow-y: hidden;
   overflow-x: auto;
 }

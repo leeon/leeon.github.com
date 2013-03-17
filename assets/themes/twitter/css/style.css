@@ -1,3 +1,8 @@
+.nav > li{
+	color: #FFF
+}
+
+
 /*learn from jade */
 #custom_sidebar {
 	padding:20px 30px;
@@ -73,8 +78,8 @@ body {
 .tag_box a {
 	padding: 3px 6px;
 	margin: 2px;
-	background: #eee;
-	color:#005F6B;
+	background: #4F6997;
+	color:#ffffff;
 	border-radius: 3px;
 	text-decoration:none;
 }
@@ -87,4 +92,35 @@ body {
 	border:1px solid #4C964D;
 	color:#FFF;
 }
-	
+
+/* cat_box ======================================================== */
+
+.cat_box {
+	list-style:none;
+	margin:0;
+	padding:5px 0 ;
+	overflow:hidden;
+}
+.cat_box li {
+	line-height:28px;
+}
+.cat_box.inline li {
+	float:left;
+}
+.cat_box a {
+	padding: 3px 20px;
+	margin: 2px;
+	background: #757677;
+	color:#ffffff;
+	border-radius: 3px;
+	text-decoration:none;
+}
+.cat_box a span{
+	vertical-align:super;
+	font-size:0.8em;
+}
+.cat_box a.active {
+	background:#57A957;
+	border:1px solid #4C964D;
+	color:#FFF;
+}	
