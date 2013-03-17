@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：原子性和可见性"
 description: "Java并发，原子性和可见性"
-category: Java
-tags: [Java,并发,多线程，内存模型]
+category: 程序設計
 ---
 {% include JB/setup %}
 

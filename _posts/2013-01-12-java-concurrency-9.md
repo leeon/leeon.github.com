@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：生产者和消费者"
 description: "Java并发，生产者和消费者"
-category: Java
-tags: [Java,并发,多线程,OS]
+category: 程序設計
 ---
 {% include JB/setup %}
 这个小系列的最后附带一个多线程解决问题的经典实例，生产者-消费者模型，这个模型已经在网络中被写的各种泛滥，这两天也在网络上看到很多例子，思路个人觉得并不清晰。

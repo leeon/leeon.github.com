@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：线程管理"
 description: "Java并发，多线程管理"
-category: Java
-tags: [Java,并发,多线程]
+category: 程序設計
 ---
 {% include JB/setup %}
 

@@ -2,8 +2,7 @@
 layout: post
 title: "Java Concurrency Basic"
 description: "Java并发基础"
-category: Java
-tags: [Java,并发,多线程]
+category: 程序設計
 tagline: java并发基础
 ---
 {% include JB/setup %}

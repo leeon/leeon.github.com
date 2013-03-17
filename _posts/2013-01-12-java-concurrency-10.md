@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：总结篇"
 description: "Java并发，知识的总结"
-category: Java
-tags: [Java,并发,多线程]
+category: 程序設計
 ---
 {% include JB/setup %}
 

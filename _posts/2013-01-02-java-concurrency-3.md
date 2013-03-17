@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：线程切换"
 description: "Java并发，多线程之间的切换"
-category: Java
-tags: [Java,并发,多线程]
+category: 程序設計
 ---
 {% include JB/setup %}
 多线程必然涉及到的一个话题就是线程之间的切换，首先要明确两个概念：线程的`状态`和`优先级`。

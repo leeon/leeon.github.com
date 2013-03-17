@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：同步与锁"
 description: "Java并发，同步与锁"
-category: Java
-tags: [Java,as,sads]
+category: 程序設計
 ---
 {% include JB/setup %}
 

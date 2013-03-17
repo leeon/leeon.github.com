@@ -2,8 +2,7 @@
 layout: post
 title: "Hello Jekyll"
 description: "搭建一个简单的jelyll博客"
-category: Web
-tags: [Jekyll,blog]
+category: 自娛自樂
 tagline: a geek blog way
 ---
 {% include JB/setup %}

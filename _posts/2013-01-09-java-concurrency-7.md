@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：中断线程"
 description: "Java并发，中断线程"
-category: Java
-tags: [Java,并发,多线程]
+category: 程序設計
 ---
 {% include JB/setup %}
 

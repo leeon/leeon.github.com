@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发：竞争条件"
 description: "Java并发，竞争条件"
-category: Java
-tags: [Java,并发,多线程,OS]
+category: 程序設計
 ---
 {% include JB/setup %}
 ###故事
