@@ -16,19 +16,23 @@ tagline: 仰望星空 脚踏实地
      <img src="/assets/images/icons/github.png">
     </a>
 
-    <a target="_blank" href="http://weibo.com/v5liyang">
-     <img src="/assets/images/icons/sina.png">
-    </a>
-
      <a target="_blank" href="http://www.facebook.com/v5liyang">
         <img src="/assets/images/icons/facebook.png">
       </a>
- 
-      <a target="_blank" href="http://www.linkedin.com/in/linkleeon">
+     <a target="_blank" href="http://www.linkedin.com/in/linkleeon">
         <img src="/assets/images/icons/linkedin.png">
       </a>
+
+    <a target="_blank" href="http://weibo.com/v5liyang">
+     <img src="/assets/images/icons/sina.png">
+    </a>
+ 
+
       <a target="_blank" href="http://www.douban.com/people/octobershiner/">
       	<img src="/assets/images/icons/douban.png">
+      </a>
+      <a target="_blank" href="http://www.xiami.com/u/769076">
+        <img src="/assets/images/icons/xiami.ico">
       </a>
 </p>
 
