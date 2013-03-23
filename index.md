@@ -46,7 +46,6 @@ tagline: 仰望星空 脚踏实地
 </ul>
 
 #### What's New
+正在努力的實現云詞推送平臺
 
- 二零一三年三月二十三 祝慧子生日快樂  [say](http://leeon.org/hz)
-
->This page is edited on 2013-03-22.
+>This page is edited on 2013-03-23.
