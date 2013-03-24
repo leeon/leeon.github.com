@@ -10,7 +10,25 @@ tagline: 仰望星空 脚踏实地
 	I hava many hobbies like photograph， basketball and reading.
   </p>
 
-  <h5>You can find me</h5>
+
+#### What's New
+正在努力的實現云詞推送平臺
+
+#### Recent 5 Posts
+
+<ul class="posts">
+  <!--User limit to set the number of posts listed in the page-->
+  {% for post in site.posts limit:5 %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
+#### See My Friends
+<a href="/links.html">[Links]</a>
+
+
+
+####You can find me
 <p>
     <a target="_blank" href="http://github.com/leeon">
      <img src="/assets/images/icons/github.png">
@@ -36,16 +54,7 @@ tagline: 仰望星空 脚踏实地
       </a>
 </p>
 
-#### Recent Posts
 
-<ul class="posts">
-  <!--User limit to set the number of posts listed in the page-->
-  {% for post in site.posts limit:5 %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
 
-#### What's New
-正在努力的實現云詞推送平臺
 
 >This page is edited on 2013-03-23.
