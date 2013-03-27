@@ -8,6 +8,7 @@ tagline: 笔记记录点点滴滴
 ### Language
 
 + ####[Java](lanaguage/java.html) `强大的面向对象语言`
+
 ### Tools
 
 + ####[Nginx](tool/nginx.html) `轻量级并发服务器`
