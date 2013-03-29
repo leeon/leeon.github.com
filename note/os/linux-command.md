@@ -6,7 +6,7 @@ group: os
 ---
 {% include JB/setup %}
 
-##文件操作
+##文件管理
 
 ------------------
 
@@ -16,7 +16,7 @@ group: os
 
 `find [dir] [-name] [name]` 
 
-*option:* 
+*arguments:* 
 
 -  *-ls* 查找文件并显示
 
@@ -25,11 +25,21 @@ group: os
 ### _ls_
 显示当前的目录下的文件
 
-*options:* 
+ls [arguments]
+
+*arguments:* 
 
 - *-G* 区别文件夹颜色显示
 - *-a* 显示所有文件（包括隐藏）
 - *-l* 显示文件的详细信息
+- *-i* 显示文件索引节点信息
 
 
-### __
+### _ln_
+创建连接
+
+ln [arguments] [sourceFile] [targetFile]
+
+*arguments:* 
+
+- *-s* 创建软连接 [关于软链接](http://www.cnblogs.com/itech/archive/2009/04/10/1433052.html)

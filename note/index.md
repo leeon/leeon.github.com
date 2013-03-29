@@ -7,7 +7,9 @@ tagline: 笔记记录点点滴滴
 
 ### Language
 
-+ ####[Java](lanaguage/java.html) `强大的面向对象语言`
++ ####[Java](language/java.html) `强大的面向对象语言`
++ ####[Python](language/python.html) `脚本语言`
+
 
 ### Tools
 
