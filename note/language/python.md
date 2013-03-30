@@ -40,6 +40,7 @@ aPerson.items() # guess !
 aPerson.pop('age') # act the same as pop in stack
 aPerson.clear() # clean the dict --> {}
 aPerson.fromkeys([1,2,3],0) # set a dict from a list of keys with default value 0
+aPerson.copy() #swallow copy of a dict
 {% endhighlight %}
 
 ####遍歷
@@ -52,6 +53,33 @@ for k,v in aPerson.iteritems():
 {% endhighlight %}
 
 
+
+##內存模型
+####關於深拷貝和淺拷貝
+python中的`copy`和`deep copy`兩個函數，下面是一段代碼形象的表示區別。
+原理概括：對一個對象進行淺拷貝其實新創建了一個類型跟原型對象一樣，其內容是原對象元素的引用。
+{% highlight python %}
+import copy
+a = [1, 2, 3, 4, ['a', 'b']] 
+b = a 
+c = copy.copy(a) 
+d = copy.deepcopy(a) 
+a.append(5) 
+a[4].append('c')
+
+print 'a = ', a
+print 'b = ', b
+print 'c = ', c
+print 'd = ', d
+
+{% endhighlight %}
+顯示結果：
+{% highlight bash %}
+a =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
+b =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
+c =  [1, 2, 3, 4, ['a', 'b', 'c']]
+d =  [1, 2, 3, 4, ['a', 'b']]
+{% endhighlight %}
 
 
 ##String
