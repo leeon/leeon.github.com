@@ -6,11 +6,12 @@ tagline: 仰望星空 脚踏实地
 {% include JB/setup %}
 
   <p>
-    Hello! I'm a <a target="_blank" href="http://en.wikipedia.org/wiki/Software_engineering">SE</a> student from <a href="http://en.hit.edu.cn/" >HIT</a>. I am now working in Web Intelligence laboratory of CS in HIT, resposible for <strong>WI Inputmethod </strong>android version and <strong>Cloud Platform</strong>.
-	I hava many hobbies like photograph， basketball and reading.
+    Hello! I'm a <strong><a target="_blank" href="http://en.wikipedia.org/wiki/Software_engineering">SE</a></strong> student from <strong><a target="_blank" href="http://en.hit.edu.cn/" >HIT</a></strong>. I'm now working in Web Intelligence laboratory of CS in HIT, resposible for <strong>WI Inputmethod </strong>android version and <strong>Cloud Platform</strong>.
+	I hava many hobbies like photograph, basketball and reading.
   </p>
 
-
+  <p>
+    You can find my Resume <strong><a target="_blank" href="/resume">Here</a></strong></p>
 #### What's New
 正在努力的實現云詞推送平臺
 
@@ -57,4 +58,4 @@ tagline: 仰望星空 脚踏实地
 
 
 
->This page is edited on 2013-03-23.
+>This page is edited on 2013-03-31.
