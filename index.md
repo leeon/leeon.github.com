@@ -15,6 +15,10 @@ tagline: 仰望星空 脚踏实地
 #### What's New
 正在努力的實現云詞推送平臺
 
+四月中旬出差 ＠北京
+
+最近在聽 《上海姑娘》
+
 #### Recent 5 Posts
 
 <ul class="posts">
@@ -58,4 +62,4 @@ tagline: 仰望星空 脚踏实地
 
 
 
->This page is edited on 2013-03-31.
+>This page is edited on 2013-04-01.
