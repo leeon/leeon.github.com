@@ -14,7 +14,7 @@ tagline: 笔记记录点点滴滴
 ### Tools
 
 + ####[Nginx](tool/nginx.html) `轻量级并发服务器`
-
++ ####[Git](tool/git.html) `sexy`
 
 ### OS
 + ####[Linux命令](os/linux-command.html) `常用操作`
