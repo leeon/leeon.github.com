@@ -16,5 +16,10 @@ tagline: 笔记记录点点滴滴
 + ####[Nginx](tool/nginx.html) `轻量级并发服务器`
 + ####[Git](tool/git.html) `sexy`
 
+
 ### OS
-+ ####[Linux命令](os/linux-command.html) `常用操作`
++ ####[Mac OS](os/mac.html) `我的电脑`
++ ####[Linux命令](os/linux-command.html) `服务器开发需要`
+
+### OpenSource
++ ####[Hibernate](opensource/hibernate.html) `Java ORM solution`
