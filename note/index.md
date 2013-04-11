@@ -15,6 +15,7 @@ tagline: 笔记记录点点滴滴
 
 + ####[Nginx](tool/nginx.html) `轻量级并发服务器`
 + ####[Git](tool/git.html) `sexy`
++ ####[Sublime Text](tool/sublime-text.html)`性感的编辑器`
 
 
 ### OS
@@ -23,3 +24,6 @@ tagline: 笔记记录点点滴滴
 
 ### OpenSource
 + ####[Hibernate](opensource/hibernate.html) `Java ORM solution`
+
+### DEV
++ ####[Design Patterns](dev/design-pattern.html) `开发实践必备`

@@ -11,6 +11,12 @@ group: os
 
 > [Sublime Text 2](http://www.sublimetext.com/) `very sexy的编辑器`
 
+> [Dash]()`快捷的查看API`
+
+
+####技巧
+
+> [利用Sublime Text 2 产看开源代码]({{ BASE_PATH }}/經驗分享/subl-source)
 
 
 ####快捷键
