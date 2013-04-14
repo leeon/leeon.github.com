@@ -19,6 +19,7 @@ tagline: 笔记记录点点滴滴
 
 
 ### OS
++ ####[Android](os/android.html) `droid ?`
 + ####[Mac OS](os/mac.html) `我的电脑`
 + ####[Linux命令](os/linux-command.html) `服务器开发需要`
 
