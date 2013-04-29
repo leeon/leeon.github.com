@@ -36,7 +36,7 @@ ls [arguments]
 
 
 ### _ln_
-创建连接
+创建连接（使用绝对路径创建链接）
 
 ln [arguments] [sourceFile] [targetFile]
 
