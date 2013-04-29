@@ -5,7 +5,7 @@ tagline: 找到真爱了
 group: os
 ---
 {% include JB/setup %}
-####基础
+###基础
 
 安装软件
 
@@ -17,25 +17,39 @@ group: os
 > brew使用 --prefix安装，将上述资源文件放在一个文件夹里面。
 
 
-####推荐软件
+
+###我常用的软件
+
+####日常
 > [Alfred](http://www.alfredapp.com/) `快速打开程序的利器`
-
-> [Sublime Text 2](http://www.sublimetext.com/) `very sexy的编辑器`
-
-> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12)`快捷的查看API`
 
 > [Wunderlist](https://www.wunderlist.com/) `跨平台的Todo`
 
-> [iTerm2](http://www.iterm2.com/) `终端工具`
+> [evernote]() `笔记同步，知识管理，丰富的chrome插件支持`
+
+> [Mou]() `可视化Markdown编辑器`
+
+> [Reeder]() `如其名，可与evernote集成，如果你没有赶上限免，那就可惜了`
+
+> [Mindmanager]() `强大的思维导图工具`
+
+
+
+####开发
+> [Sublime Text 2](http://www.sublimetext.com/) `very sexy的编辑器`
+
+> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12)`快捷的查看API工具，可与st2和Alfred结合`
+
+> [iTerm2](http://www.iterm2.com/) `终端工具，搭配zsh`
 
 > [zsh](https://github.com/robbyrussell/oh-my-zsh/)`再见，bash`
 
 > [Homebrew](http://mxcl.github.io/homebrew/)`管理软件包`
 
+> [Git]() `不解释`
 
 
-
-####开发技巧
+###开发技巧
 
 > [利用Sublime Text 2 产看开源代码]({{ BASE_PATH }}/經驗分享/subl-source)
 
@@ -43,7 +57,7 @@ group: os
 
 
 
-####快捷键
+###快捷键
 
 `option+space` 打开alfred
 

@@ -12,6 +12,12 @@ tagline: 仰望星空 脚踏实地
 
   <p>
     You can find my Resume <strong><a target="_blank" href="/resume">Here</a></strong></p>
+    
+#### I want to say
+从六楼俯视校园,各种树木摇曳着缤纷的绿,映着高楼和远山.而在寒冷的冬天里，缤纷落尽，繁华消亡，只留下黑色或褐色的枝干，如一支支手伸向清白的天空。可是这些光秃秃的枝干就是树的本来面目吗？冬日看去，便觉万物终归于寂，可是后面还有个春天，有那黝黑的枝干上刹时间涌出绿芽的生机。我总觉得在这些苦难的背后，有什么力量正在生长。
+
+------摘自网络
+
 #### What's New
 不管怎么样，遇到困难，就得像个爷们儿一样挺过去
 
@@ -19,11 +25,11 @@ tagline: 仰望星空 脚踏实地
 
 最近在聽 《青春》
 
-#### Recent 5 Posts
+#### Recent 10 Posts
 
 <ul class="posts">
   <!--User limit to set the number of posts listed in the page-->
-  {% for post in site.posts limit:5 %}
+  {% for post in site.posts limit:10 %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
@@ -62,4 +68,4 @@ tagline: 仰望星空 脚踏实地
 
 
 
->This page is edited on 2013-04-01.
+>This page is edited on 2013-04-29.
