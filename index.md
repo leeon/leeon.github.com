@@ -5,14 +5,11 @@ tagline: 仰望星空 脚踏实地
 ---
 {% include JB/setup %}
 
-  <p>
-    Hello! I'm a <strong><a target="_blank" href="http://en.wikipedia.org/wiki/Software_engineering">SE</a></strong> student from <strong><a target="_blank" href="http://en.hit.edu.cn/" >HIT</a></strong>. I'm now working in Web Intelligence laboratory of CS in HIT, resposible for <strong>WI Inputmethod </strong>android version and <strong>Cloud Platform</strong>.
-	I hava many hobbies like photograph, basketball and reading.
-  </p>
+Hello! I'm a <strong><a target="_blank" href="http://en.wikipedia.org/wiki/Software_engineering">SE</a></strong> student from <strong><a target="_blank" href="http://en.hit.edu.cn/" >HIT</a></strong>. I'm now working in Web Intelligence laboratory of CS in HIT, resposible for <strong>WI Inputmethod </strong>android version and <strong>Cloud Platform</strong>.
+I hava many hobbies like photograph, basketball and reading.
 
-  <p>
-    You can find my Resume <strong><a target="_blank" href="/resume">Here</a></strong></p>
-    
+You can find my Resume <strong><a target="_blank" href="/resume">Here</a></strong>
+
 #### I want to say
 从六楼俯视校园,各种树木摇曳着缤纷的绿,映着高楼和远山.而在寒冷的冬天里，缤纷落尽，繁华消亡，只留下黑色或褐色的枝干，如一支支手伸向清白的天空。可是这些光秃秃的枝干就是树的本来面目吗？冬日看去，便觉万物终归于寂，可是后面还有个春天，有那黝黑的枝干上刹时间涌出绿芽的生机。我总觉得在这些苦难的背后，有什么力量正在生长。
 

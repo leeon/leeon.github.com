@@ -12,6 +12,7 @@ group: dev
 ###思路
 
 主要是两个方面的思路:
+
 + 数据集数据集的处理,不需要关注内部
 + 抽象出数据集的特性,接口来处理
  
@@ -23,6 +24,7 @@ group: dev
 
 ###实例
 可以参照JDK源码中下面三个文件中的实现:
+
 + ArrayList.java
 + Iterator.java
 + Collection.java
