@@ -16,11 +16,10 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
 ------摘自网络
 
 #### What's New
-不管怎么样，遇到困难，就得像个爷们儿一样挺过去
 
-正在努力的實現云詞推送平臺
+毕业季的味道越来越浓
 
-最近在聽 《青春》
+正在练习杀球
 
 #### Recent 10 Posts
 

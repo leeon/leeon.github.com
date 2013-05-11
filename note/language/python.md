@@ -6,6 +6,8 @@ group: language
 ---
 {% include JB/setup %}
 
+##数据类型
+
 ###序列
 python中的序列主要有list和tuple,后者是一种不可变的list。list类似于一个动态的数组，可以动态添加元素，同时允许每一个元素可以为不同类型，支持嵌套。
 {% highlight python %}
@@ -184,7 +186,74 @@ c =  [1, 2, 3, 4, ['a', 'b', 'c']]
 d =  [1, 2, 3, 4, ['a', 'b']]
 {% endhighlight %}
 
+##控制流
+
+##函数
+####结构
+函数定义以关键字 `def` 开始，之后是函数名，在之后是参数列表。如同类一样，每一个函数可以在第一行声明一个`doc string`,然后就是函数体，Python中病不要求显式的`return`语句，正如你在函数名前也没有见到函数的返回值类型。
+
+虽然Python不要求返回值，但是即使没有return，函数也会一个内置的类型 `None`
+
+{% highlight python%}
+def function(params):
+	'''doc string'''
+	pass
+	return 
+{% endhighlight%}
+
+Python中支持函数的嵌套声明，比如:
+{%highlight python%}
+def produce():
+    print"in the process of producing.."
+    def pack():
+        print"in the process of packing..."
+    pack()
+{%endhighlight%}
+
+####作用域
+调用函数的时候，Python会创建一个新的作用域，解释器维护一个新的符号表，当遇到一个变量的时候，解释器会首先在当前符号表中寻找，然后是上一级作用域。如果要在函数体内使用全局的变量，需要使用`global`关键字。
+
+####参数
+python 函数参数支持比较丰富，主要包括：
+
++ 位置参数
++ 关键字参数
++ 收集参数
+
+#####位置参数
+调用的时候需要按照特地的顺序传递参数，缺点比较明显，你需要记住参数列表，形如：
+{%highlight python%}
+def func(param1,param2):
+    pass
+func(1,2) #bad code hard to read
+func(param1 = 1,param2 =2) #keyword arguments
+{%endhighlight%}
+
+#####关键字参数
+在定义函数的时候，可以指明参数的默认值，调用的时候，传递参数显式声明参数名，虽然写起来有点多，但是在调用的时候方便了很多。比如大项目中，当调用某些函数的时候，调用者可以选择性的填充参数。
+
+{%highlight python%}
+def func(param1=value1,param2=value2):
+    pass
+{%endhighlight%}
+
+#####收集参数or可变参数列表
+Python提供了很好的可变参数列表的支持，`*params`表示一个参数元组，而`**params`表示参数字典，一个小例子就可以看明白，例如：
+
+{%highlight python%}
+def params_collect(*params):
+    print params
+
+def params_collect_dict(**params):
+    print params
+
+params_collect_dict(name="liyang",sex="man",location="HIT")
+params_collect(1,2,3,4)
+{%endhighlight%}
+至于如何使用这些参数，看打印结果就知道我们已经获得元组或者字典了，怎么用，你懂的。
+
+这些参数的使用是可以综合在一起的。
 
 ##String
 ##模块
-##Class
+##面向对象编程

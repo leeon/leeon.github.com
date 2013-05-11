@@ -25,11 +25,10 @@ group: os
 ### _ls_
 显示当前的目录下的文件
 
-ls [arguments]
+ls [arguments][Dir]
 
 *arguments:* 
 
-- *-G* 区别文件夹颜色显示
 - *-a* 显示所有文件（包括隐藏）
 - *-l* 显示文件的详细信息
 - *-i* 显示文件索引节点信息
