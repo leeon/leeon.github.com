@@ -6,6 +6,7 @@ group: language
 ---
 {% include JB/setup %}
 
+>笔记中源码可参考 项目 [pythonTaste](https://github.com/leeon/pythonTaste)
 ##数据类型
 
 ###序列
@@ -158,7 +159,7 @@ for k,v in aPerson.iteritems():
 {% endhighlight %}
 
 
-
+------------------------
 ##內存模型
 ####關於深拷貝和淺拷貝
 python中的`copy`和`deep copy`兩個函數，下面是一段代碼形象的表示區別。
@@ -186,8 +187,70 @@ c =  [1, 2, 3, 4, ['a', 'b', 'c']]
 d =  [1, 2, 3, 4, ['a', 'b']]
 {% endhighlight %}
 
+------------------------
 ##控制流
 
+###布尔值
+Python中的真假分别表示为：
+
++ True  
++ False
+
+在表达式中和`False`等价的有：`None`, `0`, `()`, `{}`, `[]`,而非零为真。
+
+###逻辑
+其中逻辑比较的操作符包括，当比较内建类型或者常量的时候不建议使用`is`，因为`is`比较的是对象的虚拟内存地址，内建类型经常被优化，比如两个值相同的整形变量会指向同一块地址，因此`is`会返回`True`.
+{% highlight python %}
+a > b
+a < b
+a >= b
+a <= b
+a == b #判断值是否相等
+a is b #判断是否为同一对象
+a is not b
+a in b #判断元素是否在制定集合中
+a not in b 
+{% endhighlight %}
+
+逻辑的与或非分别用 `and`, `or `,`not`表示，Python中同样采用`逻辑短路`原则，即`and`前的布尔值为假，则后面的条件表达式不再被执行。
+
+###if/else/elif
+{% highlight python%}
+age = input('How old are you? ')
+if age > 20:
+    print 'you are older than me.'
+elif age < 20:
+    print 'you are younger than me.'
+else:
+    print 'we are the same age!'
+{% endhighlight %}
+
+###while
+{% highlight python%}
+while condtion:
+	pass
+{% endhighlight %}
+
+###for
+
+基础用法，遍历一个列表
+{% highlight python%}
+team = ['duncan','parker','spliter','bannor']
+for player in team:
+	print player
+{% endhighlight %}
+
+高级用法：TODO itertools
+
+###break/continue
+同其他语言一样：
+
++ `break` 不再执行当前循环体内下面的语句，循环结束
++ `continue` 不再直行当前循环体内下面的语句，循环继续
+
+
+
+------------------------
 ##函数
 ####结构
 函数定义以关键字 `def` 开始，之后是函数名，在之后是参数列表。如同类一样，每一个函数可以在第一行声明一个`doc string`,然后就是函数体，Python中病不要求显式的`return`语句，正如你在函数名前也没有见到函数的返回值类型。
@@ -256,4 +319,62 @@ params_collect(1,2,3,4)
 
 ##String
 ##模块
+
 ##面向对象编程
+
+####封装--类定义
+在Python中定义一个类非常的简单，直接使用`class`关键字：
+{%highlight python%}
+class Student:
+	'''Student doc string'''
+	#vars 
+
+	def __init__(self,name):
+		"""Constructor for Class Student"""
+		self.name = name
+
+	def say(self):
+		print "hello, I am "+ self.name
+{%endhighlight%}
+
+其中属于对象的变量（类似于Java中的普通变量）和绑定方法（类似Java中的对象方法）都需要`self`。比如上面代码中的`self.name`就表示对象的一个属性，如果不加self则属于类属性（类似于Java中的静态属性），为所有该类型的对象所共享。
+
+类的绑定方法，第一个参数为`self`表示当前的对象，在实际调用的时候不用传入，当调用时
+{%highlight python%}
+MyObject.method(arg1, arg2)
+{%endhighlight%}
+Python会自动转为
+{%highlight python%}
+MyClass.method(MyObject, arg1, arg2）
+{%endhighlight%}
+
+####生命周期
+类的构造方法是`__init__`，以双下划线开头。`__del__`方法，是对象消亡的时候调用的，但是在实际编码中并不能确定其具体的调用时机，除非显式的使用`del`关键字。
+
+####权限
+Python中并没有提供一个严格的类属性和方法的访问权限，理论上可以访问所有的对象。如果要保护某一个方法或者变量不被直接访问可以使用双下划线开头,这样就可以防止调用者*直接*访问了，但是实际上Python只是转换了双下划线开头的变量了而已，并非真的为其设定了权限。
+{%highlight python%}
+class Student:
+	'''Student doc string'''
+	#vars 
+	def __init__(self,name,age):
+		"""Constructor for Class Student"""
+		self.name = name
+		self.age = age
+
+	def say(self):
+		print "hello, I am "+ self.name
+
+	def __whisper(self):
+		print "I am %d years old." %self.age
+
+
+s = Student("susie",20) #create an instance of Student
+s.say()
+#s.__whisper() error code
+s._Student__whisper()
+{%endhighlight%}
+
+比如定义了`__whisper`这个私有方法，其实他被解释器改为了新的名字，下划线+类名+方法名。同样可以调用，因此Python开发中尝尝约定，单下划线开始的变量为私有，当然这只是编码习惯上的约束而已。
+
+####继承
