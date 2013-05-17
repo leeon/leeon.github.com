@@ -378,3 +378,16 @@ s._Student__whisper()
 比如定义了`__whisper`这个私有方法，其实他被解释器改为了新的名字，下划线+类名+方法名。同样可以调用，因此Python开发中尝尝约定，单下划线开始的变量为私有，当然这只是编码习惯上的约束而已。
 
 ####继承
+
+##其他
+###编码
+Python的对象有两种编码表示，一种是str，属于8bit的字节流，另一种是unicode编码，Python内部用这种形式表示。unicode序列以`u`开头，比如`u"name"`。
+
+因此`decode`方法是将其他字符编码解码为`unicode`，而`encode`是将unicode编码为其他编码。下面两种硬编码定义中文的例子：
+
+{% highlight python %}
+str = "中文"
+ustr = u"中文"
+{% endhighlight %}
+
+第一种的中文实际编码会根据当前文件的编码而决定，编码解码需要知道具体的编码，而后者自动编码为Python的内置编码unicode，因此更值得推荐。
