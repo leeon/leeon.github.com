@@ -12,7 +12,7 @@ group: os
 
 ### _find_
 
-根据名字的目录或者文件
+查找文件命令，根据名字的目录或者文件
 
 `find [dir] [-name] [name]` 
 
@@ -35,7 +35,7 @@ ls [arguments][Dir]
 
 
 ### _ln_
-创建连接（使用绝对路径创建链接）
+创建连接（使用绝对路径创建链接）,默认创建硬连接
 
 ln [arguments] [sourceFile] [targetFile]
 
