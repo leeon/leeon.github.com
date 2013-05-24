@@ -50,7 +50,7 @@ $mkdir repos
 ####完成
 
 最后一步，管理员将团队成员的公钥添加到`authorized_keys`中，比如将同学susie加入：
-{%hightlight bash %}
+{%highlight bash %}
 $ cat susie.pub >> authorized_keys
 {% endhighlight %}
 
@@ -87,17 +87,18 @@ $ gitolite setup -pk YourName.pub
 是时候说一下gitolite的管理模式了，他会创建一个`gitolite-admin`的repo，管理员就是通过像这个repo提交配置文件而实现对git服务器的控制的。
 
 首先，将这个repo导入到我们的workspace：在此之前，需要配置本地的ssh,gitolite要求管理员的本地密钥和其注册公钥的名字一致，比如我们安装的时候指定 -pk后面为 admin.pub 则管理员本地需要由admin对应的私钥。我们可以通过~/.ssh/config来进行配置（注：有些系统可以用conf，Mac OSX 下无效，只能用config).
-
+{%highlight bash %}
     host gitolite
      user git
      hostname yourhostname.com
      port 22
      identityfile ~/.ssh/admin
-   
+{% endhighlight %}
+
 这样，当我们访问gitolite的时候就会自动根据配置文件执行，配置完成后可以根据下面的命令，将gitolite-admin转移到本地。
-
+{%highlight bash %}
     git clone gitolite:gitolite-admin.git
-
+{% endhighlight %}
 克隆完成后，可以发现，gitolite-admin下面有两个目录，其中`conf`保存配置文件，我们可以通过编辑里面的gitolite.conf文件，管理git服务器，`keydir`目录保存用户的公钥pub文件。
 
 当我们讲修改后的repo 提交的时候，gitolite就会自动的应用这些配置，管理过程就方便了很多。
@@ -107,16 +108,16 @@ $ gitolite setup -pk YourName.pub
 打开gitolite.conf文件可以看到其中的示例：
 
 To add new users alice, bob, and carol, obtain their public keys and add
-    them to 'keydir' as alice.pub, bob.pub, and carol.pub respectively.
+them to 'keydir' as alice.pub, bob.pub, and carol.pub respectively.
 
 To add a new repo 'foo' and give different levels of access to these
-    users, edit the file 'conf/gitolite.conf' and add lines like this:
-
+users, edit the file 'conf/gitolite.conf' and add lines like this:
+{%highlight bash %}
         repo foo
             RW+         =   alice
             RW          =   bob
             R           =   carol
-            
+{% endhighlight %}            
  上面的配置文件就是新建了一个repo foo，并且添加了三位项目成员，每一个人的权限不同。提交push后，管理便生效了。
  
  
