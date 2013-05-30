@@ -47,7 +47,9 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
      <a target="_blank" href="http://www.linkedin.com/in/linkleeon">
         <img src="/assets/images/icons/linkedin.png">
       </a>
-
+      <a target="_blank" href="https://www.evernote.com/pub/liyang1031/share.leeon.org">
+        <img src="/assets/images/icons/evernote.png">
+      </a>
     <a target="_blank" href="http://weibo.com/v5liyang">
      <img src="/assets/images/icons/sina.png">
     </a>
@@ -59,6 +61,10 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
       <a target="_blank" href="http://www.xiami.com/u/769076">
         <img src="/assets/images/icons/xiami.ico">
       </a>
+      <a target="_blank" href="http://www.flickr.com/photos/95932189@N06/">
+        <img src="/assets/images/icons/flickr.png">
+      </a>
+
 </p>
 
 
