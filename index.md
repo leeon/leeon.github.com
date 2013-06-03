@@ -61,7 +61,7 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
       <a target="_blank" href="http://www.xiami.com/u/769076">
         <img src="/assets/images/icons/xiami.ico">
       </a>
-      <a target="_blank" href="http://www.flickr.com/photos/95932189@N06/">
+      <a target="_blank" href="http://www.flickr.com/photos/octobershiner">
         <img src="/assets/images/icons/flickr.png">
       </a>
 
