@@ -14,7 +14,7 @@ group: os
 + 通过程序自带的安装器
 + 关于Linux的安装方式
 > 推荐使用Homebrew进行软件包的管理，一般在`/usr/local/Cellar`目录下。可执行文件存放在`bin`下，库文件在`lib`下，其他资源文件在`share`下。
-> brew使用 --prefix安装，将上述资源文件放在一个文件夹里面。
+> brew使用 --prefix安装，将上述资源文件放在一个文件夹里面。**(推荐)**
 
 
 
@@ -25,28 +25,53 @@ group: os
 
 > [Wunderlist](https://www.wunderlist.com/) `跨平台的Todo`
 
-> [evernote]() `笔记同步，知识管理，丰富的chrome插件支持`
+> [Evernote]() `笔记同步，知识管理，丰富的chrome插件支持`
 
-> [Mou]() `可视化Markdown编辑器`
+> [Mou](http://mouapp.com/) `可视化Markdown编辑器`
 
-> [Reeder]() `如其名，可与evernote集成，如果你没有赶上限免，那就可惜了`
+> [Reeder](http://reederapp.com/mac/) `如其名，可与evernote集成，如果你没有赶上限免，那就可惜了`
 
 > [Mindmanager]() `强大的思维导图工具`
+
+> [AirMail](http://airmailapp.info/) `最新推出的邮件客户端，做的很用心`
+
+> [Kindle](https://itunes.apple.com/us/app/kindle/id405399194?mt=12) `这个就不要多说了，这个方便做笔记`
+
+> [Dropbox]() `云同步`
+
+> [Lightroom](http://www.adobe.com/support/downloads/product.jsp?platform=Macintosh&product=113) `爱好摄影不可获取`
+
+> [Photoshop](http://www.adobe.com/support/downloads/product.jsp?product=39&platform=Macintosh) `神器必须是shenqi`
+
 
 
 
 ####开发
 > [Sublime Text 2](http://www.sublimetext.com/) `very sexy的编辑器`
 
-> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12)`快捷的查看API工具，可与st2和Alfred结合`
+> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12) `快捷的查看API工具，可与st2和Alfred结合`
 
 > [iTerm2](http://www.iterm2.com/) `终端工具，搭配zsh`
 
-> [zsh](https://github.com/robbyrussell/oh-my-zsh/)`再见，bash`
+> [zsh](https://github.com/robbyrussell/oh-my-zsh/) `再见，bash`
 
-> [Homebrew](http://mxcl.github.io/homebrew/)`管理软件包`
+> [Homebrew](http://mxcl.github.io/homebrew/) `管理软件包`
 
-> [Git]() `不解释`
+> [Git](http://git-scm.com/‎) `不解释`
+
+> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12) `超级好用的集合各种doc的工具，和alfred结合起来，你的mac就是IDE`
+
+> [IDEA](http://www.jetbrains.com/idea/) `越来越觉得这才是最Java的IDE`
+
+
+####游戏
+
+> War3 
+
+> 机械迷城
+
+
+
 
 
 ###开发技巧
