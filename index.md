@@ -17,6 +17,8 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
 
 #### What's New
 
+非常好玩的音乐排行榜 <strong><a target="_blank" href="/musicrank.html"> 在这里</a></strong>
+
 毕业季的味道越来越浓
 
 正在练习杀球
@@ -31,7 +33,7 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
 </ul>
 
 #### See My Friends
-<a href="/links.html">[Links]</a>
+<a href="/links.html">[我的朋友们]</a>
 
 
 
