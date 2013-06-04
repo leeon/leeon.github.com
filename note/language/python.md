@@ -391,3 +391,41 @@ ustr = u"中文"
 {% endhighlight %}
 
 第一种的中文实际编码会根据当前文件的编码而决定，编码解码需要知道具体的编码，而后者自动编码为Python的内置编码unicode，因此更值得推荐。
+
+##内置函数
+
+###range()
+
+反回一个列表
+
+**range(stop)**
+
+**range(start, stop[, step])**
+
+调用的例子：
+
++ range(4)  *[0,1,2,3]*
++ range(1,4) *[1,2,3]*
++ range(3,1) *[]*
++ range(-3,-1) *[-3,-2]*
++ range(1,6,2) *[1,3,5]*
+
+range在for循环中比较常用，比如实现形如`for(int i = 0, i < 5; i++)`
+
+{% highlight java%}
+for item in range(5):
+    print item
+{% endhighlight%}
+
+###zip()
+返回一个元素为元组的列表，接收不同数量的列表或元组，将这些列表按照元素对应的位置合并。
+
+{% highlight java %}
+x = [1,2,3]
+y = ['a','b','c']
+zipped = zip(x,y)
+tx,ty = zip(*zipped) # like unzip
+
+for xx , yy in zip(x,y):
+	print xx,yy
+{% endhighlight %}
