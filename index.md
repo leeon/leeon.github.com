@@ -10,14 +10,9 @@ I hava many hobbies like photograph, basketball and reading.
 
 You can find my Resume <strong><a target="_blank" href="/resume">Here</a></strong>
 
-#### I want to say
-从六楼俯视校园,各种树木摇曳着缤纷的绿,映着高楼和远山.而在寒冷的冬天里，缤纷落尽，繁华消亡，只留下黑色或褐色的枝干，如一支支手伸向清白的天空。可是这些光秃秃的枝干就是树的本来面目吗？冬日看去，便觉万物终归于寂，可是后面还有个春天，有那黝黑的枝干上刹时间涌出绿芽的生机。我总觉得在这些苦难的背后，有什么力量正在生长。
-
-------摘自网络
-
 #### What's New
 
-非常好玩的音乐排行榜 <strong><a target="_blank" href="/musicrank.html"> 在这里</a></strong>
+非常好玩的音乐排行榜 <strong><a target="_blank" href="http://rank.leeon.org"> 在这里</a></strong>
 
 毕业季的味道越来越浓
 
@@ -62,9 +57,6 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
       </a>
       <a target="_blank" href="http://www.xiami.com/u/769076">
         <img src="/assets/images/icons/xiami.ico">
-      </a>
-      <a target="_blank" href="http://www.flickr.com/photos/octobershiner">
-        <img src="/assets/images/icons/flickr.png">
       </a>
 
 </p>
