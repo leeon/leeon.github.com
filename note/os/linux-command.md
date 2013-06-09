@@ -43,7 +43,6 @@ ln [arguments] [sourceFile] [targetFile]
 
 - *-s* 创建软连接 [关于软链接](http://www.cnblogs.com/itech/archive/2009/04/10/1433052.html)
 
-
 ### _cat_
 显示文件或者链接文件并且打印
 
@@ -52,6 +51,31 @@ ln [arguments] [sourceFile] [targetFile]
 `cat file1 file2` 将file1的内容追加到file2
 
 *arguments:* 
+
 - *-n*在每一行上加上编号
 - *-b*非空行加上编号
-- 
+
+
+### _ps_
+查看进程信息
+
+`ps` 查看当前用户在当前terminal下的进程信息
+`ps -ef|git` 查看git相关进程
+*arguments:*
+
+- *-A*显示所有的进程信息
+- *-c*不显示进程的绝对路径
+- *|grep*用正则过滤查看进程
+- *-u*指定用户进程
+- *-f*显示进程关系
+
+###_chmod_
+改变目录或者文件的权限
+>一个文件权限描述分为10位，第一位表示文件类型，d表示目录，-表示文件。后面9位，每3位一组，分别表示 文件拥有者、同组用户和其他用户的权限。
+
+例如：`drwxr-xr-x` 表示这是一个目录，拥有者可以读写并执行，同组用户只读可执行，其他用户只读可执行
+
+`chmod a+w 1.log` 给所有用户加上写权限
+`chmod g+x 1.log` 给同组用户加上可执行权限
+`chmod 777 1.log` 给当前用户加上文件的所有权限， 777三位分别对应三个用户组权限的2进制
+
