@@ -6,7 +6,8 @@ group: language
 ---
 {% include JB/setup %}
 
->笔记中源码可参考 项目 [pythonTaste](https://github.com/leeon/pythonTaste)
+>笔记中源码可参考 项目 <a href="https://github.com/leeon/pythonTaste" target=_blank >pythonTaste</a>
+
 ##数据类型
 
 ###序列
@@ -14,7 +15,8 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
 {% highlight python %}
 aList = [] #set a new empty list
 {% endhighlight %}
-######索引
+
+#####索引
 序列支持正向和负向的索引,`0`表示左边第一个元素，`-1`表示从右边数第一个元素。比如：
 {% highlight python %}
 aList = ['a','b','c','d']
@@ -23,7 +25,7 @@ aList[-1] #'d'
 'hello'[2] #also support this way , 'l'
 {% endhighlight %}
 
-######切片
+#####切片
 分片（slice）操作是为了获取序列中的某一个子序列，其基本语法是:
 
 `'squence'[start:end:step]`
@@ -39,7 +41,7 @@ aList[-1] #'d'
 
 {% endhighlight %}
 
-######基本操作
+#####基本操作
 
 {% highlight python %}
 # coding=utf-8
@@ -111,13 +113,13 @@ aList[-1] #'d'
  print 'elements from 2nd to 3rd ' , heatList[1:3]
 {% endhighlight %}
 
-######列表和元组的区别
+######表和元组的区别
 
 - 前者可变，后者只读
 
 ###字典
 
-######創建
+#####創建
 字典是python中目前仅有的内置mapping类型。其基本数据结构为{key:value..}，是一种`无序`的存储结构。其中key是不可变类型，而value可以是任何类型。
 
 {% highlight python %}
@@ -125,7 +127,7 @@ aPerson = {} # set a new empty dict
 aPerson = {'name':'sara','age':22} #set a new dict
 aPerson = dict([('name','sara'),('age',22)]) # set dict from a list
 {% endhighlight %}
-######基本使用
+#####基本使用
 {% highlight python %}
 aPerson = {'name':'sara','age':22}
 len(aPerson) # return the number of keys in a dict
@@ -135,7 +137,7 @@ del aPerson['age'] # delete a particular key
 'age' in aPerson # True
 {% endhighlight %}
 
-######內置函數
+#####內置函數
 {% highlight python %}
 aPerson = {'name':'sara','age':22}
 aPerson.get('name','someone') 
@@ -149,7 +151,7 @@ aPerson.fromkeys([1,2,3],0) # set a dict from a list of keys with default value 
 aPerson.copy() #swallow copy of a dict
 {% endhighlight %}
 
-######遍歷
+#####遍歷
 基本有兩種實現方式：一是遍歷items()生成的list,而是通過iteritems()生成的迭代器，後者效率更高。
 
 {% highlight python %}
@@ -320,6 +322,9 @@ params_collect(1,2,3,4)
 ##String
 ##模块
 
+##文件与目录
+
+
 ##面向对象编程
 
 ####封装--类定义
@@ -393,6 +398,10 @@ ustr = u"中文"
 第一种的中文实际编码会根据当前文件的编码而决定，编码解码需要知道具体的编码，而后者自动编码为Python的内置编码unicode，因此更值得推荐。
 
 ##内置函数
+###len()
+
+返回一个元组，列表，或者字典的长度
+
 
 ###range()
 
