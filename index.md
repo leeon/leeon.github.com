@@ -12,11 +12,7 @@ You can find my Resume <strong><a target="_blank" href="/resume">Here</a></stron
 
 #### What's New
 
-非常好玩的音乐排行榜 <strong><a target="_blank" href="http://rank.leeon.org"> 在这里</a></strong>
-
-毕业季的味道越来越浓
-
-正在练习杀球
+一起来过夏天吧
 
 #### Recent 10 Posts
 

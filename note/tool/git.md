@@ -58,6 +58,7 @@ user.name value
 user.email value
 core.editor emacs 
 merge.tool vimdiff
+core.quotepath false   正常显示中文
 {% endhighlight %}
 
 ###使用
