@@ -1,0 +1,271 @@
+/* --------------------------
+ * Global Styles
+ * --------------------------
+*/
+#layout{
+  padding-left: 10%;
+}
+
+blockquote{
+  background: #1f8dd6;
+  padding: 0.2em 1em;
+  border-radius: 3px;
+  color: #fff;
+  margin: 1em 0;
+}
+
+.body{
+  font-family: "Microsoft YaHei",sans-serif;
+}
+p,li{
+  line-height: 2;
+}
+a {
+    text-decoration: none;
+    color: rgb(142, 142, 214);
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+img {
+    display:block; 
+    margin:0 auto;
+}
+
+
+/* --------------------------
+ * Header Module Styles
+ * --------------------------
+*/
+.header {
+     min-height: 80px;
+     margin: 0;
+     color: #333;
+     padding: 1em;
+     text-align: center;
+     border-bottom: 1px solid #eee;
+     background: #fff;
+ }
+ .header h1 {
+        margin: 0.2em 0;
+        font-size: 3em;
+        font-weight: 300;
+ }
+ .header h2 {
+  color: #aaa;
+  padding: 0.4em 0;
+  font-size: 90%;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+ }
+
+
+/* --------------------------
+ * Content Module Styles
+ * --------------------------
+*/
+.content{
+  padding: 2em 3em 0;
+}
+
+.content-subhead{
+  text-transform: uppercase;
+  color: #aaa;
+  border-bottom: 1px solid #eee;
+  padding: 0.4em 0;
+  font-size: 80%;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+/*Posts*/
+.posts{
+    border-bottom: 1px solid #eee;
+}
+.post {
+    padding-bottom: 2em;
+
+}
+.post-content{
+    width: 80%;
+    margin: 0 auto;
+}
+.post-title {
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 0.2em;
+}
+.post-avatar {
+    border-radius: 50px;
+    float: right;
+    margin-left: 1em;
+}
+.post-description {
+    font-family: Georgia, "Cambria", serif;
+    color: #444;
+    line-height: 1.8em;
+}
+.post-meta {
+    color: #999;
+    font-size: 90%;
+    margin: 0;
+}
+
+.post-category {
+    margin: 0 0.1em;
+    padding: 0.3em 1em;
+    color: #fff;
+    background: #999;
+    font-size: 80%;
+}
+    .post-category-design {
+        background: #5aba59;
+    }
+    .post-category-pure {
+        background: #4d85d1;
+    }
+    .post-category-yui {
+        background: #8156a7;
+    }
+    .post-category-js {
+        background: #df2d4f;
+    }
+
+.post-images {
+    margin: 1em 0;
+}
+.post-image-meta {
+    margin-top: -3.5em;
+    margin-left: 1em;
+    color: #fff;
+    text-shadow: 0 1px 1px #333;
+}
+#post-nav{
+  text-align: center;
+}
+
+/* --------------------------
+ * Menu Styles
+ * --------------------------
+*/
+.menu{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    margin-left: -10%;
+    z-index: 1000;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+}
+
+.menu-item-divided {
+border-top: 1px solid #dfdfdf;
+}
+
+/* --------------------------
+ * Plugin Styles
+ * --------------------------
+*/
+
+
+  /* Back to top link */
+  .blog-top {
+    display: block; /* Unhide */
+    float: left;
+    padding: 7px 15px;
+    font-weight: 500;
+    color: #999;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+   .blog-top.affix {
+    position: fixed;
+    right:  15px;
+    bottom: 15px;
+  }
+
+/* --------------------------
+ * Foot Section Styles
+ * --------------------------
+*/
+
+.blog-footer{
+  text-align: center;
+  padding: 1em 0;
+}
+
+
+
+/**
+ * Baby Blue theme for RainbowJS
+ *
+ * @author tilomitra
+ */
+
+pre {
+    word-wrap: break-word;
+    padding: 6px 10;
+    line-height: 1.3em;
+    margin-bottom: 20;
+    border: 1px solid #eee;
+}
+
+code {
+    border: none;
+    margin: 0 2px;
+    font-size: 0.8em;
+    padding: 0.4em 0.6em;
+    white-space: nowrap;
+    border-radius: 3px;
+}
+
+pre code {
+    padding: 0;
+    margin: 0;
+    font-size: 0.95em;
+    white-space: pre-wrap;
+}
+
+pre, code {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    color: #333;
+    background: rgb(250, 250, 250);
+}
+
+
+pre .comment {
+    color: #999;
+}
+
+
+pre .tag, pre .tag-name, pre .support.tag-name {
+    color: rgb(85, 85, 85);
+}
+
+pre .keyword, pre .css-property, pre .vendor-prefix, pre .sass, pre .class, pre .id, pre .css-value, pre .entity.function, pre .storage.function {
+    font-weight: bold;
+}
+
+pre .css-property, pre .css-value, pre .vendor-prefix, pre .support.namespace {
+    color: #333;
+}
+
+pre .constant.numeric, pre .keyword.unit, pre .hex-color {
+    font-weight: normal;
+    color: #099;
+}
+
+pre .attribute, pre .variable, pre .support {
+    color:  #757575; /* skinbuilder block-page-text-normal with #1f8dd6 as primary */
+}
+
+pre .string, pre .support.value  {
+    font-weight: normal;
+    color: #3b8bba; /* skinbuilder block-mine-text-low with #1f8dd6 as primary */
+}
+
+
+

@@ -2,9 +2,7 @@
 # Adopted from Octopres (http://octopress.org) and the work of Brandon Mathis
 # https://github.com/imathis/octopress
 */
-.highlight, html .gist .gist-file .gist-syntax .gist-highlight {
-  border: 1px solid #84BAC9 !important;
-}
+
 .highlight table td.code, html .gist .gist-file .gist-syntax .gist-highlight table td.code {
   width: 100%;
 }
@@ -122,21 +120,12 @@ h3.filename + pre {
 }
 
 p code, li code {
-  display: inline-block;
-  white-space: no-wrap;
-  background: #fff;
-  font-size: 1em;
-  line-height: 1.5em;
-  color: #179755;
-  border: 1px solid #ddd;
-  -moz-border-radius: 0.4em;
-  -webkit-border-radius: 0.4em;
-  -o-border-radius: 0.4em;
-  -ms-border-radius: 0.4em;
-  -khtml-border-radius: 0.4em;
-  border-radius: 0.4em;
-  padding: 0 .3em;
-  margin: -1px 0;
+    border: none;
+    margin: 0 2px;
+    font-size: 0.8em;
+    padding: 0.4em 0.6em;
+    white-space: nowrap;
+    border-radius: 3px;
 }
 p pre code, li pre code {
   font-size: 1em !important;
@@ -398,7 +387,6 @@ p pre code, li pre code {
 
 .highlight, .gist-highlight {
   margin-bottom: 1.8em;
-  background: #84BAC9;
   overflow-y: hidden;
   overflow-x: auto;
 }

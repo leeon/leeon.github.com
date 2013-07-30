@@ -13,13 +13,11 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="{{ ASSET_PATH }}/css/1.4.0/bootstrap.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ ASSET_PATH }}/css/syntax.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ ASSET_PATH }}/js/nav/flexible-nav.min.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="{{ ASSET_PATH}}/css/blog.css">
+    <!-- <link href="{{ ASSET_PATH }}/css/syntax.css?body=1" rel="stylesheet" type="text/css" media="all"> -->
+    <link rel="stylesheet" href="{{ ASSET_PATH}}/css/syntax.css">
     <link rel="shortcut icon" href="{{ ASSET_PATH }}/images/favicon.ico" />
-    <link rel="author" href="https://plus.google.com/u/0/116611495107032888078">
-
 
 
     <!-- Le fav and touch icons -->
@@ -32,50 +30,51 @@
   </head>
 
   <body>
+    <div class="pure-g-r" id="layout">
+      <div class = "menu pure-u">
+    <!-- Blog nav-->
+        <div class="pure-menu pure-menu-open">
+              <a class="pure-menu-heading" href="{{ HOME_PATH }}">{{ site.title }}</a>
+              <ul>
+                  {% assign pages_list = site.pages %}
+                  {% assign group = 'navigation' %}
+                  {% include JB/pages_list %}
+                  <!--you can add a new nav option here -->
+                  <li><a href="/note">Notes</a></li>
+                  <li><a target=_blank href="http://www.flickr.com/photos/octobershiner">Photos</a></li>
+                  <li><a target=_blank href="http://log.leeon.org">Log</a></li>
+                  <li class="menu-item-divided"><a href="">Topic</a></li>
+              </ul>
+           </div>
+      </div>
 
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-          <ul class="nav">
-            {% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
-            <!--you can add a new nav option here -->
-            <li><a href="/note">Notes</a></li>
-            <li><a target=_blank href="http://www.flickr.com/photos/octobershiner">Photos</a></li>
-            <li><a target=_blank href="http://log.leeon.org">Log</a></li>
-          </ul>
-          <a class="sns" style="float: right;font-size: 16px" href="/rss.xml" ><img src="/assets/images/icons/rss.png"></a>          
+      <!--Content-->
+      <div class = "pure-u-1">
+        <div class="content">
+          {{ content }}
         </div>
       </div>
-    </div>
 
-    <div class="container">
-
-      <div class="content">
-        {{ content }}
+      <!--Foot-->
+      <div class = "pure-u-1">
+        <footer class="blog-footer">
+          <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh_TW"><img alt="創用 CC 授權條款" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br />本著作由<a xmlns:cc="http://creativecommons.org/ns#" href="http://leeon.org" property="cc:attributionName" rel="cc:attributionURL">Leeon</a>製作，以<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh_TW">創用CC 姓名標示-非商業性-禁止改作 3.0 Unported 授權條款</a>釋出。
+          </p>
+          <p>This site is the under <a href="http://opensource.org/licenses/mit-license.php" target="_blank" title="MIT"> The MIT Licesense</a> and mirrored at <a href="http://github.com" target="_blank">Github</a>
+          </p>
+        </footer>
       </div>
 
-      <footer>
-
-        <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh_TW"><img alt="創用 CC 授權條款" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br />本著作由<a xmlns:cc="http://creativecommons.org/ns#" href="http://leeon.org" property="cc:attributionName" rel="cc:attributionURL">Leeon</a>製作，以<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh_TW">創用CC 姓名標示-非商業性-禁止改作 3.0 Unported 授權條款</a>釋出。
-        </p>
-        <p>This site
-          is the under <a href="http://opensource.org/licenses/mit-license.php" target="_blank" title="MIT"> The MIT Licesense</a>
-          and mirrored at <a href="http://github.com" target="_blank">Github</a>
-        </p>
-      </footer>
-
-    </div> <!-- /container -->
-    <!--add the side bar for profile-->
+      <!--Quick Back to Top-->
+      <div class="pure-u-1">
+        <a href="#" class="blog-top affix">Back to top</a>      
+      </div>
    
     <!--{% include sidebar.html %}-->
     {% include JB/analytics %}
-     
+    </div>
 
 
-<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#19D&amp;text=分享到"></script>
 
   </body>
 </html>
