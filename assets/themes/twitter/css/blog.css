@@ -13,7 +13,6 @@ blockquote{
   color: #fff;
   margin: 1em 0;
 }
-
 blockquote a{
   color: rgb(169, 226, 255);
 }
@@ -21,10 +20,12 @@ blockquote a{
 .body{
   font-family: "Microsoft YaHei",sans-serif;
 }
+
 p,li{
   line-height: 2;
 }
-a {
+
+a{
     text-decoration: none;
     color: rgb(142, 142, 214);
 }
@@ -32,11 +33,11 @@ a:hover,
 a:focus {
     text-decoration: underline;
 }
-
 .pure-menu a:hover,
 .pure-menu a:focus{
      text-decoration: none;
 }
+
 img {
     display:block; 
     margin:0 auto;
@@ -166,7 +167,6 @@ img {
     margin-left: -10%;
     z-index: 1000;
     overflow-y: auto;
-    overflow-x: none;
     border-right: 1px solid #eee;
 }
 
@@ -178,8 +178,6 @@ border-top: 1px solid #dfdfdf;
  * Plugin Styles
  * --------------------------
 */
-
-
   /* Back to top link */
   .blog-top{
     display: block; /* Unhide */
@@ -228,8 +226,6 @@ border-top: 1px solid #dfdfdf;
 .blog-footer p{
   margin: 0.1em 0;
 }
-
-
 
 /**
  * Baby Blue theme for RainbowJS
@@ -300,4 +296,102 @@ pre .string, pre .support.value  {
 }
 
 
+/*index*/
 
+.size-chart {
+    width: 100%;
+}
+
+    .size-chart-item {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .size-chart-github {
+        background: rgb(31, 28, 18);
+    }
+        .size-chart-github span {
+            color: rgb(175, 174, 172);
+        }
+
+    .size-chart-weibo {
+        background: rgb(223, 76, 76);
+    }
+        .size-chart-weibo span {
+            color: rgba(255, 255, 255,0.6);
+        }
+    .size-chart-douban {
+        background: #5eb95e;
+    }
+
+        .size-chart-douban span {
+            color: rgb(161, 240, 137);
+        }
+
+    .size-chart-xiami {
+        background: rgb(243, 123, 29);
+        color: rgb(255, 190, 129);
+    }
+
+        .size-chart-xiami span {
+            color: rgba(255, 255, 255,0.6);
+        }
+
+    .size-chart-facebook {
+        background: #0e90d2;
+        
+    }
+        .size-chart-facebook span {
+            color: rgb(103, 194, 240);
+        }
+    .size-chart-linkedin {
+        background: rgba(80, 202, 207, 0.86)
+    }
+        .size-chart-linkedin span {
+          color: rgba(255, 255, 255,0.6);
+
+        }
+
+    a.size-chart-label {
+        display: block;
+        color: #fff;
+        padding: 0.5em;
+        text-decoration: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .size-chart-size {
+        display: block;
+    }
+
+
+.hero h3 {
+    font-family: "omnes-pro",sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1f8dd6;
+    font-weight: 100;
+ }
+
+.tag_box {
+  list-style:none;
+  margin:0;
+  padding:5px 0 ;
+  overflow:hidden;
+}
+.tag_box.inline li {
+  float:left;
+  display: block; /* Unhide */
+  padding: 0 20px;
+  margin: 0 4px;
+  font-weight: 500;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.tag_box a{
+  color: #999;
+}
