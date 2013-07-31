@@ -1,6 +1,6 @@
 ---
 layout: page
-title : About
+title : 關於
 group: navigation
 ---
 {% include JB/setup %}

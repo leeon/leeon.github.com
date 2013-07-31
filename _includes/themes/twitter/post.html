@@ -2,7 +2,10 @@
 <div class="header">
     <h1>{{ page.title }}</h1>
     <h2 id="title-info">Author <a class="post-author" href="#">Leeon</a> on
-    {{ page.date | date_to_long_string }}</h2>  
+    {{ page.date | date_to_long_string }} 
+              <a href="http://www.jiathis.com/share/" class="blog-share jiathis" target="_blank">Share</a>
+    <script type="text/javascript" src="http://v1.jiathis.com/code/jia.js" charset="utf-8"></script>
+    </h2>  
 </div>
 
   <section class="post">
@@ -17,24 +20,26 @@
   <div id="post-nav" class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
       {% if page.previous %}
-        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous: 《{{ page.previous.title }}》</a></li>
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">上一篇</a></li>
       {% else %}
-        <li class="prev disabled"><a>&larr; Previous</a></li>
+        <li class="prev disabled"><a>没有比这个更古老的</a></li>
       {% endif %}
-        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archives</a></li>
+        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">目录</a></li>
       {% if page.next %}
-        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}">Next: 《{{ page.next.title }}》 &rarr;</a></li>
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}">下一篇</a></li>
       {% else %}
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next disabled"><a>已经是最新了</a>
       {% endif %}
     </ul>
   </div>
+
+
 
 </div>
 
 <div class="pure-g">
 <div class = "pure-u-1">
-<!-- Duoshuo Comment BEGIN -->
+<!-- 多說評論 -->
   <div class="ds-thread"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"leeonblog"};
@@ -51,17 +56,4 @@ var duoshuoQuery = {short_name:"leeonblog"};
 </div>
 </div>
 
-
-
-
-
-
-<div class="row">
-
-  {% unless page.categories == empty %}
-    {% assign categories_list = page.category %}
-    {% include JB/categories_list %}
-  {% endunless %}  
-
-  </div>
 </div>
