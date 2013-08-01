@@ -6,9 +6,20 @@
   padding-left: 10%;
 }
 
+h1,h2,h3,h4,h5,h6{
+    font-family: "omnes-pro",sans-serif;
+    margin: 5px 0;
+    padding: 5px 0;
+    color: #1f8dd6;
+    font-weight: 100;
+}
+
+h1{
+  color: #000;
+}
 blockquote{
   background: #1f8dd6;
-  padding: 0.2em 1em;
+  padding: 0.1em 1em;
   border-radius: 3px;
   color: #fff;
   margin: 1em 0;
