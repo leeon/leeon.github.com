@@ -5,7 +5,7 @@ tagline: 仰望星空 脚踏实地
 ---
 {% include JB/setup %}
 
-<div class="pure-g">
+<div class="pure-g-r">
 
 <div class="pure-u-1-3">
   <div class="hero"><h3>What's New</h3> </div>
@@ -31,7 +31,7 @@ tagline: 仰望星空 脚踏实地
 
 
 
-<div class="size-chart l-vbox pure-g">
+<div class="size-chart l-vbox pure-g-r">
         <div class="size-chart-item size-chart-github pure-u" style="width:15%;">
             <a class="size-chart-label" target="_blank" href="http://github.com/leeon">
                 Github <span class="size-chart-size">leeon</span>

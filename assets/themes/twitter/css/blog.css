@@ -181,6 +181,11 @@ img {
     border-right: 1px solid #eee;
 }
 
+#menu,.pure-menu-open {
+  background: transparent;
+  border: 0;
+}
+
 .menu-item-divided {
 border-top: 1px solid #dfdfdf;
 }
