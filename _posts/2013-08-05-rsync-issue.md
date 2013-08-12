@@ -2,7 +2,7 @@
 layout: post
 title: "Rsync算法介绍"
 description: "rsync算法是由Andrew Tridgell发明的文件同步算法，应用在Linux和Unix操作系统中，如今的很多增量同步解决方案都是借鉴了这种算法，它巧妙的实现了不同机器上文件的高效同步。"
-category: 自娛自樂
+category: 計算科學
 ---
 {% include JB/setup %}
 
