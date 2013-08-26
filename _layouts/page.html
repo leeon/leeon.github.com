@@ -1,5 +1,27 @@
----
-layout: default
----
-{% include JB/setup %}
-{% include themes/twitter/page.html %}
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>{{ site.title }}|{{ site.description }}</title>
+  {% include header.html %}
+  <meta content="{{ site.headdesc }}" name="description"/>
+  <meta content="{{ site.headkeys }}" name="keywords"/>
+</head>
+<body>
+<div class="container">
+<div class="banner">
+{% include banner.html %}
+</div>
+<div class="main">
+<div class="title"><a href="{{ page.url }}">{{ page.title }}</a></div>
+<div class="content">
+	{{ content }}
+</div>
+</div>
+<!--share box-->
+<a href="http://www.jiathis.com/share/" class="blog-top affix jiathis">Like</a> 
+<script type="text/javascript" src="http://v1.jiathis.com/code/jia.js" charset="utf-8"></script>
+{% include footer.html %}
+</div>
+</body>
+</html>
+

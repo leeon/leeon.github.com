@@ -1,0 +1,133 @@
+---
+layout: post
+title: "搭建Git项目托管服务器"
+description: "在自己的服务器上托管Git项目，基于ssh，团队协作"
+category: tech
+tags: git 团队 服务器
+---
+### 起因
+本来是一直使用*Bitbucket*来进行团队的项目管理，一个非常好的代码托管平台，但是可能是由于丧尽天良的GFW活动，这个网站非常不稳定，基本上不能正常使用了，这两天代码根本push不上去，所以只能寻求其他的办法了。
+
+使用第三方的原因是在git托管的基础上有着很好的项目issue和wiki的支持，并且服务稳定（当然是没有墙的情况下），但事已至此，动手在自己的服务器上搭建吧。
+
+>Git的优势体现了，方便迁移，因为本地由完整的版本库。
+
+
+###方案一 基于SSH直接搭建
+
+Git支持的协议主要是四种：
+
++ 本地: 需要文件共享系统，权限不好控制
++ HTTP：速度慢
++ SSH：同时支持读写操作，不支持匿名的读取(Git默认协议)
++ GIT：最快的传输协议
+
+从搭建的难易程度和特点综合筛选，最合适的还是ssh，并且大部分服务器上基本都有ssh服务，所以省去了不少麻烦。一个最基本的思路是给每一个人一个ssh帐号，这样大家就可以通过用户名和口令来访问了，但是显然这不是一个好的选择，这个做法有些多余，并且对于repo的权限很难管理。
+
+我们在使用`Github`的时候，会利用rsa.pub公钥/私钥的方式，这样在服务端拥有用户的公钥（*.pub）之后就可以，跨过繁琐的口令，直接认证提交了，而服务端也会根据不同的用户身份，对其权限有着更加灵活的管理。因此我们也采用这种方式。
+
+####服务端
+为了使远程库访问更加直观，先在服务器上创建一个名为`git`的账户，这样以后clone的时候就如下面的格式了：
+{% highlight bash %}
+git clone git@server:some.git
+{% endhighlight %}
+
+创建新的用户，创建repo等目录
+{% highlight bash %}
+$sudo adduser git
+$su git
+$cd ~
+$mkdir repos
+{% endhighlight %}
+
+在HOME下的.ssh目录，如果没有则创建，创建一个`authorized_keys`文件，这个文件就是用来管理所有git用户的公钥的，也就是这里面的用户对于项目有着R+W的权限。
+
+####客户端
+
+对于每一个客户端，我们需要生成一对密钥和公钥，如果是Github用户，那么`.ssh`目录下，一定有`id_rsa.pub`和`id_rsa`两个文件，其中第一个是系统生成的公钥，另一个是自己要保存好的密钥。如果没有的话，可以在终端执行：`ssh-keygen`来生成，完成后，将自己的公钥提交给管理员，这就是一个*注册*的行为。
+
+####完成
+
+最后一步，管理员将团队成员的公钥添加到`authorized_keys`中，比如将同学susie加入：
+{%highlight bash %}
+$ cat susie.pub >> authorized_keys
+{% endhighlight %}
+
+至此，大家可以通过`git@server:repos/some.git`来访问公共的版本库了。
+
+####问题
+
++ 安全问题，成员可以登录git用户的shell,细节权限如分支等不好控制
++ 管理麻烦，新建repo,或者增加成员比较麻烦，尤其是修改的时候
+
+
+###方案二 使用Gitolite服务
+
+Gitolite 也是基于SSH协议构建的方便管理git repo的应用，可以通过其[源码](https://github.com/leeon/gitolite)安装.
+
+####安装
+安装按照官方给定的文档就可以轻易的实现：
+{% highlight bash %}
+$ git clone git://github.com/sitaramc/gitolite
+$ mkdir -p $HOME/bin
+$ gitolite/install -to $HOME/bin
+$ gitolite setup -pk YourName.pub
+{% endhighlight %}
+
+如果执行最后一条命令的时候，gitolite不识别，则可以通过下面两种方式解决：
+
++ 将gitolite添加到PATH里面
++ 通过$HOME/bin/gitolite setup -pk YourName.pub 执行
+
+至此，gitolite在服务端，搭建完毕，会发现此时HOME目录下增加了一个文件`projects.list`和一个目录`repositories`,后者就是我们的版本仓库了，每当新建repo的时候，就会在其中创建。
+
+####使用
+
+是时候说一下gitolite的管理模式了，他会创建一个`gitolite-admin`的repo，管理员就是通过像这个repo提交配置文件而实现对git服务器的控制的。
+
+首先，将这个repo导入到我们的workspace：在此之前，需要配置本地的ssh,gitolite要求管理员的本地密钥和其注册公钥的名字一致，比如我们安装的时候指定 -pk后面为 admin.pub 则管理员本地需要由admin对应的私钥。我们可以通过~/.ssh/config来进行配置（注：有些系统可以用conf，Mac OSX 下无效，只能用config).
+{%highlight bash %}
+    host gitolite
+     user git
+     hostname yourhostname.com
+     port 22
+     identityfile ~/.ssh/admin
+{% endhighlight %}
+
+这样，当我们访问gitolite的时候就会自动根据配置文件执行，配置完成后可以根据下面的命令，将gitolite-admin转移到本地。
+{%highlight bash %}
+    git clone gitolite:gitolite-admin.git
+{% endhighlight %}
+克隆完成后，可以发现，gitolite-admin下面有两个目录，其中`conf`保存配置文件，我们可以通过编辑里面的gitolite.conf文件，管理git服务器，`keydir`目录保存用户的公钥pub文件。
+
+当我们讲修改后的repo 提交的时候，gitolite就会自动的应用这些配置，管理过程就方便了很多。
+
+####配置规则
+
+打开gitolite.conf文件可以看到其中的示例：
+
+To add new users alice, bob, and carol, obtain their public keys and add
+them to 'keydir' as alice.pub, bob.pub, and carol.pub respectively.
+
+To add a new repo 'foo' and give different levels of access to these
+users, edit the file 'conf/gitolite.conf' and add lines like this:
+{%highlight bash %}
+        repo foo
+            RW+         =   alice
+            RW          =   bob
+            R           =   carol
+{% endhighlight %}            
+ 上面的配置文件就是新建了一个repo foo，并且添加了三位项目成员，每一个人的权限不同。提交push后，管理便生效了。
+ 
+ 
+###可视化
+
+我们可能会需要一个web界面来管理这些项目，我目前知道的有三种方式：
+
++ git源码中自带的组件，cgi脚本实现，使用gitolite服务
++ gitlab开源框架，基于ROR，新版本不再使用gitolite服务
++ FB开源PHP框架 phabricator，功能高端上档次
+
+
+###总结
+项目进度紧张，目前暂时先使用基本的版本托管就好了，可视化可以使用sourceTree这样的app来弥补，          

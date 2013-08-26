@@ -1,0 +1,128 @@
+---
+layout: post
+title: "Java 并发（1）: Basic"
+description: "Java并发基础"
+category: 程序設計
+tagline: tech
+tags: java 并发
+---
+###基础
+>写此文章的原因是在阅读`《Java Puzzlers》`的时候遇到了一点关于java volatile关键字的问题，所以想起了java中多线程的使用知识也是稀稀疏疏。（回想大上个暑假参加腾讯面试的时>候，这里的知识点也帮了我很大的忙），所以决定写一个系列总结一下
+
+####首先，为什么使用并发？
+
+这里不单单是针对java这种语言了，属于操作系统的范畴，并发是为了更好的利用CPU。一种比较容易想象的情景是我们有一个需要大量计算的程序运行在多核的CPU上面。多线程在某些情况下就会帮助我们提高效率（将计算分发到不同核心上去，同时进行）。还有比如我们在开发UI交互频繁的程序的时候，也需要多线程，这样绘制UI和逻辑事物处理的代码就可以同时执行了，想想没有多线程游戏还怎么玩吧。
+
+####其次，单核CPU上使用多线程有意义吗？
+
+这个答案是不固定的。单核上采用多线程的初衷也是为了更好的利用CPU，不同的线程抢占式的调用CPU，好处是什么呢？比如某个任务需要大量的IO操作，他并不需要再占用CPU了，这个时候如果没有多线程机制，那么CPU在该任务执行IO的时候就一直处于空闲状态，效率明显就很低。相反，如果当一个线程不再频繁使用CPU的时候就可以将使用权交出去，大大提高效率。但是如果所有的线程几乎都是CPU操作，那么多线程反而可能会降低效率，原因就是线程间的轮换肯定会有额外的开销。
+
+首先明确一点，线程和进程的区别，下面是两个名次的基本概念（引用维基百科，说的比较清晰）
+
+`进程` 是计算机中已运行程序的实体。进程本身不会运行，是线程的容器。程序本身只是指令的集合，进程才是程序（那些指令）的真正运行。若干进程有可能与同一个程序相关系，且每个进程皆可以同步（循序）或不同步（平行）的方式独立运行（多线程即每一个线程都代表一个进程）。现代计算机系统可在同一段时间内加载多个程序和进程到存储器中，并借由时间共享（或称多任务），以在一个处理器上表现出同时（平行性）运行的感觉。同样的，使用多线程技术的操作系统或计算机架构，同样程序的平行进程，可在多 CPU 主机或网络上真正同时运行（在不同的CPU上）。
+
+`线程` 是操作系统能够进行运算调度的最小单位。它被包涵在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。在Unix System V及SunOS中也被称为轻量进程（lightweight processes），但轻量进程更多指内核线程(kernel thread)，而把用户线程(user thread)称为线程。
+
+举一个例子来说明线程和进程的区别，Google的chrome浏览器速度快的一个原因是每当用户打开一个新的标签页面的时候，就会创建一个新的进程。比如打开多个网页时，任务管理器就会变成这样：
+
+![](/assets/images/pages/java-concurrency-1.png)
+
+可以把每一个标签页就理解成了一个新的子程序，也就是父进程地址空间和代码复制了N份，然而对于每一个子进程而言，他们都需要做相同的事情，就是去加载网页的内容，比如图片，假设某段代码有这样的一个方法，`getImage()`，这段代码可以请求一张图片，但是每张网页图片都很多，那么每一个子进程在请求图片的时候就会创建多个线程去执行这段getImage()代码。
+
+java对于多线程的支持比较完整。两个主要的类是`java.lang.Runnable`接口和`java.lang.Thread`. 从java设计的角度上来讲，如果你实现了runnable这个接口，那么意味着你的这个类是用来在某个线程上执行任务的。（当然若这非你的意愿，那就是违背这个原则了，一般不是好的代码风格）。
+
+Runnable接口只声明了一个无参数的run方法，用来实现我们要在线程上执行的任务。借用`《Thinking in java 》`里面的一个例子
+
+    public class LiftOff implements Runnable{
+	    protected int countDown = 10;
+	    private static int taskCount =0;
+	    private final int id = taskCount++;
+	    public LiftOff(){}
+	    public LiftOff(int countDown){
+	        this.countDown = countDown;
+	    }
+	    public String status(){
+	        return "#"+id+"("+(countDown > 0 ? (""+countDown) :"LiftOff!")+")";
+	    }
+	    @Override
+	    public void run(){
+	        while(countDown-- > 0){
+	            System.out.println(status());
+	            Thread.yield();
+	        }
+	    }
+	}
+这段代码就是一个倒计时器，其中id是用来标注第一几个任务的。LiftOff实现了runnable接口，我们把他理解为一个“任务”，下面创建一个倒计时的任务，并且让她run起来。
+
+     public static void main(String [] argc){
+        LiftOff l = new LiftOff();
+        l.run();
+        System.out.println("finished");
+        }
+
+
+那么程序打印的结果就是：（注意finished出现在最后）
+
+0(9)
+
+0(8)
+
+0(7)
+
+0(6)
+
+0(5)
+
+0(4)
+
+0(3)
+
+0(2)
+
+0(1)
+
+0(LiftOff!)
+
+finished
+
+这个任务run方法依旧是运行在主线程上的，并非创建了新的线程。
+
+Thread类代表线程，这个类本身也是实现了Runnable的接口。我们可以通过实例化一个Thread对象来创建一个新的线程。Thread的构造器可以以无参的形式调用，也可以传进一个runnable对象。
+
+因此执行多线程任务的两个基本方法就是：一，直接创建一个thread对象然后复写其run方法；二，将一个runnable对象传入一个thread中执行。（sun官方的建议是：如果我们继承了Thread而只需要复写run方法的话，就不应该使用继承，而应该使用上面的第二种方法来实现，我个人觉得第二种实现也具有更好的可读性）
+
+同样如果直接执行thread的run方法也不会创建新的线程，创建新的线程的正确方法是thread.start方法，这个方法后会迅速返回，然后执行run里面的内容。
+
+    public static void main(String [] argc){
+        LiftOff l = new LiftOff();
+        Thread t = new Thread(l);
+        t.start();
+        System.out.println("finished");
+        }
+
+
+这次的打印结果就不同了：
+
+finished
+0(9)
+
+0(8)
+
+0(7)
+
+0(6)
+
+0(5)
+
+0(4)
+
+0(3)
+
+0(2)
+
+0(1)
+0(LiftOff!)
+
+可以看见，finished先被打印出来，说明start快速返回了。然后，run方法在新的线程上去执行了。
+
+以上就是java多线程的基本使用，线程的强制中断方法在新的JDK中已经去掉了。

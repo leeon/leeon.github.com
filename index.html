@@ -1,0 +1,13 @@
+---
+layout: default
+title: Leeon's Blog|迎着阳光
+---
+
+{% for post in paginator.posts %}
+<div class="posts">
+<div class="title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+<div class="content {{ post.categories }}_content_css">
+{{ post.content }}
+</div>
+</div>
+{% endfor %}

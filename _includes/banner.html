@@ -1,0 +1,25 @@
+<ul class="nav nav-pills">
+  <li><a href="/">Home</a></li>
+  <li><a href="/archive/">Archive</a></li>
+  <li><a href="/note">Note</a></li>
+  <li><a href="/about/">About</a></li>
+  <li class="hidden-sm"><a href="/links/">Links</a></li>
+  <li><a href="/feed.xml">Feed</a></li>
+</ul>
+
+<script>
+$(document).ready(function(){
+	$('a').hover(
+		function(){
+			$(this).animate({opacity: 0.3}, 400)
+		}, 
+		function(){
+			$(this).animate({opacity: 1}, 400)
+		});
+});
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+}
+</script>

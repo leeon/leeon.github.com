@@ -1,5 +1,73 @@
----
-layout: default
----
-{% include JB/setup %}
-{% include themes/twitter/post.html %}
+<!DOCTYPE HTML>
+<html>
+<!-- <html> -->
+<head>
+  <title>{{ page.title }}|{{ site.title }}</title>
+  {% include header.html %}
+  <script type="text/javascript">
+        var BYB = {};
+  </script>
+  <script type="text/javascript">
+    BYB.includeScript = function(file,callback){
+    var _doc = document.getElementsByTagName('head')[0];
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', file);
+    _doc.appendChild(js);
+    
+    if (!/*@cc_on!@*/0) { //if not IE
+    //Firefox2、Firefox3、Safari3.1+、Opera9.6+ support js.onload
+    js.onload = function () {
+    callback();
+    }
+    } else {
+    //IE6、IE7 support js.onreadystatechange
+    js.onreadystatechange = function () {
+    if (js.readyState == 'loaded' || js.readyState == 'complete') {
+    callback();
+    }
+    }
+    }
+    return false;
+    }
+  </script>
+  <meta content="{{ page.description }}" name="description"/>
+  <meta content="{% for tag in page.tags %}{{ tag }},{% endfor %}" name="keywords"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+</head>
+<body>
+<div class="container">
+<div class="banner">
+{% include banner.html %}
+</div>
+
+<div class="main">
+  <div class="title"><a href="{{ page.url }}">{{ page.title }}</a></div>
+
+  <div class="content {{ page.categories }}_content_css">
+    {{ content }}
+  </div>
+
+  <div class="info">
+    记于{{ page.date | date:"%Y年%m月%d日"}} 
+  </div>
+
+  <div class="forb">
+  {% for tag in page.tags %}
+  <a href="/tags/#{{ tag }}">#{{ tag }}</a>
+  {% endfor %}
+  </div>
+
+</div>
+
+<!--share box-->
+<a href="http://www.jiathis.com/share/" class="blog-top affix jiathis">Like</a> 
+<script type="text/javascript" src="http://v1.jiathis.com/code/jia.js" charset="utf-8"></script>
+{% include footer.html %}
+
+</div>
+</body>
+</html>
