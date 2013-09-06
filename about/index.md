@@ -3,7 +3,6 @@ layout:     page
 title:      About
 description: 关于我
 ---
->博客已经关闭评论功能，如果喜欢，你可以通过左上角『Like』分享。
 
 哈尔滨工业大学在读研一学生,WI输入法开发者,喜欢计算机,摄影和羽毛球。[（更多）](/about/more/)
 
@@ -23,4 +22,4 @@ description: 关于我
 
 ### Mail ###
 
-leeon.ly(at)foxmail.com
+leeon(at)outlook.com
