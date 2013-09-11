@@ -3,7 +3,7 @@ layout:  page
 title: Archive
 description: 归档
 ---
-今天其实比昨天更有趣：
+这里有一些**[标签](../tags)**帮你选择喜欢的话题：
 
 <ul class="archive">
 {% for post in site.posts %}
