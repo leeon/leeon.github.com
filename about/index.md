@@ -4,7 +4,7 @@ title:      About
 description: 关于我
 ---
 
-哈尔滨工业大学在读研一学生,WI输入法团队负责人,喜欢计算机,摄影和羽毛球。[（简历）](/assets/resume/leeon-cn.pdf)
+哈尔滨工业大学研一学生,WI输入法团队负责人.[（简历）](/assets/resume/leeon-cn.pdf)
 
 ### Contact ###
 
@@ -22,4 +22,4 @@ description: 关于我
 
 ### Mail ###
 
-leeon(at)outlook.com
+mliyang (at) outlook.com

@@ -5,14 +5,14 @@ pygments:         true
 paginate:         1
 permalink:        /:categories/:year/:month/:day/:title/
 
-title:            "Leeon Blog"
-url:              http://leeon.org
+title:            "Octsky"
+url:              http://octsky.com
 feed:             /feed.xml
 author:
     name:         LiYang
     twitter:      twitter.com/realliyang
     key:          octobershiner
-description:      "让每一天都有趣"
-copyright:        "CopryRight Leeon 2012-2012 by GitHub and Jekyll"
-headdesc:         "Leeon的博客，记录每一刻"
+description:      "HomePage"
+copyright:        "CopryRight LiYang 2012-2012 by GitHub and Jekyll"
+headdesc:         "Liyang的博客，记录每一刻"
 headkeys:         "李阳,思考,读书,计算机,经济,摄影,音乐,写作"
