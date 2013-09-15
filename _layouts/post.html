@@ -46,7 +46,7 @@
 
 <div class="main">
   <div class="title"><a href="{{ page.url }}">{{ page.title }}</a></div>
-
+<div class="author"><img src="/assets/images/authors/leeon.png"/> <span class="name">李陽</span></div>
   <div class="content {{ page.categories }}_content_css">
     {{ content }}
   </div>
@@ -60,6 +60,16 @@
   <a href="/tags/#{{ tag }}">#{{ tag }}</a>
   {% endfor %}
   </div>
+
+  <div class="suggest">
+    {% if page.previous %}
+        <a href="{{page.previous.url}}" class="pre">&lt; {{page.previous.title}}</a>
+    {% endif %}
+    
+    {% if page.next %}
+        <a href="{{page.next.url}}" class="next">{{page.next.title}} &gt;</a>
+    {% endif %}
+    </div>
 
 </div>
 
