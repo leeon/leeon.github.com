@@ -22,4 +22,4 @@ description: 关于我
 
 ### Mail ###
 
-mliyang (at) outlook.com
+[leeon](mailto:leeon@outlook.com) (at) outlook.com
