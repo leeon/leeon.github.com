@@ -12,18 +12,16 @@ group: language
 
 ###序列
 python中的序列主要有list和tuple,后者是一种不可变的list。list类似于一个动态的数组，可以动态添加元素，同时允许每一个元素可以为不同类型，支持嵌套。
-{% highlight python %}
-aList = [] #set a new empty list
-{% endhighlight %}
 
+    aList = [] #set a new empty list
+    
 #####索引
 序列支持正向和负向的索引,`0`表示左边第一个元素，`-1`表示从右边数第一个元素。比如：
-{% highlight python %}
-aList = ['a','b','c','d']
-aList[0] #'a'
-aList[-1] #'d'
-'hello'[2] #also support this way , 'l'
-{% endhighlight %}
+
+    aList = ['a','b','c','d']
+    aList[0] #'a'
+    aList[-1] #'d'
+    'hello'[2] #also support this way , 'l'
 
 #####切片
 分片（slice）操作是为了获取序列中的某一个子序列，其基本语法是:
@@ -34,131 +32,123 @@ aList[-1] #'d'
 `'sequence'[1:2]` 等价于`'sequence'[1:2:1]'`
 
 如果把start或者end置为空，就表示尽可能取最长,几个例子：
-{% highlight python %}
-'hello'[1：2] #‘e’
-'hello'[1:] #‘ello’
-'hello[:]' #actually the whole string
 
-{% endhighlight %}
+    'hello'[1：2] #‘e’
+    'hello'[1:] #‘ello’
+    'hello[:]' #actually the whole string
 
 #####基本操作
 
-{% highlight python %}
-# coding=utf-8
+     # coding=utf-8
+     # Filename : list.py
+     # Date: 2012 11 20
  
- # Filename : list.py
- # Date: 2012 11 20
+     # 创建一个list方式
+     heatList = ['wade','james','bosh','haslem']
+     tableList = list('123')  #list方法接受一个iterable的参数
  
+     print 'Miami heat has ',len(heatList),' NBA Stars , they are:'
  
+     #遍历list中的元素
+     for player in heatList:
+         print player,
  
- # 创建一个list方式
- heatList = ['wade','james','bosh','haslem']
- tableList = list('123')  #list方法接受一个iterable的参数
+     #向list添加元素
+     heatList.append('allen') #方式一：向list结尾添加 参数object
+     print '\nAfter allen join the team ,they are: '
+     print heatList
  
- print 'Miami heat has ',len(heatList),' NBA Stars , they are:'
+     heatList.insert(4,'lewis') #方式二：插入一个元素 参数一：index位置 参数二：object
+     print 'After lewis join the team, they are:'
+     print heatList
  
- #遍历list中的元素
- for player in heatList:
-     print player,
+     heatList.extend(tableList)  #方式三：扩展列表，参数：iterable参数
+     print 'After extend a table list,now they are :'
+     print heatList
  
+     #从list删除元素
+     heatList.remove('1')   #删除方式一：参数object 如有重复元素，只会删除最靠前的
+     print" Remove '1' ..now '1' is gone\n",heatList
  
- #向list添加元素
- heatList.append('allen') #方式一：向list结尾添加 参数object
- print '\nAfter allen join the team ,they are: '
- print heatList
+     heatList.pop()   #删除方式二：pop 可选参数index删除指定位置的元素 默认为最后一个元素
+     print "Pop the last element '3'\n",heatList
  
- heatList.insert(4,'lewis') #方式二：插入一个元素 参数一：index位置 参数二：object
- print 'After lewis join the team, they are:'
- print heatList
+     del heatList[6] #删除方式三：可以删除制定元素或者列表切片
+     print "del '3' at the index 6\n",heatList
  
- heatList.extend(tableList)  #方式三：扩展列表，参数：iterable参数
- print 'After extend a table list,now they are :'
- print heatList
+     #逻辑判断
+     #统计方法 count 参数：具体元素的值
+     print 'james apears ',heatList.count('wade'),' times'
  
- #从list删除元素
- heatList.remove('1')   #删除方式一：参数object 如有重复元素，只会删除最靠前的
- print" Remove '1' ..now '1' is gone\n",heatList
+     #in 和 not in 
+     print 'wade in list ? ',('wade' in heatList)
+     print 'wade not in list ? ',('wade' not in heatList)
  
- heatList.pop()   #删除方式二：pop 可选参数index删除指定位置的元素 默认为最后一个元素
- print "Pop the last element '3'\n",heatList
+     #定位 index方法：参数：具体元素的值 可选参数：切片范围
+     print 'allen in the list ? ',heatList.index('allen')
+     #下一行代码会报错，因为allen不在前三名里
+     #print 'allen in the fisrt 3 player ? ',heatList.index('allen',0,3)
  
- del heatList[6] #删除方式三：可以删除制定元素或者列表切片
- print "del '3' at the index 6\n",heatList
+     #排序和反转代码
+     print 'When the list is reversed : '
+     heatList.reverse()
+     print heatList
  
+     print 'When the list is sorted: '
+     heatList.sort() #sort有三个默认参数 cmp=None,key=None,reverse=False 因此可以制定排序参数以后再讲
+     print heatList
  
- #逻辑判断
- 
- #统计方法 count 参数：具体元素的值
- print 'james apears ',heatList.count('wade'),' times'
- 
- #in 和 not in 
- print 'wade in list ? ',('wade' in heatList)
- print 'wade not in list ? ',('wade' not in heatList)
- 
- #定位 index方法：参数：具体元素的值 可选参数：切片范围
- print 'allen in the list ? ',heatList.index('allen')
- #下一行代码会报错，因为allen不在前三名里
- #print 'allen in the fisrt 3 player ? ',heatList.index('allen',0,3)
- 
- #排序和反转代码
- print 'When the list is reversed : '
- heatList.reverse()
- print heatList
- 
- print 'When the list is sorted: '
- heatList.sort() #sort有三个默认参数 cmp=None,key=None,reverse=False 因此可以制定排序参数以后再讲
- print heatList
- 
- #list 的分片[start:end] 分片中不包含end位置的元素
- print 'elements from 2nd to 3rd ' , heatList[1:3]
-{% endhighlight %}
+     #list 的分片[start:end] 分片中不包含end位置的元素
+     print 'elements from 2nd to 3rd ' , heatList[1:3]
 
-######表和元组的区别
-
-- 前者可变，后者只读
+> 表和元组的区别 :前者可变，后者只读
 
 ###字典
 
 #####創建
 字典是python中目前仅有的内置mapping类型。其基本数据结构为{key:value..}，是一种`无序`的存储结构。其中key是不可变类型，而value可以是任何类型。
 
-{% highlight python %}
-aPerson = {} # set a new empty dict
-aPerson = {'name':'sara','age':22} #set a new dict
-aPerson = dict([('name','sara'),('age',22)]) # set dict from a list
-{% endhighlight %}
+    aPerson = {} # set a new empty dict
+    aPerson = {'name':'sara','age':22} #set a new dict
+    aPerson = dict([('name','sara'),('age',22)]) # set dict from a list
+
 #####基本使用
-{% highlight python %}
-aPerson = {'name':'sara','age':22}
-len(aPerson) # return the number of keys in a dict
-aPerson['age'] = 21 # set the value of a key
-aPerson['age'] #read the value of a key, I prefer using get()
-del aPerson['age'] # delete a particular key
-'age' in aPerson # True
-{% endhighlight %}
+    
+    aPerson = {'name':'sara','age':22}
+    len(aPerson) # return the number of keys in a dict
+    aPerson['age'] = 21 # set the value of a key
+    aPerson['age'] #read the value of a key, I prefer using get()
+    del aPerson['age'] # delete a particular key
+    'age' in aPerson # True
 
 #####內置函數
-{% highlight python %}
-aPerson = {'name':'sara','age':22}
-aPerson.get('name','someone') 
-# recommend! if name not in dict return 'someone'  PS:like getItem() in HTML5
-aPerson.keys() # get all the keys in the form of list
-aPerson.values() # get all the values in the form of list
-aPerson.items() # guess !
-aPerson.pop('age') # act the same as pop in stack
-aPerson.clear() # clean the dict --> {}
-aPerson.fromkeys([1,2,3],0) # set a dict from a list of keys with default value 0
-aPerson.copy() #swallow copy of a dict
-{% endhighlight %}
-
+    
+    aPerson = {'name':'sara','age':22}
+    aPerson.get('name','someone') 
+    # recommend! if name not in dict return 'someone'  PS:like getItem() in HTML5
+    aPerson.keys() # get all the keys in the form of list
+    aPerson.values() # get all the values in the form of list
+    aPerson.items() # guess !
+    aPerson.pop('age') # act the same as pop in stack
+    aPerson.clear() # clean the dict --> {}
+    aPerson.fromkeys([1,2,3],0) # set a dict from a list of keys with default value 0
+    aPerson.copy() #swallow copy of a dict
+    
 #####遍歷
-基本有兩種實現方式：一是遍歷items()生成的list,而是通過iteritems()生成的迭代器，後者效率更高。
 
-{% highlight python %}
-aPerson = {'name':'sara','age':22}
-for k,v in aPerson.iteritems():
-    print k,v
-{% endhighlight %}
+基本有兩種實現方式：一是遍歷`items()`生成的list,二是通過iteritems()生成的迭代器，後者效率更高。
+
+    aPerson = {'name':'sara','age':22}
+    for k,v in aPerson.iteritems():
+        print k,v
+
+
+
+###布尔
+
+`True`和`False`两个内置类型用来表示布尔值，除此之外：
+
++ 0 is false; all other numbers are true.+ An empty string ("") is false, all other strings are true.+ An empty list ([]) is false; all other lists are true.+ An empty tuple (()) is false; all other tuples are true.+ An empty dictionary ({}) is false; all other dictionaries are true.
 
 
 ------------------------
@@ -166,81 +156,77 @@ for k,v in aPerson.iteritems():
 ####關於深拷貝和淺拷貝
 python中的`copy`和`deep copy`兩個函數，下面是一段代碼形象的表示區別。
 原理概括：對一個對象進行淺拷貝其實新創建了一個類型跟原型對象一樣，其內容是原對象元素的引用。
-{% highlight python %}
-import copy
-a = [1, 2, 3, 4, ['a', 'b']] 
-b = a 
-c = copy.copy(a) 
-d = copy.deepcopy(a) 
-a.append(5) 
-a[4].append('c')
 
-print 'a = ', a
-print 'b = ', b
-print 'c = ', c
-print 'd = ', d
+    import copy
+    a = [1, 2, 3, 4, ['a', 'b']] 
+    b = a 
+    c = copy.copy(a) 
+    d = copy.deepcopy(a) 
+    a.append(5) 
+    a[4].append('c')
 
-{% endhighlight %}
+    print 'a = ', a
+    print 'b = ', b
+    print 'c = ', c
+    print 'd = ', d
+
 顯示結果：
-{% highlight bash %}
-a =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
-b =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
-c =  [1, 2, 3, 4, ['a', 'b', 'c']]
-d =  [1, 2, 3, 4, ['a', 'b']]
-{% endhighlight %}
+
+    a =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]    
+    b =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
+    c =  [1, 2, 3, 4, ['a', 'b', 'c']]
+    d =  [1, 2, 3, 4, ['a', 'b']]
 
 ------------------------
 ##控制流
 
-###布尔值
-Python中的真假分别表示为：
+###赋值
 
-+ True  
-+ False
+Python中没有传统语言中的变量声明，当我们第一次对一个变量进行赋值的时候，就表示声明了一个变量。Python在提供单个变量赋值的同时，还支持多个变量的一起赋值，比如：
 
-在表达式中和`False`等价的有：`None`, `0`, `()`, `{}`, `[]`,而非零为真。
+    (a,b,c) = (1,2,3)
+    
+就完成了三个变量的同时赋值。
+
+
 
 ###逻辑
 其中逻辑比较的操作符包括，当比较内建类型或者常量的时候不建议使用`is`，因为`is`比较的是对象的虚拟内存地址，内建类型经常被优化，比如两个值相同的整形变量会指向同一块地址，因此`is`会返回`True`.
-{% highlight python %}
-a > b
-a < b
-a >= b
-a <= b
-a == b #判断值是否相等
-a is b #判断是否为同一对象
-a is not b
-a in b #判断元素是否在制定集合中
-a not in b 
-{% endhighlight %}
+
+    a > b
+    a < b
+    a >= b
+    a <= b
+    a == b #判断值是否相等
+    a is b #判断是否为同一对象
+    a is not b
+    a in b #判断元素是否在制定集合中
+    a not in b 
 
 逻辑的与或非分别用 `and`, `or `,`not`表示，Python中同样采用`逻辑短路`原则，即`and`前的布尔值为假，则后面的条件表达式不再被执行。
 
 ###if/else/elif
-{% highlight python%}
-age = input('How old are you? ')
-if age > 20:
-    print 'you are older than me.'
-elif age < 20:
-    print 'you are younger than me.'
-else:
-    print 'we are the same age!'
-{% endhighlight %}
+
+    age = input('How old are you? ')
+    if age > 20:
+        print 'you are older than me.'
+    elif age < 20:
+        print 'you are younger than me.'
+    else:
+        print 'we are the same age!'
 
 ###while
-{% highlight python%}
-while condtion:
-	pass
-{% endhighlight %}
+
+    while condtion:
+	    pass
 
 ###for
 
 基础用法，遍历一个列表
-{% highlight python%}
-team = ['duncan','parker','spliter','bannor']
-for player in team:
-	print player
-{% endhighlight %}
+    
+    team = ['duncan','parker','spliter','bannor']
+    for player in team:
+	    print player
 
 高级用法：TODO itertools
 
@@ -259,21 +245,18 @@ for player in team:
 
 虽然Python不要求返回值，但是即使没有return，函数也会一个内置的类型 `None`
 
-{% highlight python%}
-def function(params):
-	'''doc string'''
-	pass
-	return 
-{% endhighlight%}
+    def function(params):
+	    '''doc string'''
+	    pass
+	    return 
 
 Python中支持函数的嵌套声明，比如:
-{%highlight python%}
-def produce():
-    print"in the process of producing.."
-    def pack():
-        print"in the process of packing..."
-    pack()
-{%endhighlight%}
+
+    def produce():
+        print"in the process of producing.."
+        def pack():
+            print"in the process of packing..."
+        pack()
 
 ####作用域
 调用函数的时候，Python会创建一个新的作用域，解释器维护一个新的符号表，当遇到一个变量的时候，解释器会首先在当前符号表中寻找，然后是上一级作用域。如果要在函数体内使用全局的变量，需要使用`global`关键字。
@@ -287,34 +270,30 @@ python 函数参数支持比较丰富，主要包括：
 
 #####位置参数
 调用的时候需要按照特地的顺序传递参数，缺点比较明显，你需要记住参数列表，形如：
-{%highlight python%}
-def func(param1,param2):
-    pass
-func(1,2) #bad code hard to read
-func(param1 = 1,param2 =2) #keyword arguments
-{%endhighlight%}
+
+    def func(param1,param2):
+        pass
+    func(1,2) #bad code hard to read
+    func(param1 = 1,param2 =2) #keyword arguments
 
 #####关键字参数
 在定义函数的时候，可以指明参数的默认值，调用的时候，传递参数显式声明参数名，虽然写起来有点多，但是在调用的时候方便了很多。比如大项目中，当调用某些函数的时候，调用者可以选择性的填充参数。
 
-{%highlight python%}
-def func(param1=value1,param2=value2):
-    pass
-{%endhighlight%}
+    def func(param1=value1,param2=value2):
+        pass
 
 #####收集参数or可变参数列表
 Python提供了很好的可变参数列表的支持，`*params`表示一个参数元组，而`**params`表示参数字典，一个小例子就可以看明白，例如：
 
-{%highlight python%}
-def params_collect(*params):
-    print params
+    def params_collect(*params):
+        print params
 
-def params_collect_dict(**params):
-    print params
+    def params_collect_dict(**params):
+        print params
 
-params_collect_dict(name="liyang",sex="man",location="HIT")
-params_collect(1,2,3,4)
-{%endhighlight%}
+    params_collect_dict(name="liyang",sex="man",location="HIT")
+    params_collect(1,2,3,4)
+
 至于如何使用这些参数，看打印结果就知道我们已经获得元组或者字典了，怎么用，你懂的。
 
 这些参数的使用是可以综合在一起的。
