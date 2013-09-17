@@ -128,6 +128,12 @@ img {
   }
    .blog-top.affix {
     position: fixed;
+    border-left: 3px solid rgba(235, 25, 75, 1);
+    left:  10px;
+    top: 40px;
+  }
+   .blog-top.ask {
+    position: fixed;
     left:  10px;
     top: 15px;
   }
