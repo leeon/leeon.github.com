@@ -143,6 +143,16 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
         print k,v
 
 
+###集合
+
+Python中的集合和数学中集合的概念相同，具有**无序性**和**唯一性**，它支持添加、遍历、判断是否包含某个元素等操作，但是不支持索引、分片等序列化的操作。
+
+一般集合用在数学计算的场景，例如将一个list转换为set,Python还提供了`frozenset`表示已经创建就不会再改变的集合。
+
+
+    mSet = set(mList)
+    num = len(mSet) #count
+    
 
 ###布尔
 
@@ -300,6 +310,18 @@ Python提供了很好的可变参数列表的支持，`*params`表示一个参�
 
 ##String
 ##模块
+##异常
+
+Python使用从`try.. except`语句来捕获异常。
+    
+    try:
+        f = open("file_not_exist")
+    except IOError:
+        print "file not exist"
+    finally:
+        pass
+        #do some cleaning
+    
 
 ##文件与目录
 
