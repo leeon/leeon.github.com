@@ -9,17 +9,50 @@ group: tool
 
 ## Start
 
-+ `shift+command+p` 调出command pannel
-+ `command +P ` 快速的切换文件
-+ `command + 数字` 快速切换某个编号的标签页
+###Terminal 
+可以用过软连接，将`subl`作为terminal可以识别的命令 *（for mac os only）*
+    
+    ln -s "/Applications/Sublime Text 2.app/contents/SharedSupport/bin/subl" ~/bin/subl
 
-##多窗口
-sublime中每一个新的窗口成为一个group
+###Package Control
 
-+ `ctrl+ 数字` 切换到对应编号的group
-+ `shift + ctrl + 数字` 将某个文件移到对应编号的组
-+ `alt+ command + 数字` 将窗口分为几列 
-+ `shift + alt + command + 数字` 将窗口分为几行
+` command +\``调出console，输入下面的代码饥即可安装
+
+    import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
+
+`shift+command+p` 调出command pannel,通过键入`install`就可以快速的安装新的包。
+
+
+
+##Best Features
+
+###Editing 
+
+`command + d` 多选，选择于当前选中words相同的文本
+`command + j` join lines 
+
+###Instant file changing
+
+`command + P` 快速的切换文件
+
+`command + R` 在当前文件中切换不同的方法 == `command + P`+`@`
+
+`command + G` 切换到某一行  == `command + P`+`:`
+
+ 
+###Windows and tabs
+
+`command + 数字` 快速切换到对应编号的标签页
+
+> sublime中每一个新的窗口成为一个group
+
+`ctrl+ 数字` 切换光标到对应编号的group
+
+`alt + 数字` 将某个文件移到对应编号的组   *修改了默认 key-bindings*
+
+`alt+ command + 数字` 将窗口分为几列 
+
+`shift + alt + command + 数字` 将窗口分为几行
 
 
 
