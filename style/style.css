@@ -128,9 +128,9 @@ img {
   }
    .blog-top.affix {
     position: fixed;
-    border-left: 3px solid rgba(235, 25, 75, 1);
+    border-left: 3px solid rgba(48, 209, 80, 1);
     left:  10px;
-    top: 40px;
+    top: 15px;
   }
    .blog-top.ask {
     position: fixed;
