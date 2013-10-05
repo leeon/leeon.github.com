@@ -1,8 +1,11 @@
 ---
 layout: page
-title: Notes
+title: Note
 description: 笔记记录点点滴滴
 ---
+###Tips
+
++ [Tec issues](tips/tec.html) `可能经常遇到的技术问题`
 
 ### Language
 

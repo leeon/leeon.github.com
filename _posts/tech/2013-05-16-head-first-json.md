@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hello,JSON"
+title: "简明JSON介绍"
 description: "Python 中使用JSON"
 category: tech
 tags: json python 网络
@@ -18,14 +18,14 @@ JSON有两种组成形式：
 
 你可以在 [JSON官网](http://www.json.org/)上找到详细的语法规则。JSON中value支持的数据类型包括：
 
-+ object `{key:value}` key用双引号包围
++ object `{key:value}` key用双引号包围,说明JSON是可以支持嵌套的
 + number `{"num":12}`
 + string `{"name":"someone"}`
 + boolean `{"is_married":false}`
 + array `{"lucky_number":[1,2,3]}`
 + null
 
-注意，JSON支持数据的嵌套。
+> 注意，嵌套是JSON的一个重要特性。
 
 
 ##使用
@@ -46,6 +46,7 @@ json_obj = json.loads(json_str)
 print json_obj
 {% endhighlight %}
 
-json编码和解码操作是根据Python提供的covert ion table来决定的，会发现string都被转称unicode对象了。
+json编码和解码操作是根据Python提供的covertion table来决定的，会发现string都被转成unicode对象了。
 
+>为保持兼容，请遵守严格的JSON的格式，使用双引号。
 

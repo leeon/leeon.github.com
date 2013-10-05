@@ -2,8 +2,7 @@
 layout: post
 title: "Java 并发（1）: Basic"
 description: "Java并发基础"
-category: 程序設計
-tagline: tech
+category: tech
 tags: java 并发
 ---
 ###基础
