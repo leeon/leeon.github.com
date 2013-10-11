@@ -1,3 +1,4 @@
+
 auto:	          true
 
 markdown:         rdiscount
@@ -12,7 +13,7 @@ author:
     name:         LiYang
     twitter:      twitter.com/realliyang
     key:          octobershiner
-description:      "HomePage"
+description:      ""
 copyright:        "CopryRight LiYang 2012-2012 by GitHub and Jekyll"
 headdesc:         "Liyang的博客，记录每一刻"
 headkeys:         "李阳,思考,读书,计算机,经济,摄影,音乐,写作"

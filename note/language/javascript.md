@@ -5,12 +5,71 @@ tagline:actually for node.js
 group: language
 ---
 
-###变量
+###数据类型
+
 
 JavaScript是弱类型的语言，可以通过如下方式定义一个变量：
 
     var m = 12;
 
+支持的数据类型有 numbers,string,boolean,object,array,undefined,null，JavaScript中的数组和Python一样，支持多种数据类型。例如：
+
+    var mList = ['name',23,{type:"students"}];
+    var mArray = new Array(3);
+    
+
+> object可以表示成JSON格式。
+
+###语句
+> 语句后`;`是可选的,感兴趣可以看[『知乎』的讨论](http://www.zhihu.com/question/20298345)
+
+#####if else
+
+    if(a > b){
+        //do
+    }else{
+        //do
+    }
+    
+#####for
+
+    for(var i = 1; i < 10; i++ ){
+        //get i
+    }
+    
+#####for in
+
+    var mList = [1,2,3];
+    for(i in mList){
+        console.log(mList[i]);
+    }
+> 注意与Python不同，JavaScript迭代的是元素的index，而不是元素本身
+
+#####while
+    
+    while(true){
+        //do
+    }
+    
+    do{
+        //do
+    }while(true)
+    
+#####break & continue
+和C语言相同，break跳出本次循环，并结束循环；continue结束本次循环，继续下一次循环
+
+#####switch
+    
+    switch(n){
+        case 1:
+        //do
+        break;
+        case 2:
+        //do
+        break;
+        default:
+        //do
+    }
 ###作用域
 JavaScript的作用域与C不同，并不是以`{}`块来进行区分的，而是根据函数而确定。
 

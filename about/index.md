@@ -4,11 +4,11 @@ title:      About
 description: 关于我
 ---
 
-哈尔滨工业大学研一学生,WI输入法团队负责人.[（简历）](/assets/resume/leeon-cn.pdf)
+leeon,哈尔滨工业大学研一学生,WI输入法团队负责人.[（简历）](/assets/resume/leeon-cn.pdf)
 
-### Contact ###
+### Social ###
 
-[微博](http://weibo.com/V5liyang) [豆瓣](http://www.douban.com/people/octobershiner/) [Github](http://www.github.com/leeon) [虾米](http://www.xiami.com/u/769076) [Flickr](http://www.flickr.com/photos/octobershiner)
+[Github](http://www.github.com/leeon) [Flickr](http://www.flickr.com/photos/octobershiner) [微博](http://weibo.com/V5liyang) [豆瓣](http://www.douban.com/people/octobershiner/) [知乎](http://www.zhihu.com/people/v5liyang) [虾米](http://www.xiami.com/u/769076)  
 
 ### Work ###
 

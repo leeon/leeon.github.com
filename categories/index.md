@@ -3,7 +3,7 @@ layout:  page
 title: Categories
 description: 分类
 ---
-不要为已消尽之年华叹息，必须正视匆匆溜走的时光：
+那时候觉得生活一团乱，后来回味其实就是那么几件事情：
 
 <div class="tagcloud upper gray">
 {% for cat in site.categories %}
