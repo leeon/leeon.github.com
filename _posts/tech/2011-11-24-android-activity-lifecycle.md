@@ -179,5 +179,7 @@ Followed by either onRestart() if this activity is coming back to interact with 
 ![image](/assets/images/pages/android-life-shot.png)
 
 
+   代码完整参考：
+   [androidSample@github](https://github.com/leeon/androidSample)中的ActivityDemo
 
 

@@ -45,9 +45,9 @@ Strict Mode是Android 2.3引入的一个重要的类，主要是为了帮助开�
 
 我们可以通过`StrictMode.setThreadPolicy(StrictMode.ThreadPolicy)`这样的代码来修改当前的检测参数。下面的代码就是说在线程中不进行网络方面的检测。
 
-{% highlight java %}
-StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
-{% endhighlight %}
+
+    StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
+
 
 
 ###Worker Thread
@@ -64,135 +64,132 @@ StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork()
 AsyncTask的使用比较简单，只要继承AsyncTask并且实现其中的`doInBackground`方法就可以了，并且在`onPostExecute`方法中处理UI渲染实践，大家可以参照Google的[文档](http://developer.android.com/guide/components/processes-and-threads.html)
 
 下面是一段基本的处理**get**和**post**的代码：
-{% highlight java%}
-package org.leeon.android.http;
+
+    package org.leeon.android.http;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.apache.http.client.ClientProtocolException;
-import org.leeon.android.R;
-import android.app.Activity;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.InputStreamReader;
+    import java.io.OutputStream;
+    import java.net.HttpURLConnection;
+    import java.net.URL;
+    import org.apache.http.client.ClientProtocolException;
+    import org.leeon.android.R;
+    import android.app.Activity;
+    import android.os.AsyncTask;
+    import android.os.Bundle;
+    import android.util.Log;
+    import android.view.View;
+    import android.view.View.OnClickListener;
+    import android.widget.Button;
+    import android.widget.EditText;
+    import android.widget.TextView;
 
-public class HttpTestActivity extends Activity implements OnClickListener{
+    public class HttpTestActivity extends Activity implements OnClickListener{
 
-	private static final String TAG = "androidtaste";
+        private static final String TAG = "androidtaste";
 
-	private Button bt_get;
-	private Button bt_post;
-	private EditText et_url;
-	private TextView tv_result;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_http_test);
-		
-		//get the widgets
-		bt_get = (Button)this.findViewById(R.id.bt_http_get);
-		bt_post = (Button)this.findViewById(R.id.bt_http_post);
-		et_url = (EditText)this.findViewById(R.id.et_http_url);
-		tv_result =(TextView)this.findViewById(R.id.tv_http_result);
-		
-		//set the listener
-		bt_get.setOnClickListener(this);
-		bt_post.setOnClickListener(this);
-	}
+        private Button bt_get;
+        private Button bt_post;
+        private EditText et_url;
+        private TextView tv_result;
+        
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_http_test);
+            
+            //get the widgets
+            bt_get = (Button)this.findViewById(R.id.bt_http_get);
+            bt_post = (Button)this.findViewById(R.id.bt_http_post);
+            et_url = (EditText)this.findViewById(R.id.et_http_url);
+            tv_result =(TextView)this.findViewById(R.id.tv_http_result);
+            
+            //set the listener
+            bt_get.setOnClickListener(this);
+            bt_post.setOnClickListener(this);
+        }
 
-	@Override
-	public void onClick(View v) {
-		String urlStr = et_url.getText().toString();
-		if(v.equals(bt_post)){
-			new DownloadDataTask().execute(urlStr,"post");
-		}else if(v.equals(bt_get)){
-			Log.i(TAG,urlStr);
-			new DownloadDataTask().execute(urlStr,"get");
+        @Override
+        public void onClick(View v) {
+            String urlStr = et_url.getText().toString();
+            if(v.equals(bt_post)){
+                new DownloadDataTask().execute(urlStr,"post");
+            }else if(v.equals(bt_get)){
+                Log.i(TAG,urlStr);
+                new DownloadDataTask().execute(urlStr,"get");
 
-		}else{
-		}
-	}
-	
-	/**
-	 * An asyncTask that handle downloading issues.
-	 * */
-	private class DownloadDataTask extends AsyncTask<String,Void,String>{
+            }else{
+            }
+        }
+        
+        /**
+         * An asyncTask that handle downloading issues.
+         * */
+        private class DownloadDataTask extends AsyncTask<String,Void,String>{
 
-		@Override
-		protected String doInBackground(String... params) {
-			BufferedReader in = null;
-			StringBuilder sb = new StringBuilder("");
-			URL url = null;
-			HttpURLConnection urlConnection = null; 
-			try {
-				 url = new URL(params[0]);//don't miss the 'http'
-				 urlConnection = (HttpURLConnection)url.openConnection();
-				if(params.length > 1 && "get".equals(params[1])){
-					
-					in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-					String line = "";
-					while((line = in.readLine())!= null){
-						sb.append(line+"\n");
-					}	
-				}else if(params.length > 1 && "post".equals(params[1])){
-					urlConnection.setDoOutput(true); // this invoke will doPost
-					OutputStream out = urlConnection.getOutputStream();
-					String args = "age=12";
-					out.write(args.getBytes());
-					out.flush();
-					out.close();
-					
-					in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-					String line = "";
-					while((line = in.readLine())!= null){
-						sb.append(line+"\n");
-					}	
-					
-				}
-				
-			} catch (ClientProtocolException e) {
-				e.printStackTrace();
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-				
-			}finally{
-				urlConnection.disconnect();
-				if(in != null){
-					try {
-						in.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		
-			return sb.toString();
-		}
-		
-		/*perform the UI work safely*/
-		protected void onPostExecute(String resutlt){
-			tv_result.setText(resutlt);
-		}
+            @Override
+            protected String doInBackground(String... params) {
+                BufferedReader in = null;
+                StringBuilder sb = new StringBuilder("");
+                URL url = null;
+                HttpURLConnection urlConnection = null; 
+                try {
+                     url = new URL(params[0]);//don't miss the 'http'
+                     urlConnection = (HttpURLConnection)url.openConnection();
+                    if(params.length > 1 && "get".equals(params[1])){
+                        
+                        in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                        String line = "";
+                        while((line = in.readLine())!= null){
+                            sb.append(line+"\n");
+                        }   
+                    }else if(params.length > 1 && "post".equals(params[1])){
+                        urlConnection.setDoOutput(true); // this invoke will doPost
+                        OutputStream out = urlConnection.getOutputStream();
+                        String args = "age=12";
+                        out.write(args.getBytes());
+                        out.flush();
+                        out.close();
+                        
+                        in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                        String line = "";
+                        while((line = in.readLine())!= null){
+                            sb.append(line+"\n");
+                        }   
+                        
+                    }
+                    
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                    
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    
+                }finally{
+                    urlConnection.disconnect();
+                    if(in != null){
+                        try {
+                            in.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            
+                return sb.toString();
+            }
+            
+            /*perform the UI work safely*/
+            protected void onPostExecute(String resutlt){
+                tv_result.setText(resutlt);
+            }
 
-	}
+        }
 
 
-}
+    }
 
-{% endhighlight %}
 
-程序的完整源码可以参照 [androidtaste@github](https://github.com/leeon/androidTaste)
 
-> 本篇文章涉及的代码在 `org.leeon.android.package`中

@@ -4,8 +4,6 @@ title: Design Pattern
 tagline: 设计模式总结
 group: dev
 ---
-{% include JB/setup %}
-
 
 
 ##迭代器模式 Iterator
@@ -195,9 +193,5 @@ Android开发中，很多服务组件的实例化都用了工厂模式
 ###类图
 ![](/assets/images/pages/dp-adapter.png)
 
-###实例
-假设我们有一个水果商店，顾客可以定制自己的果篮，我们负责编写一个应用，动态的根据果篮的内容提供不同的服务，包括价格计算，清单打印等。
-
-装饰器模式的基本实现在 `org.leeon.pattern.adapter`
 
 [Repo连接](https://github.com/leeon/LearnPatterns)
