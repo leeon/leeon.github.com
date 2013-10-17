@@ -12,11 +12,22 @@ JavaScript是弱类型的语言，可以通过如下方式定义一个变量：
 
     var m = 12;
 
-支持的数据类型有 numbers,string,boolean,object,array,undefined,null，JavaScript中的数组和Python一样，支持多种数据类型。例如：
+支持的数据类型有 
+    
++ numbers
++ string
++ boolean
++ object 
++ array
++ undefined
++ null
+
+JavaScript中的数组和Python一样，支持多种数据类型。例如：
 
     var mList = ['name',23,{type:"students"}];
     var mArray = new Array(3);
-    
+
+使用数组是一件很有意思的事情：比如 [JavaScript中多变的数组](http://octsky.com/tech/2013/10/17/javascript-array-trick/)
 
 > object可以表示成JSON格式。
 
@@ -83,8 +94,6 @@ JavaScript的作用域与C不同，并不是以`{}`块来进行区分的，而�
 指在某个函数内部定义的变量，只具有函数内的访问权限
 
 
-####函数作用域
-
 ###函数
 
 JavaScript中函数的定义主要有两种形式：
@@ -117,5 +126,4 @@ JavaScript中函数的定义主要有两种形式：
 
 >函数的柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
 
-###控制结构
 

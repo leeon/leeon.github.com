@@ -90,6 +90,9 @@ message的gravity是设置其元素内容的排列方式，top表示message的�
     </LinearLayout>
     
     
-   代码完整参考：
-   [androidSample@github](https://github.com/leeon/androidSample)中的UIDemo
+> 代码完整参考：[androidSample@github](https://github.com/leeon/androidSample)中的UIDemo
 
+
+#####参考资料：
+
++ [Android Developer API Guide](http://developer.android.com/guide/topics/ui/layout/linear.html)
