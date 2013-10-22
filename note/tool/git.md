@@ -4,7 +4,6 @@ title: Git
 tagline: Git让写代码变得sexy
 group: tool
 ---
-{% include JB/setup %}
 
 > 学习git的一些总结 笔记版本 `v1.1` 
 
@@ -28,9 +27,11 @@ Git关注的是文件是不是发生了变化，如果有变化则记录新的�
 
 三种文件状态 ：
 
-- 已提交 commited
-- 已修改 modified
+- 已提交 commited   
 - 已暂存 staged (add 之后)
+- 已修改 modified
+
+![](http://marklodato.github.io/visual-git-guide/basic-usage.svg)
 
 Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指针。
 
@@ -43,87 +44,68 @@ Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
 
 ###配置
 
-{% highlight bash %}
-git config 三个级别的  版本库  全局 系统 优先级依次递减 类似程序设计中的变量作用域
-git config --system  对应 /etc/gitconfig
-git config --global 对应~/.gitconfig 
-git config -e 执行编辑文件
-git config [--options] <section>.key value  用于编辑 .gitconfig 文件中的某一个特定项目的值
-{% endhighlight %}
+    git config 三个级别的  版本库  全局 系统 优先级依次递减 类似程序设计中的变量作用域
+    git config --system  对应 /etc/gitconfig
+    git config --global 对应~/.gitconfig 
+    git config -e 执行编辑文件
+    git config [--options] <section>.key value  用于编辑 .gitconfig 文件中的某一个特定项目的值
 
-
-#####常用配置
-{% highlight bash %}
-user.name value
-user.email value
-core.editor emacs 
-merge.tool vimdiff
-core.quotepath false   正常显示中文
-{% endhighlight %}
+#####常用配置    
+    user.name value
+    user.email value
+    core.editor emacs 
+    merge.tool vimdiff
+    core.quotepath false   正常显示中文
 
 ###使用
 
-{% highlight bash %}
+    git init  初始化一个版本库
+    git clone 从远程初始化一个版本库
+    git add 向版本库添加一个新的文件 git add .添加所有的文件
+    git commit 提交版本 git强制用户添加 -m 加上提交的信息  -a提交跳过暂存直接提交
+    git commit --amend补充上次提交
+    git status 查看文件状态
 
-git init  初始化一个版本库
-git clone 从远程初始化一个版本库
-git add 向版本库添加一个新的文件 git add .添加所有的文件
-git commit 提交版本 git强制用户添加 -m 加上提交的信息  -a提交跳过暂存直接提交
-git commit --amend补充上次提交
-git status 查看文件状态
+    git diff 查看工作区文件和已经暂存的文件变化
+    git diff --staged 查看已经暂存的文件和版本库中的文件区别
 
-git diff 查看工作区文件和已经暂存的文件变化
-git diff --staged 查看已经暂存的文件和版本库中的文件区别
+    git rm 删除
+    git mv 移动
 
-git rm 删除
-git mv 移动
+    git log 查看提交记录 
+    --pretty 查看选项
+    --since --before 指定日期
+    --author 指定作者
 
-git log 查看提交记录 
---pretty 查看选项
---since --before 指定日期
---author 指定作者
-
-git reset HEAD 将某个文件设置为head一致，可以取消add的状态
-git revert 撤销提交
-{% endhighlight %}
+    git reset HEAD 将某个文件设置为head一致，可以取消add的状态
+    git revert 撤销提交
 
 
 
 
 ###协作：
 
-{% highlight bash %}
-git remote add [shortname] [url] 添加
-git push [remote-name] [branch-name] 推送
-git push origin --tags 将本地标签推送到远程版本库
+    git remote add [shortname] [url] 添加
+    git push [remote-name] [branch-name] 推送
+    git push origin --tags 将本地标签推送到远程版本库
 
+    git branch 列出本地的分支
+    git branch branchname 创建一个分支
+    git merge branchname  将某个分支合并到当前分支 
+    git branch -v 显示每一个分支的最后提交信息
 
+    git tag 列出所有标签
+    git tag -d 删除某一个标签
+    git tag -l ' reg' 列出指定格式标签
+    git checkout 根据标签和具体的哈希值切换到响应的版本 在不同分支间切换
+    git checkout -b 创建一个分支并立即切换到新的分支
 
-git branch 列出本地的分支
-git branch branchname 创建一个分支
-git merge branchname  将某个分支合并到当前分支 
-git branch -v 显示每一个分支的最后提交信息
+    git remote 显示远程库  -v现实具体地址
 
-
-
-git tag 列出所有标签
-git tag -d 删除某一个标签
-git tag -l ' reg' 列出指定格式标签
-git checkout 根据标签和具体的哈希值切换到响应的版本 在不同分支间切换
-git checkout -b 创建一个分支并立即切换到新的分支
-
-
-
-
-git remote 显示远程库  -v现实具体地址
-
-git fetch origin 更新远程版本库的数据
-git push origin serverfix:somebranch 推送新的分支
-git merge origin/serverfix 合并远程分支
-git checkout --track origin/serverfix
-
-{% endhighlight%}
-
+    git fetch origin 更新远程版本库的数据
+    git push origin serverfix:somebranch 推送新的分支
+    git merge origin/serverfix 合并远程分支
+    git checkout --track origin/serverfix
 
 
 ###一些Tips:

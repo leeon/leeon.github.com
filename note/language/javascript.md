@@ -105,7 +105,16 @@ JavaScript中函数的定义主要有两种形式：
     func2 = function(){
 	    console.log("this is function b")
     }
-    
+
+###内置函数
+常用的内置函数
+
+**parseInt（string,radix）** 讲string转换为10进制整型，radix表示第一个参数的基数。
+
+**Math.floor(x)**  返回小于x的最大整数
+
+**Math.ceil(x)** 返回大于x的最小整数
+
 ###闭包
 
 >闭包没有那么神秘，他只是一个封闭的包（函数），他可以把局部数据返回给包(函数)返回给外面的数据。
