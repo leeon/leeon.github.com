@@ -2,7 +2,7 @@ body {font:12px/1.6 arial,helvetica,sans-serif;margin:0;padding:0;color:#4d4d4d}
 body {font-family: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3", "Georgia", "Xin Gothic", "Hiragino Sans GB", Arial, "WenQuanYi Micro Hei", "Microsoft YaHei", "SimSun", 'Proxima Nova','Open Sans',sans-serif; font-size:1.125em;-webkit-font-smoothing:subpixel-antialiased;}
 h1, h2, h3, h4, h5, h6 {color: black; margin:15px 0}
 
-h3 {font-size:16px}
+/*h3 {font-size:16px}*/
 
 .poster {margin-bottom: 30px}
 .container {padding:5px; max-width:760px}
