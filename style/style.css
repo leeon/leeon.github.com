@@ -132,3 +132,14 @@ img {
     left:  10px;
     top: 15px;
   }
+
+
+#zoo{
+    width: 15%;
+    display: block; /* Unhide */
+    float: left;
+    padding: 0px 8px;
+    position: fixed;
+    left:  15px;
+    bottom: 25px;
+}
