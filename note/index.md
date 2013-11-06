@@ -9,8 +9,9 @@ description: 笔记记录点点滴滴
 
 ### Language
 
-+ [Java](language/java.html) `强大的面向对象语言`
++ [Java](language/java.html) `面向对象语言`
 + [Python](language/python.html) `脚本语言`
++ [Javascript & Node.js](language/javascript.html) `脚本语言`
 
 
 ### Tools
@@ -19,6 +20,11 @@ description: 笔记记录点点滴滴
 + [Git](tool/git.html) `sexy`
 + [Sublime Text](tool/sublime-text.html)`性感的编辑器`
 
+### DB
+
++ [MySQL]() `关系型数据库`
++ [MongoDB]() `文档型数据库`
++ [Redis]() `K-V数据库`
 
 ### OS
 + [Android](os/android.html) `droid ?`
