@@ -39,27 +39,35 @@
   <meta property="og:description" content="{{ page.description }}" />
 </head>
 <body>
-<div class="container">
-<div class="banner">
 {% include banner.html %}
-</div>
+<div class="container">
 
 <div class="main">
-  <div class="title"><a href="{{ page.url }}">{{ page.title }}</a></div>
-<div class="author"><img src="/assets/images/authors/leeon.png"/> <span class="name">李陽</span></div>
+<div id="entry">
+  <div id="breadcrumbs">
+    <ol>
+      {% for tag in page.tags %}
+      <li><a href="/tags/#{{ tag }}">{{ tag }}</a></li>
+      {% endfor %} 
+      <li class="current">{{page.categories}}―</li>
+    </ol>
+  </div>
+  
+  <div class="asset-header">
+   <div class="asset-meta">
+
+  </div><!-- /.asset-meta -->
+  </div>
+
+  <div class="title"><a href="{{ page.url }}">{{ page.title }}-</a></div>
+  <span class="byline">
+   <abbr class="timestamp">{{ page.date | date:"%Y年%m月%d日"}}</abbr>
+   </span><!-- /.byline -->
+<!-- <div class="author"><img src="/assets/images/authors/leeon.png"/> <span class="name">李陽</span></div> -->
   <div class="content {{ page.categories }}_content_css">
     {{ content }}
   </div>
 
-  <div class="info">
-    记于{{ page.date | date:"%Y年%m月%d日"}} 
-  </div>
-
-  <div class="forb">
-  {% for tag in page.tags %}
-  <a href="/tags/#{{ tag }}">#{{ tag }}</a>
-  {% endfor %}
-  </div>
 
   <div class="suggest">
     {% if page.previous %}
@@ -90,12 +98,19 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 <!--disqus END--> 
+</div>
+
+
+<div class="side">
+  
+</div>
+  
 
 <!--google image avatar-->
 <a href="https://plus.google.com/u/0/116611495107032888078/?rel=author"></a>
 
 <!--share box-->
-<a href="http://www.jiathis.com/share/" class="blog-top affix jiathis">Like</a> 
+<!-- <a href="http://www.jiathis.com/share/" class="blog-top affix jiathis">Like</a>  -->
 <script type="text/javascript" src="http://v1.jiathis.com/code/jia.js" charset="utf-8"></script>
 <!-- <a href="http://ask.fm/octsky" target=_blank class="blog-top ask" >Ask</a>  -->
 {% include footer.html %}

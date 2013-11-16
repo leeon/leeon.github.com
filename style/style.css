@@ -1,17 +1,17 @@
-body {font:12px/1.6 arial,helvetica,sans-serif;margin:0;padding:0;color:#4d4d4d}
-body {font-family: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3", "Georgia", "Xin Gothic", "Hiragino Sans GB", Arial, "WenQuanYi Micro Hei", "Microsoft YaHei", "SimSun", 'Proxima Nova','Open Sans',sans-serif; font-size:1.125em;-webkit-font-smoothing:subpixel-antialiased;}
+body {font:12px/1.5 "Helvetica", 'Lucida Grande', "Microsoft YaHei", sans-serif;margin:0;padding:0;color:#4d4d4d}
+body {font-size:1.125em;-webkit-font-smoothing:subpixel-antialiased;}
 h1, h2, h3, h4, h5, h6 {color: black; margin:15px 0}
 
 /*h3 {font-size:16px}*/
 
 .poster {margin-bottom: 30px}
-.container {padding:5px; max-width:760px}
+.container {margin: 0 auto;padding: 30px 15px;}
+.main {margin: 0 auto;zoom: 1;width: 880px;min-height: 250px;overflow: hidden;}
 .banner {margin:35px auto; margin-bottom: 30px; margin-left:-16px; font-size:1.2em; font-family: Arial}
-.title {font-size:3.8em;}
+.title {font-size:23px; margin: 20px 0 30px;}
 .content, blockquote{font-size:15px; line-height: 210%; font-family:'Open Sans','Helvetica Neue',Arial,"Hiragino Sans GB",sans-serif; color: #535354;}.content p{margin-bottom: 20px;}
 .content img{margin:0px auto;display:block;margin-top: 10px; margin-bottom: 30px; height: auto; display: inline-block;}
 blockquote p {font-size:1.2em; font-weight:normal; line-height: 2.3em; font-size:14px; font-style:italic;}
-.title {margin-left: -5px;}
 .title, .date, .content {margin-bottom:20px;}
 .author {margin-bottom: 23px; color: #bababa; font-size: 14px;}
 .author img {width: 30px; height: 30px; border-radius: 30px; margin-right: 5px;}
@@ -143,3 +143,10 @@ img {
     left:  15px;
     bottom: 25px;
 }
+
+#breadcrumbs {padding-top: 0;overflow: hidden;}
+.timestamp {color: #999;}
+
+#entry {width: 700px;float: left;}
+#entry .content {width: 700px;}
+#disqus_thread {width: 700px;}
