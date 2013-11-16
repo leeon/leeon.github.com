@@ -57,26 +57,58 @@ Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
     merge.tool vimdiff
     core.quotepath false   正常显示中文
 
-###使用
+###重要的命令（阶段一）
 
-    git init  初始化一个版本库
-    git clone 从远程初始化一个版本库
-    git add 向版本库添加一个新的文件 git add .添加所有的文件
-    git commit 提交版本 git强制用户添加 -m 加上提交的信息  -a提交跳过暂存直接提交
-    git commit --amend补充上次提交
-    git status 查看文件状态
+####git init
+初始化一个版本库
+
+####git clone
+从远程初始化一个版本库,复制到本地
+
+####git add
+向staged区添加一个新的文件『变化』 git add .添加所有的文件『变化』,每当我们完成文件的部分修改后都可以使用`add`命令，将这些变化添加到staged区域。（
+
+> 区别于svn add命令，git中文件多次变化可能会需要多次的add操作，而svn只要对一个文件进行一次add,就会一直跟踪变化
+
+####git commit
+提交版本,将暂存区的修改一起提交到版本库，形成一个版本。一次提交一般表示着项目进入了一个新的阶段。
+
++ -m "message"   表示附上提交信息
++ -a 表示跳过暂存区直接提交此命令只对已经被add的文件有效，即用于省去多次对一个文件add的操作，要理解-a参数，还是要理解add的是变化，而不是文件本身。
++ --amend 补充上次提交
+
+> 区别于svn,git中的提交是提交到本地版本库而不是远端服务器
+
+####git status
+查看当前工作区域和暂存区域的状态
+
+####git log
+查看历史提交记录
+
++ -n 3   查看最近的3次提交历史
++ --oneline  单行显示每次提交记录
++ --stat   显示变化的文件
++ -p   最详细的log
++ --author   查看指定作者的提交
++ --since    查看指定日期的提交
++ git log --graph --decorate ﻿--oneline  美化格式
+
+
+###重要的命令（阶段二）
+
+#### git checkout
+
+
+
+
+
+    
 
     git diff 查看工作区文件和已经暂存的文件变化
     git diff --staged 查看已经暂存的文件和版本库中的文件区别
 
     git rm 删除
     git mv 移动
-
-    git log 查看提交记录 
-    --pretty 查看选项
-    --since --before 指定日期
-    --author 指定作者
-
     git reset HEAD 将某个文件设置为head一致，可以取消add的状态
     git revert 撤销提交
 
