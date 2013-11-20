@@ -1,7 +1,7 @@
 ---
 layout: page
-title: javascript  Node.js 简明介绍
-tagline: actually for node.js
+title: javascript Node.js简明介绍
+tagline: node
 group: language
 ---
 
@@ -140,5 +140,5 @@ JavaScript中函数的定义主要有两种形式：
 
 ##Node.js
 
-sd
+
 
