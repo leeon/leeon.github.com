@@ -4,7 +4,6 @@ title: Android
 tagline: android is not droid
 group: os
 ---
-{% include JB/setup %}
 
 ###介绍
 
