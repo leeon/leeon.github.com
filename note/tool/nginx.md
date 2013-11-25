@@ -4,7 +4,6 @@ title: Nginx
 tagline: 轻量级并发服务器
 group: tool
 ---
-{% include JB/setup %}
 
 
 ###Info

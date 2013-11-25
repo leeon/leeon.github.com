@@ -1,7 +1,7 @@
 ---
 layout: page
-title: javascript  Node.js 简明介绍
-tagline: actually for node.js
+title: Javascript Node.js简介
+tagline: Node
 group: language
 ---
 
@@ -136,9 +136,3 @@ JavaScript中函数的定义主要有两种形式：
 ####柯里化
 
 >函数的柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
-
-
-##Node.js
-
-sd
-

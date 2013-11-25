@@ -4,7 +4,6 @@ title: Java语言
 tagline: 更好的使用OO
 group: language
 ---
-{% include JB/setup %}
 
 ###数据类型
 

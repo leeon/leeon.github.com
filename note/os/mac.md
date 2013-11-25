@@ -4,7 +4,7 @@ title: Mac OS Tips
 tagline: 找到真爱了
 group: os
 ---
-{% include JB/setup %}
+
 ###基础
 
 安装软件

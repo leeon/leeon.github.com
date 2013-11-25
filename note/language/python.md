@@ -4,8 +4,6 @@ title: Python筆記
 tagline: 脚本语言
 group: language
 ---
-{% include JB/setup %}
-
 >笔记中源码可参考 项目 <a href="https://github.com/leeon/pythonTaste" target=_blank >pythonTaste</a>
 
 ##数据类型
@@ -158,7 +156,11 @@ Python中的集合和数学中集合的概念相同，具有**无序性**和**�
 
 `True`和`False`两个内置类型用来表示布尔值，除此之外：
 
-+ 0 is false; all other numbers are true.+ An empty string ("") is false, all other strings are true.+ An empty list ([]) is false; all other lists are true.+ An empty tuple (()) is false; all other tuples are true.+ An empty dictionary ({}) is false; all other dictionaries are true.
++ 0 is false; all other numbers are true.
++ An empty string ("") is false, all other strings are true.
++ An empty list ([]) is false; all other lists are true.
++ An empty tuple (()) is false; all other tuples are true.
++ An empty dictionary ({}) is false; all other dictionaries are true.
 
 
 ------------------------
