@@ -36,7 +36,11 @@ Java的对象实例是用reference来维护的，那么交换两个对象实例�
     
 答案依旧是否定的。原因是当对象作为参数被传递的时候，传进去的实际上也是值，这个值是reference本身的一个拷贝。下图中，当px和py作为参数，进行方法调用时，实际上会生成px和py的一份"拷贝"，注意拷贝的是px和py的值.然后把这对**值**传入了方法，交换结束后，argx和argy各自指向了新的对象实例，但是方法之外的px和py并没有变化，这就是对象实例交换失败的原因。
 
+<<<<<<< HEAD
 ![](/assets/images/2013/java-obj-swap.png)
+=======
+![](assets/images/2013/java-obj-swap.png)
+>>>>>>> dbbb5e74b6777957447abe00b934c1e8064e2e7a
 
 ## Tricky Code
 
