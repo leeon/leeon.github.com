@@ -124,4 +124,4 @@ tags: java 面试
 
 
 ###资料
-> 本文源码地址：[https://github.com/leeon/JavaTaste](https://github.com/leeon/JavaTaste)
+> 本文源码地址：>[http://octsky.com/JavaTaste](https://github.com/leeon/JavaTaste/tree/master/src/hit/jt/init)
