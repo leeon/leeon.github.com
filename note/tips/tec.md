@@ -21,3 +21,17 @@ group: tips
 
     打开 系统偏好设置--网络--高级--DNS
     添加新的DNS 8.8.4.4 或者 8.8.8.8
+
+
+###issue 1003
+`Mac上找不到jni.h`
+    在编译JNI库文件的时候一般使用下面的命令：
+
+    g++ -dynamiclib -o libhello.jnilib hit_jt_jni_JNIDemo.cpp -framework JavaVM -I/System/Library/Frameworks/JavaVM.framework/Headers
+
+    Mac中的jdk的headers文件夹并不在这里，而是蛋疼的放在了xcode的目录下面（注意区分系统版本号）
+    /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers/
+
+    所以通过创建一个软连接的方式，就可以正常使用第一个命令编译JNI了
+    ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers/ /System/Library/Frameworks/JavaVM.framework/Headers
+

@@ -21,54 +21,58 @@ group: os
 ###我常用的软件
 
 ####日常
-> [Alfred](http://www.alfredapp.com/) `快速打开程序的利器`
+[Alfred](http://www.alfredapp.com/) `快速打开程序的利器`
 
-> [Wunderlist](https://www.wunderlist.com/) `跨平台的Todo`
+[Evernote](http://www.evernote.com) `笔记同步，知识管理，丰富的chrome插件支持`
 
-> [Evernote]() `笔记同步，知识管理，丰富的chrome插件支持`
+[Mindmanager]() `强大的思维导图工具`
 
-> [Mou](http://mouapp.com/) `可视化Markdown编辑器`
+[日历]() `Mac自带的日历工具，搭配exchange服务，所平台同步`
 
-> [Reeder](http://reederapp.com/mac/) `如其名，可与evernote集成，如果你没有赶上限免，那就可惜了`
+~~[Wunderlist](https://www.wunderlist.com/) `跨平台的Todo`~~
 
-> [Mindmanager]() `强大的思维导图工具`
+[Mou](http://mouapp.com/) `可视化Markdown编辑器`
 
-> [AirMail](http://airmailapp.info/) `最新推出的邮件客户端，做的很用心`
+~~[Reeder](http://reederapp.com/mac/) `如其名，可与evernote集成，如果你没有赶上限免，那就可惜了`~~
 
-> [Kindle](https://itunes.apple.com/us/app/kindle/id405399194?mt=12) `这个就不要多说了，这个方便做笔记`
+[AirMail](http://airmailapp.info/) `最新推出的邮件客户端，做的很用心`
 
-> [Dropbox]() `云同步`
+[Kindle](https://itunes.apple.com/us/app/kindle/id405399194?mt=12) `这个就不要多说了，这个方便做笔记`
 
-> [Lightroom](http://www.adobe.com/support/downloads/product.jsp?platform=Macintosh&product=113) `爱好摄影不可获取`
+~~[Dropbox]() `云同步`~~
 
-> [Photoshop](http://www.adobe.com/support/downloads/product.jsp?product=39&platform=Macintosh) `神器必须是shenqi`
+[百度云](http://yun.baidu.com) `很好的解决了我的Mac和Windows Phone之间数据同步的问题`
+
+[Lightroom](http://www.adobe.com/support/downloads/product.jsp?platform=Macintosh&product=113) `爱好摄影不可缺少`
+
+[Photoshop](http://www.adobe.com/support/downloads/product.jsp?product=39&platform=Macintosh) `神器`
 
 
 
 
 ####开发
-> [Sublime Text 2](http://www.sublimetext.com/) `very sexy的编辑器`
+[Sublime Text 2](http://www.sublimetext.com/) `very sexy的编辑器`
 
-> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12) `快捷的查看API工具，可与st2和Alfred结合`
+[Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12) `快捷的查看API工具，可与st2和Alfred结合`
 
-> [iTerm2](http://www.iterm2.com/) `终端工具，搭配zsh`
+[iTerm2](http://www.iterm2.com/) `终端工具，搭配zsh`
 
-> [zsh](https://github.com/robbyrussell/oh-my-zsh/) `再见，bash`
+[zsh](https://github.com/robbyrussell/oh-my-zsh/) `再见，bash`
 
-> [Homebrew](http://mxcl.github.io/homebrew/) `管理软件包`
+[Homebrew](http://mxcl.github.io/homebrew/) `管理软件包`
 
-> [Git](http://git-scm.com/‎) `不解释`
+[Git](http://git-scm.com/‎) `不解释`
 
-> [Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12) `超级好用的集合各种doc的工具，和alfred结合起来，你的mac就是IDE`
-
-> [IDEA](http://www.jetbrains.com/idea/) `越来越觉得这才是最Java的IDE`
+[Dash](https://itunes.apple.com/cn/app/dash-docs-snippets/id458034879?mt=12) `超级好用的集合各种doc的工具，和alfred结合起来，你的mac就是IDE`
 
 
 ####游戏
 
-> War3 
+~~War3~~ 
 
-> 机械迷城
+~~机械迷城~~
+
+我已经不在Mac上玩游戏了
 
 
 
@@ -87,3 +91,7 @@ group: os
 `option+space` 打开alfred
 
 `cmd+option+esc` 强制退出某个任务 
+
+`Fn + F1` 举例子，使用f1功能键
+
+`cmd+tab`应用间切换
