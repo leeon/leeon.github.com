@@ -29,6 +29,10 @@ group: tool
 
 `command + d` 多选，选择于当前选中words相同的文本
 `command + j` join lines 
+`command + 方向` 行首行尾切换
+`ctrl + j` 选择Html标签内容
+
+`ctrl + command + 上下` 移动某一行
 
 ###Instant file changing
 
@@ -74,33 +78,28 @@ group: tool
 
 输入`ul>li`
 
-{% highlight html%}
-<ul>
-  <li></li>
-</ul>
-{% endhighlight%}
+    <ul>
+      <li></li>
+    </ul>
 
 输入`ul > li*3`
 
-{% highlight html%}
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
-{% endhighlight %}
+
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 
 输入`div#navbar>ul>li.item{text}*3`
 
-{% highlight html%}
-<div id="navbar">
-  <ul>
-    <li class="item">text</li>
-    <li class="item">text</li>
-    <li class="item">text</li>
-  </ul>
-</div>
-{% endhighlight%}
+    <div id="navbar">
+      <ul>
+        <li class="item">text</li>
+        <li class="item">text</li>
+        <li class="item">text</li>
+      </ul>
+    </div>
 
 当然上面的只是emmet很少的一部分功能，作为非前端的用户，已经很方便了。了解详细的语法可以参照emmet的 <a href="http://docs.emmet.io/" target=_blank>文档</a>
 

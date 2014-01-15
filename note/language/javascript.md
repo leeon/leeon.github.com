@@ -24,6 +24,20 @@ JavaScript是弱类型的语言，可以通过如下方式定义一个变量：
 + undefined
 + null
 
+其中， `NaN`内置变量表示非数字。可以使用`isNaN()`方法判断。
+
+`undefined`表示没有被赋值过的变量。检查一个变量是否为`undefined`的时候，可以使用`===`,最佳的实践方案是，使用`typeof`来判断，避免未定义变量报错。
+
+    var bar = null;
+    if( bar === undefined){
+        //false
+    }
+    if(bar == undefined){
+        //true，because == also check null
+    }
+    if(typeof xx == 'undefined')
+
+
 JavaScript中的数组和Python一样，支持多种数据类型。例如：
 
     var mList = ['name',23,{type:"students"}];

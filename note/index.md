@@ -35,5 +35,9 @@ description: 笔记记录点点滴滴
 + [Hibernate](opensource/hibernate.html) `Java ORM solution`
 
 ### DEV
-+ [Design Patterns](dev/design-pattern.html) `开发实践必备`
-+ [一点点前端](dev/frontend.html)
++ [Design Patterns](dev/design-pattern.html) `开发实践`
+
+###Web
++ [HTML](web/html.html) `HTML`
++ [CSS](web/css.html) `层叠样式表`
++ [jquery](web/jquery.html) `jquery`
