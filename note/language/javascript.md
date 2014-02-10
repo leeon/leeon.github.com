@@ -14,17 +14,18 @@ JavaScript是弱类型的语言，可以通过如下方式定义一个变量：
 
     var m = 12;
 
-支持的数据类型有 
-    
-+ numbers
-+ string
-+ boolean
-+ object 
-+ array
-+ undefined
-+ null
+支持的六种数据类型有 `numbers`, `string`, `boolean`, `object`, `undefined`, `null`
 
-其中， `NaN`内置变量表示非数字。可以使用`isNaN()`方法判断。
+####Tips:
+
+`NaN`内置变量表示非数字。可以使用`isNaN()`方法判断。
+
+`parseInt(string,radix)`用于string和数字之间的转换，如果无法转换为数字，返回`NaN`.radix是可选参数,其中radix是可选参数，表示转换数字的基数，也就是要转化为进制为多少的数字。
+
+    parseInt("12",10); //12
+    +"12";   //12 another quick way to get a number from str.
+
+
 
 `undefined`表示没有被赋值过的变量。检查一个变量是否为`undefined`的时候，可以使用`===`,最佳的实践方案是，使用`typeof`来判断，避免未定义变量报错。
 
@@ -98,7 +99,12 @@ JavaScript中的数组和Python一样，支持多种数据类型。例如：
         //do
     }
 ###作用域
-JavaScript的作用域与C不同，并不是以`{}`块来进行区分的，而是根据函数而确定。
+JavaScript的作用域与C不同，并不是以`{}`块来进行区分的，而是根据函数而确定，所以下面代码会打印5。
+
+    if(true){
+        var a  = 5;
+    }
+    log.console(a); //output 5
 
 ####全局作用域
 
