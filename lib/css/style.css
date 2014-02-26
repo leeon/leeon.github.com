@@ -1,15 +1,15 @@
 body {font:12px/1.5 "Helvetica", 'Lucida Grande', "Microsoft YaHei", sans-serif;margin:0;padding:0;color:#4d4d4d}
 body {font-size:1.125em;-webkit-font-smoothing:subpixel-antialiased;}
-h1, h2, h3, h4, h5, h6 {color: black; margin:15px 0}
+h1, h2, h3, h4, h5, h6 {color: #881128;}
 
 /*h3 {font-size:16px}*/
 
 .poster {margin-bottom: 30px}
 .container {margin: 0 auto;padding: 30px 15px;}
-.main {margin: 0 auto;zoom: 1;width: 880px;min-height: 250px;overflow: hidden;}
+.main {margin: 0 auto;zoom: 1;width: 910px;min-height: 250px;overflow: hidden;}
 .banner {margin:35px auto; margin-bottom: 30px; margin-left:-16px; font-size:1.2em; font-family: Arial}
 .title {font-size:23px; margin: 20px 0 30px;}
-.content, blockquote{font-size:15px; line-height: 210%; font-family:'Open Sans','Helvetica Neue',Arial,"Hiragino Sans GB",sans-serif; color: #535354;}.content p{margin-bottom: 20px;}
+.content, blockquote{font-size:15px; line-height: 1.6; font-family:'Open Sans','Helvetica Neue',Arial,"Hiragino Sans GB",sans-serif; color: #535354;}.content p{margin-bottom: 20px;}
 .content img{margin:0px auto;display:block;margin-top: 10px; margin-bottom: 30px; height: auto; display: inline-block;}
 blockquote p {font-size:1.2em; font-weight:normal; line-height: 2.3em; font-size:14px; font-style:italic;}
 .title, .date, .content {margin-bottom:20px;}
@@ -25,7 +25,7 @@ blockquote p {font-size:1.2em; font-weight:normal; line-height: 2.3em; font-size
 .date {text-transform: uppercase;}
 .date a:link{color:white;text-decoration:none;padding:3px;margin:0 2px}
 .date a:visited{color:white;text-decoration:none;}
-.blog_css, .date, .tec_css, .share_css{background:#f2f2f2;width: 190px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;text-align:center; color:white}
+.blog_css,.tec_css, .share_css{background:#f2f2f2;width: 190px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;text-align:center; color:white}
 
 blockquote {border-left:3px solid #00b893;padding: 1px 20px;}
 
@@ -43,6 +43,8 @@ blockquote {border-left:3px solid #00b893;padding: 1px 20px;}
 .content a:visited { padding:3px; -moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;margin:0 2px;color:gray;text-decoration:none}
 .content a:link{padding:3px; -moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;margin:0 2px;color:gray;text-decoration:none}
 .content a:hover{padding:3px; -moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;margin:0 2px;color:#00b893;text-decoration:none}
+.content p {margin-bottom: 20px;}
+
 .comments a:link{color:#00b893;text-decoration:none;padding:3px;margin:0 2px}
 .comments a:visited{color:#00b893;text-decoration:none;}
 
@@ -147,6 +149,59 @@ img {
 #breadcrumbs {padding-top: 0;overflow: hidden;}
 .timestamp {color: #999;}
 
-#entry {width: 700px;float: left;}
-#entry .content {width: 700px;}
 #disqus_thread {width: 700px;}
+
+.byline{
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.box{
+  padding: 10px 0 18px 0;
+  border-top: 1px solid #E6E6E6;
+  text-align: left;
+}
+
+.box a{
+  text-decoration: underline;
+  color: #333;
+}
+
+.box ul{
+  padding-left: 10px;
+  margin-top: 15px; 
+  text-align: left;
+}
+
+.box h4{
+  padding-left: 10px;
+  text-align: left;
+}
+
+
+.box-recent li{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f3f3f3;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.box-recent a{
+  text-decoration: underline;
+}
+
+.box-recent .date{
+  margin-bottom: 0;
+}
+.published { color: #999;}
+.date .published, .updated {font-size: 11px;}
+.date{
+  text-align: left;
+}
+
+.box-logo{
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
