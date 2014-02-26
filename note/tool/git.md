@@ -5,11 +5,11 @@ tagline: Git让写代码变得sexy
 group: tool
 ---
 
-> 学习git的一些总结 笔记版本 `v1.1` 
+> 学习git的一些总结 笔记版本 `v1.2` 
 
-###背景知识
+##背景知识
  
-#####历史故事：
+####历史故事：
 
 + 本地版本控制
 + 集中式版本控制
@@ -18,12 +18,14 @@ group: tool
 `Git`作为分布式的版本控制软件，可以在离线的情况下实现，提交合并，创建里程碑等操作。这样每个人在本地提交的时候都不需要考虑是否会产生冲突的情况。
 
 
-#####实现原理：
+####实现原理：
 
 Git保存的不是文件差异和变化量而是一些列的文件快照。
 Git关注的是文件是不是发生了变化，如果有变化则记录新的快照，如果没有则创建一个单纯的链接指向原来的文件。
 
 ![](/assets/images/pages/git1.png)
+
+Git中分为工作环境（Workspace），暂存区（State/Index），版本库（Repository）。
 
 三种文件状态 ：
 
@@ -36,28 +38,28 @@ Git关注的是文件是不是发生了变化，如果有变化则记录新的�
 Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指针。
 
 
-#####基本的工作流：
+####基本的工作流：
 
 1. 在工作目录中修改某些文件。 
 2. 对修改后的文件进行快照，然后保存到暂存区域。 
 3. 提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中。
 
-###配置
+##配置
 
-    git config 三个级别的  版本库  全局 系统 优先级依次递减 类似程序设计中的变量作用域
+    git config 三个级别: 版本库  全局 系统 优先级依次递减 类似程序设计中的变量作用域
     git config --system  对应 /etc/gitconfig
     git config --global 对应~/.gitconfig 
     git config -e 执行编辑文件
     git config [--options] <section>.key value  用于编辑 .gitconfig 文件中的某一个特定项目的值
 
-#####常用配置    
+####常用配置    
     user.name value
     user.email value
     core.editor emacs 
     merge.tool vimdiff
     core.quotepath false   正常显示中文
 
-###重要的命令（阶段一）
+##一人一分支（阶段一）
 
 ####git init
 初始化一个版本库
@@ -82,6 +84,25 @@ Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
 ####git status
 查看当前工作区域和暂存区域的状态
 
+
+
+####git checkout -- FILE
+
+把工作区的某个文件还原为上次提交或者上次暂存的状态
+
+
+####git reset
+
+在版本之间切换，`HEAD`指针表示当前的所在的版本，默认指向最近的一次提交。Git中每一次提交都会有唯一的校验码标识。
+    
+    git reset --hard HEAD^   表示切换到HEAD的前一次提交
+    git reset --haed HEAD~10 切换到HEAD前十次提交
+
+####git reflog
+
+默认记录HEAD指针的引用变化情况，HEAD@{0}代表HEAD当前的值，HEAD@{3}代表HEAD三次变化之前的值。主要用于找回丢失的提交SHA1值。
+
+
 ####git log
 查看历史提交记录
 
@@ -93,44 +114,51 @@ Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指�
 + --since    查看指定日期的提交
 + git log --graph --decorate ﻿--oneline  美化格式
 
-
-###重要的命令（阶段二）
-
-#### git checkout
-
-
-
-
-
-    
-
-    git diff 查看工作区文件和已经暂存的文件变化
-    git diff --staged 查看已经暂存的文件和版本库中的文件区别
+####其他操作
 
     git rm 删除
     git mv 移动
-    git reset HEAD 将某个文件设置为head一致，可以取消add的状态
-    git revert 撤销提交
 
 
 
 
-###协作：
+###一人多分支（阶段二）
 
-    git remote add [shortname] [url] 添加
-    git push [remote-name] [branch-name] 推送
-    git push origin --tags 将本地标签推送到远程版本库
+
+####git branch
 
     git branch 列出本地的分支
     git branch branchname 创建一个分支
     git merge branchname  将某个分支合并到当前分支 
     git branch -v 显示每一个分支的最后提交信息
 
+
+
+#### git checkout
+
+    git checkout 根据标签和具体的哈希值切换到响应的版本 在不同分支间切换
+    git checkout -b 创建一个分支并立即切换到新的分支
+
+#### git tag
+
     git tag 列出所有标签
     git tag -d 删除某一个标签
     git tag -l ' reg' 列出指定格式标签
-    git checkout 根据标签和具体的哈希值切换到响应的版本 在不同分支间切换
-    git checkout -b 创建一个分支并立即切换到新的分支
+
+####其他
+
+    git diff 查看工作区文件和已经暂存的文件变化
+    git diff --staged 查看已经暂存的文件和版本库中的文件区别
+    git revert 撤销提交
+
+
+
+
+###小伙伴们的Git (阶段三)：
+
+    git remote add [shortname] [url] 添加
+    git push [remote-name] [branch-name] 推送
+    git push origin --tags 将本地标签推送到远程版本库
 
     git remote 显示远程库  -v现实具体地址
 

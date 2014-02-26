@@ -1,0 +1,127 @@
+---
+layout: post
+title: "Java 容器（1）: 基础框架"
+description: "Java容器基础"
+category: tech
+tags: java 容器 集合
+---
+##引言
+这个学期，在coursera上学了普林斯顿大学的算法课，Sedgewick老师用的都是Java语言实现的各种算法，受了不少启发，原来用面向对象的思维去写算法代码也可以很优雅。发挥一个语言的优势去做事才是正确的事情，Java最优秀的特质仍然是抽象、继承和多态。很多优秀的特性也都是衍生自这三个特性，比如Java collection Framework优秀的原因离不开泛型，泛型其实也是一种抽象的思想。它使得代码重用性大大提高。从本文开始，走进JDK一起探索Java的Collecion.
+
+##概述
+我把Java Collection 也翻译做 Java容器，而不是Java集合，原因是 使用『集合』可能会和`Set`或者数学中的『集合』产生混淆。《Thinking in Java》中文版也是这样的翻译，同时容器这个翻译可以更好的理解后面要说的`Collection`和`Map`接口。
+
+所谓容器，就是用封装多个对象的结构。比如一个班级里面有很多学生，班级就是一个容器，学生是容器里的元素。Java从1.2版本开始引入了容器的概念。为了保持简单，便于管理，他提供了`Collection`和`Map`这两个顶层接口。其中Collection的存储结构是`[value1,value2,value3,...,valueN]`，而Map的存储结构则是`[key1:value1,key2:value2,...,keyN:valueN]`.前者每一个存储单元只有单纯的元素，后者则包含key和value两个元素。
+
+
+##泛型支持
+
+注意到Java容器框架中，所有的接口都是支持泛型的，如Collection<E>，这是Java的一个优势，使用泛型可以大大的提高代码的可用性，并且可以降低运行时错误的风险。比如下面的代码会在编译阶段报错，而避免了程序运行的过程中可能发生异常。同时省去了强制类型转换，提高性能。
+
+        List<Apple> basket = new ArrayList<Apple>();
+        basket.add(new Banana());
+
+##Collection
+![](http://www.programcreek.com/wp-content/uploads/2009/02/java-collection-hierarchy.jpeg)
+上图就是Java Collection 接口部分的类结构，最顶层的`Collection<E>`接口定义了容器的基本的行为。除Map外，的所有容器都要实现它定义的方法。这些常用的基本方法包括：
+
+添加、删除、查看相关
+
++ **add(E e)** 向容器添加一个元素
++ **remove(E e)** 从容器删除特定的元素
++ **clear()** 删除容器中所有元素
++ **contains(E e)** 判断容器中是否包含参数元素
+
+容器属性相关
+
++ **isEmpty()** 判断容器是否为空
++ **size()** 获得容器的大小（元素的个数）
++ **equals(Object o)** 判断容器是否相等 
++ **hashCode()** 获得容器对象的hash值
+
+其他
+
++ **iterator()** 生成一个容器的*迭代器*
++ **toArray()** 以数组的形式返回容器中所有的元素
+
+###迭代器
+迭代器一般用于封装一个容器的数据，并进行遍历等简单的处理，给调用者提供基本的三个操作：
+
++ **hasNext()** 在遍历中判断，是否还有元素
++ **next()** 返回下一个元素
++ **remove()** 删除一个元素
+
+迭代器也是一种设计模式，参考[迭代器模式](../../note/dev/design-pattern.html)，当数据来自于多种不同结构的迭代器的时候，比如从栈中取出数据要用`peek()`或者`top()`，而从列表中取出数据要用`get()`等，迭代器恰好提供了统一的数据访问处理接口。
+
+
+###接口
+实际上，没有具体的类直接实现`Collection<E>`接口，而是去实现继承自Collection的子接口，以处理更为详细的功能，常用的接口包括：Set，List，Queue.
+
+####Set
+Set接口类似数学中集合的概念，满足元素的无序性(容器内部元素无序)、唯一性(没有重复元素，[《如何判断元素是否相等》](tech/2013/11/29/equals-hashcode-contract-java/))，和确定性。其接口和Collection保持一致，但是具体实现类则有不同的限制规则。比如有的Set禁止`null`元素存在。
+
+常用的Set实现有`HashSet`,`TreeSet`,`LinkedHashSet`.
+
+####List
+List接口表示一个有序的容器，也叫做序列。一个List容器中的元素具体位置是可以控制的，并且可以通过`index`进行访问和搜索。List的操作类似于数组，不同的是他可以动态的调整大小。与Set的典型区别是，它有序且允许重复的元素出现，一般也允许`null`作为元素。
+
+最常用的两个List实现是`ArrayList`和`LinkedList`.
+
+新增操作
+
++ **add(int index, E element)** 在特定的index处插入元素
++ **get(int index)** 获得参数index位置元素
++ **indexOf(Object o)** 获得某个元素的index
++ **set(int index, E element)** 修改某个index的元素
++ **remove(int index)** 删除某意位置的元素
+
++ **listIterator()** 返回一个ListIterator,更丰富的Iterator
++ **subList(int fromIndex, int toIndex)** 生成子序列[from,to)
+
+List的实现中涉及到一些很有用的算法，后面的文章会详细的介绍。
+
+####Queue
+Queue接口表示一个队列，一般队列满足FIFO规则(特殊情况除外，比如PriortyQueue)，队列保证每次在队首删除元素。一般情况下元素添加放生在队尾，特殊情况，元素可能按照某一个优先顺序排队。
+
+特殊操作
+
++ **pull()** 读取并删除队首元素
++ **peek()** 读取但不删除队首元素
++ **offer(E e)** 添加元素（与add区别，在固定size的队列中，如果超出队列容量，使用offer避免抛出异常）
+
+####Deque
+Deque意思是double ended queue,双向队列。元素的添加和删除操作都可发生在队列的收尾两端。
+
+###常用实现类
+
+
+
+
+
+##[Map](id:map)
+
+![](http://www.programcreek.com/wp-content/uploads/2009/02/MapClassHierarchy-600x354.jpg)
+
+上图为Java中Map接口的结构，只有一层。Map不同于Collection的地方在于，它的存储结构是key-value形式的。在Map中每一个key都是唯一的，不允许重复。Map接口这部分结构比较简单，一般实现类直接实现Map接口。Map定义了下面的基本操作:
+
+增删查操作
+
++ **get(Object key)** 读取参数key对应的value
++ **put(K key, V value)** 向容器中添加新的key-value
++ **remove(Object key)** 根据参数key,删除对应的key-value
++ **containsKey(Object key)** 检查容器中是否包含某个key
++ **containsValue(Object value)** 检查容器中是否包含某个value
++ **clear()** 清空容器
+
+属性相关操作
+
++ **isEmpty()** 判断容器是否为空
++ **keySet()** 以Set的形式返回容器中所有的key
++ **values()** 以Collection的形式返回容器中所有的value
++ **size()** 返回容器中key-value的个数
+
+
+常见的Map实现类包括`HashTable`和`HashMap`.
+
+
+

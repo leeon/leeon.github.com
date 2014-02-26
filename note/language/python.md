@@ -1,19 +1,56 @@
 ---
 layout: page
-title: Python筆記
+title: Python笔记
 tagline: 脚本语言
 group: language
 ---
 >笔记中源码可参考 项目 <a href="https://github.com/leeon/pythonTaste" target=_blank >pythonTaste</a>
 
-##数据类型
+##Hello World
+Python采用缩进控制代码的结构，这是其直观的特点。
 
-###序列
+###基本操作符
+
+加减乘除 `+`  `-`  `*`  `/` `//` 
+
+取摸`%` 
+
+指数`**`
+
+比较大小 `>`  `<`  `<= ` `>=`
+
+与 或 异或  `&`  `|` `^`
+
+复合加减乘除 `+=`  `-=`  `*=` `\=` 
+
+等与不等`==`  `!=`
+
+**其中**`/`表示普通除法， `//`表示执行整除，其结果舍弃小数位.
+
+
+###注释
+    
+    #Python中使用单行注释
+    
+    #多行
+    #注释
+    
+    """
+       还可以使用
+       文档字符串
+       进行多行注释
+    """
+
+
+
+##数据结构
+
+###序列（List & Tuple）
 python中的序列主要有list和tuple,后者是一种不可变的list。list类似于一个动态的数组，可以动态添加元素，同时允许每一个元素可以为不同类型，支持嵌套。
 
     aList = [] #set a new empty list
     
-#####索引
+####索引
 序列支持正向和负向的索引,`0`表示左边第一个元素，`-1`表示从右边数第一个元素。比如：
 
     aList = ['a','b','c','d']
@@ -21,11 +58,12 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
     aList[-1] #'d'
     'hello'[2] #also support this way , 'l'
 
-#####切片
+####切片
 分片（slice）操作是为了获取序列中的某一个子序列，其基本语法是:
 
 `'squence'[start:end:step]`
 
+其中索引是左闭右开的。
 
 `'sequence'[1:2]` 等价于`'sequence'[1:2:1]'`
 
@@ -33,9 +71,23 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
 
     'hello'[1：2] #‘e’
     'hello'[1:] #‘ello’
-    'hello[:]' #actually the whole string
+    'hello[:]' #actually the whole string 可以生成一份当前list的副本
 
-#####基本操作
+列表的索引还可以是负数，表示负向索引，从右边开始选。例如
+    
+    'hello'[1,-1]  #'ell'
+
+下面的图可以帮助你更好的理解索引
+
+     +---+---+---+---+---+
+     | H | e | l | p | A |
+     +---+---+---+---+---+
+     0   1   2   3   4   5
+    -5  -4  -3  -2  -1
+    
+    
+
+####基本操作
 
      # coding=utf-8
      # Filename : list.py
@@ -103,14 +155,14 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
 
 ###字典
 
-#####創建
+####创建
 字典是python中目前仅有的内置mapping类型。其基本数据结构为{key:value..}，是一种`无序`的存储结构。其中key是不可变类型，而value可以是任何类型。
 
     aPerson = {} # set a new empty dict
     aPerson = {'name':'sara','age':22} #set a new dict
     aPerson = dict([('name','sara'),('age',22)]) # set dict from a list
 
-#####基本使用
+####基本使用
     
     aPerson = {'name':'sara','age':22}
     len(aPerson) # return the number of keys in a dict
@@ -119,7 +171,7 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
     del aPerson['age'] # delete a particular key
     'age' in aPerson # True
 
-#####內置函數
+####內置函数
     
     aPerson = {'name':'sara','age':22}
     aPerson.get('name','someone') 
@@ -132,7 +184,7 @@ python中的序列主要有list和tuple,后者是一种不可变的list。list�
     aPerson.fromkeys([1,2,3],0) # set a dict from a list of keys with default value 0
     aPerson.copy() #swallow copy of a dict
     
-#####遍歷
+####遍历
 
 基本有兩種實現方式：一是遍歷`items()`生成的list,二是通過iteritems()生成的迭代器，後者效率更高。
 
@@ -273,6 +325,14 @@ Python中支持函数的嵌套声明，比如:
 ####作用域
 调用函数的时候，Python会创建一个新的作用域，解释器维护一个新的符号表，当遇到一个变量的时候，解释器会首先在当前符号表中寻找，然后是上一级作用域。如果要在函数体内使用全局的变量，需要使用`global`关键字。
 
+Python使用字典维护变量的作用域，下面两个方法比较重要：
+
++ locals() 获取局部作用域中的变量字典
++ globals()  获取全局变量字典
+
+
+  
+
 ####参数
 python 函数参数支持比较丰富，主要包括：
 
@@ -311,7 +371,50 @@ Python提供了很好的可变参数列表的支持，`*params`表示一个参�
 这些参数的使用是可以综合在一起的。
 
 ##String
+
+
 ##模块
+
+####import
+Python提供模块机制来组织不同文件中的代码。每一个Python文件都被视为一个模块，彼此可以进行引用。
+
+    # module.py 
+    def test_add(a, b):
+        return a+b
+
+当需要调用`test_add`方法的时候，可以使用下面的语句：
+    
+    import module
+    print module.test_add(1,2)
+    #or
+    from module import test_add
+    print test_module(1,3)
+    
+    #or even 
+    import module
+    my_add = module.test_add
+    print my_add(1,2)
+
+####\_\_main__
+    
+    #script.py
+    if __name__ == "__main__":
+    import sys
+    do_sth(int(sys.argv[1]))
+
+通过下面的命令执行
+    
+    python script.py <arguments>
+    
+####搜索路径
+当遇到`import someModule`语句 时，Python会进行下面的搜索，寻找模块。
+
+1. 首先会去内置模块中寻找`someModule`
+2. 如果没有找到，在`sys.path`中寻找。
+
+`sys.path`包括当前脚本执行目录，PYTHON_PATH。
+
+
 ##异常
 
 Python使用从`try.. except`语句来捕获异常。
@@ -328,64 +431,68 @@ Python使用从`try.. except`语句来捕获异常。
 ##文件与目录
 
 
+
 ##面向对象编程
 
 ####封装--类定义
 在Python中定义一个类非常的简单，直接使用`class`关键字：
-{%highlight python%}
-class Student:
-	'''Student doc string'''
-	#vars 
-
-	def __init__(self,name):
-		"""Constructor for Class Student"""
-		self.name = name
-
-	def say(self):
-		print "hello, I am "+ self.name
-{%endhighlight%}
+    
+    class Student:
+	    '''Student doc string'''
+	    #vars 
+    
+	    def __init__(self,name):
+		    """Constructor for Class Student"""
+		    self.name = name
+    
+	    def say(self):
+		    print "hello, I am "+ self.name
 
 其中属于对象的变量（类似于Java中的普通变量）和绑定方法（类似Java中的对象方法）都需要`self`。比如上面代码中的`self.name`就表示对象的一个属性，如果不加self则属于类属性（类似于Java中的静态属性），为所有该类型的对象所共享。
 
 类的绑定方法，第一个参数为`self`表示当前的对象，在实际调用的时候不用传入，当调用时
-{%highlight python%}
-MyObject.method(arg1, arg2)
-{%endhighlight%}
+    
+    MyObject.method(arg1, arg2)
 Python会自动转为
-{%highlight python%}
-MyClass.method(MyObject, arg1, arg2）
-{%endhighlight%}
 
+    MyClass.method(MyObject, arg1, arg2）
+    
 ####生命周期
 类的构造方法是`__init__`，以双下划线开头。`__del__`方法，是对象消亡的时候调用的，但是在实际编码中并不能确定其具体的调用时机，除非显式的使用`del`关键字。
 
 ####权限
 Python中并没有提供一个严格的类属性和方法的访问权限，理论上可以访问所有的对象。如果要保护某一个方法或者变量不被直接访问可以使用双下划线开头,这样就可以防止调用者*直接*访问了，但是实际上Python只是转换了双下划线开头的变量了而已，并非真的为其设定了权限。
-{%highlight python%}
-class Student:
-	'''Student doc string'''
-	#vars 
-	def __init__(self,name,age):
-		"""Constructor for Class Student"""
-		self.name = name
-		self.age = age
 
-	def say(self):
-		print "hello, I am "+ self.name
-
-	def __whisper(self):
-		print "I am %d years old." %self.age
-
-
-s = Student("susie",20) #create an instance of Student
-s.say()
-#s.__whisper() error code
-s._Student__whisper()
-{%endhighlight%}
-
+    class Student:
+	    '''Student doc string'''
+	    #vars 
+	    def __init__(self,name,age):
+		    """Constructor for Class Student"""
+		    self.name = name
+		    self.age = age
+    
+	    def say(self):
+		    print "hello, I am "+ self.name
+    
+	    def __whisper(self):
+		    print "I am %d years old." %self.age
+    
+    
+    s = Student("susie",20) #create an instance of Student
+    s.say()
+    #s.__whisper() error code
+    s._Student__whisper()
+    
 比如定义了`__whisper`这个私有方法，其实他被解释器改为了新的名字，下划线+类名+方法名。同样可以调用，因此Python开发中尝尝约定，单下划线开始的变量为私有，当然这只是编码习惯上的约束而已。
 
 ####继承
+Python 中支持多重继承，子类和可以调用或者覆写父类中的方法。
+
+####hasattr(obj,str)
+在处理多态的问题时候可以使用h`hasattr()`方法来确定某一个类是否支持某一种行为，比如：
+
+    hasattr(duck,"talk") #can a duck talk?
+    
 
 ##其他
 ###编码
@@ -393,10 +500,8 @@ Python的对象有两种编码表示，一种是str，属于8bit的字节流，�
 
 因此`decode`方法是将其他字符编码解码为`unicode`，而`encode`是将unicode编码为其他编码。下面两种硬编码定义中文的例子：
 
-{% highlight python %}
-str = "中文"
-ustr = u"中文"
-{% endhighlight %}
+    str = "中文"
+    ustr = u"中文"
 
 第一种的中文实际编码会根据当前文件的编码而决定，编码解码需要知道具体的编码，而后者自动编码为Python的内置编码unicode，因此更值得推荐。
 
@@ -424,20 +529,16 @@ ustr = u"中文"
 
 range在for循环中比较常用，比如实现形如`for(int i = 0, i < 5; i++)`
 
-{% highlight java%}
-for item in range(5):
-    print item
-{% endhighlight%}
+    for item in range(5):
+        print item
 
 ###zip()
 返回一个元素为元组的列表，接收不同数量的列表或元组，将这些列表按照元素对应的位置合并。
 
-{% highlight java %}
-x = [1,2,3]
-y = ['a','b','c']
-zipped = zip(x,y)
-tx,ty = zip(*zipped) # like unzip
-
-for xx , yy in zip(x,y):
-	print xx,yy
-{% endhighlight %}
+    x = [1,2,3]
+    y = ['a','b','c']
+    zipped = zip(x,y)
+    tx,ty = zip(*zipped) # like unzip
+    
+    for xx , yy in zip(x,y):
+	    print xx,yy
