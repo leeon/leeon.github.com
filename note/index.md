@@ -22,7 +22,7 @@ description: 笔记记录点点滴滴
 
 ### DB
 
-+ [MySQL]() `关系型数据库`
++ [MySQL](db/mysql.html) `关系型数据库`
 + [MongoDB]() `文档型数据库`
 + [Redis]() `K-V数据库`
 
