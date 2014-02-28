@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Python笔记
 tagline: 脚本语言
 group: language
+update: 2013.6.12
 ---
 >笔记中源码可参考 项目 <a href="https://github.com/leeon/pythonTaste" target=_blank >pythonTaste</a>
 

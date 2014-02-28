@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Sublime Text 2
 tagline: 性感的编辑器
 group: tool
+update: 2014.1.1
 ---
 
 

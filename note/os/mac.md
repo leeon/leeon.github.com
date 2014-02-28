@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Mac OS Tips
 tagline: 找到真爱了
 group: os
+update: 2013.9.12
 ---
 
 ###基础

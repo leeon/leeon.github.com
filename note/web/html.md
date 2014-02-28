@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: HTML
 tagline: 我会的就这么多
 group: web
+update: 2014.1.2
 ---
 >追求生活中美的东西，所以我也学一点前端  2013-10-16 updated
 

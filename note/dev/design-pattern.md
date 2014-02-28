@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Design Pattern
 tagline: 设计模式总结
 group: dev
+update: 2013.12.11
 ---
 
 

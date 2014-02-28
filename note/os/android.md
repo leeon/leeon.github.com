@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Android 
 tagline: android is not droid
 group: os
+update: 2013.12.11
 ---
 
 ###介绍

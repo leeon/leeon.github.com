@@ -1,8 +1,10 @@
 ---
-layout: page
+layout: note
 title: MySQL
 tagline: 关系型数据库
 group: db
+tags: 数据库 
+update: 2014.2.28
 ---
 
 

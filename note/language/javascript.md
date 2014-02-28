@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Javascript Node.js简介
 tagline: Node
 group: language
+update: 2013.11.23
 ---
 
 ##Javascript基础

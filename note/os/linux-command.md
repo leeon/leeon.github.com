@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Linux 常用命令
 tagline: 喜欢看屏幕翻滚的赶脚
 group: os
+update: 2013.10.21
 ---
 ##文件管理
 

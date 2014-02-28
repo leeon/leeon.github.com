@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Algorithms
 tagline: 算法学习总结
 group: dev
+update: 2013.12.12
 ---
 
 这里整理一些学习过的算法

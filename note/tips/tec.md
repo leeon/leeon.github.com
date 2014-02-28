@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Tech Trouble issues
 tagline: 
 group: tips
+update:2013.11.1
 ---
 > `cmd+f`查找你想了解的关键词
 

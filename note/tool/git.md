@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Git
 tagline: Git让写代码变得sexy
 group: tool
+update: 2013.12.3
 ---
 
 > 学习git的一些总结 笔记版本 `v1.2` 

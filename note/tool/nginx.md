@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: note
 title: Nginx
 tagline: 轻量级并发服务器
 group: tool
+update: 2013.4.1
 ---
 
 

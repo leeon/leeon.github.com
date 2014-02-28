@@ -4,22 +4,17 @@ title:      About
 description: 关于我
 ---
 
-leeon,哈尔滨工业大学研一学生,WI输入法团队负责人.[（简历）](/assets/resume/leeon-cn.pdf)
-
-### Social ###
-
-[Github](http://www.github.com/leeon) [Flickr](http://www.flickr.com/photos/octobershiner) [微博](http://weibo.com/V5liyang) [豆瓣](http://www.douban.com/people/octobershiner/) [知乎](http://www.zhihu.com/people/v5liyang) [虾米](http://www.xiami.com/u/769076)  
-
-### Work ###
-
-* 2011-Now WI输入法
-* 2012-2012 腾讯(Tencent)
-
-### Study ###
-
-* 2013-Now MA 哈尔滨工业大学(HIT)
-* 2009-2013 BA 哈尔滨工业大学(HIT)
-
-### Mail ###
-
-[leeon](mailto:leeon@outlook.com) (at) outlook.com
+<div class="row about">
+    <div class="col-md-6">
+        <img src="../lib/img/head.jpg" alt="">
+    </div>
+    <div class="col-md-6">
+        <h3>Info</h3>
+        <p>Leeon,哈尔滨工业大学研一学生,WI输入法团队负责人.</p>
+        <h3>Social</h3>
+        <a href="http://www.github.com/leeon">Github</a> <a href="http://weibo.com/V5liyang">微博</a>
+        <a href="http://www.douban.com/people/octobershiner/">豆瓣</a>
+        <h3>Mail</h3>
+        <a href="mailto:leeon@outlook.com">leeon (at) outlook.com</a>
+    </div>
+</div>
