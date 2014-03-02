@@ -74,7 +74,7 @@ JavaScript代码运行分为两个阶段，`entering the execution` 和 `code ex
 
 ##Scope Chain
 
-作用域链是用于JavaScript寻找变量的结构，由一系列的对象组成，如果一个变量在自己所在的Scope中找不到，也就是自己VO/AO没有，（可以看出，自己的VO/AO）是作用域链的顶端）就去父节点的VO/AO去寻找。根据这个原理，JavaScript中的作用域和其他高级编程语言（利用Block区分作用域）不同，通过函数调用决定作用域链，因为函数调用会穿件新的VO/AO.本Scope内不存在的变量叫做`free variable`.
+作用域链是用于JavaScript寻找变量的结构，由一系列的对象组成，如果一个变量在自己所在的Scope中找不到，也就是自己VO/AO没有，（可以看出，自己的VO/AO）是作用域链的顶端）就去父节点的VO/AO去寻找。根据这个原理，JavaScript中的作用域和其他高级编程语言（利用Block区分作用域）不同，通过函数调用决定作用域链，因为函数调用会创建新的VO/AO.本Scope内不存在的变量叫做`free variable`.
 
     var x = 10;
      

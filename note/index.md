@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Note
-description: 笔记记录点点滴滴
+description: 笔记
 ---
 ###Tips
 + [Tec issues](tips/tec.html)

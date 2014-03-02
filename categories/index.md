@@ -1,9 +1,9 @@
 ---
 layout:  page
 title: Categories
-description: 分类
+description: 主题归档
 ---
-分类浏览，你也可以通过[日期](/archive/)查看：
+按时间排序,可以通过[日期归档](/archive/)查看：
 
 
 <div class="row">
