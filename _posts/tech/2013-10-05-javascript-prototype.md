@@ -15,34 +15,38 @@ tags: JavaScript 原型
 那么请先记住一句话 「Everything is an Object」.
 
 
-###原型和prototype
+###原型和原型链
 
-这让我们想起了JAVA中的同样道理的一句话，『Object是所有类的父类』。在JavaScript中，Object.prototype就是所有对象的原型。事实上，JavaScript中的每一个对象都有唯一一个原型，Object的原型就是Object.prototype. 那么是不是我们就可以通过下面的代码访问一个对象或者实例的原型：
+类似JavaScript这样基于原型继承的语言,有个特点是每个object都会有自己的一个神秘『引用』,当自己找不到一些属性的时候,就会通过这个『引用』去寻找。而这个『引用』指向的也是一个object，因此这个object也有自己的『引用』，就形成了一个『递归』。
+
+好，上面说的『引用』就是**原型**，这个『递归』形成了**原型链**。
+
+JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_proto\_\_这个神奇的属性让开发者可以访问到object的原型。注意\_\_proto\_\_是不符合ECMA标准的，因此不要使用他。但是我们可以通过\_\_proto\_\_来了解JavaScript的原型机制。
+
+
+###prototype和\_\_proto\_\_
+
+关于这两个概念，明确以下几个关键点就可以掌握
+
+1. prototype是只属于function的，而\_\_proto\_\_属于所有object的.
+2. \_\_proto\_\_是真正的原型
+3. function的prototype属性表示该function所创建的对象的原型。
+
+
+例如下面的代码
 
     function Foo(){}
     var foo = new Foo()
+
     console.log(Foo.prototype) // {}  means object
-    console.log(foo.prototype) //undefined
-    
-尝试上面代码就会发现，我们可以打印得到Foo.prototype是一个{},而foo.prototype却是**undefined**.不是说所有对象都有原型吗？通过foo.prototype无法访问其原型并不代表它没有。实际上，prototype这个变量是针对**类型**的，而对实例是隐藏的。上面的例子中Foo是一个类型，而foo是一个实例化的对象。（对象要实例化后才是一个实例对象）.
+    console.log(foo.prototype) // undifined
+    console.log(Foo.__proto__) // Function.prototype
+    console.log(foo.__proto__) // Foo.prototype
 
-###原型链和\_\_proto\_\_
-
-如果我们要访问一个实例的原型，可以使用\_\_proto\_\_变量，\_\_proto\_\_是针对所有对象的，无论是一个函数还是object或者一个具体的实例，都可以访问。修改刚才的代码：
-
-    function Foo(){}
-    var foo = new Foo()
-    console.log(Foo.prototype) // {}  means object
-    console.log(foo.__proto__) //{}
-    
-这样可以看到，找到foo的原型了,其实当foo被创建的时候，会有这样的操作：
+第一和第二条log演示了关键点1，第三条说明了演示了关键点2，最后一条演示了关键点3。当foo被创建的时候，会有这样的操作：
     
     foo.__proto__ = Foo.prototype
-那么下面代码表示什么：
 
-    console.log(foo.__proto__.__proto__)
-
-可以看到这是在访问foo的原型的原型,这样就形成了一条**原型链**,所以可以通过一个对象的原型链不断的去寻找更上一层的原型，在语言中的意义类似作用域链，如果foo中引用了一个变量，而在foo中没有，解释器就会沿着原型链去寻找，直到找到为止。
 
 ###图谱
 
@@ -87,7 +91,7 @@ tags: JavaScript 原型
 	console.log(Function.constructor) //Function
 	console.log(Function.__proto__) //Function
 	
-有趣的现象是，Foo.\_\_proto\_\_和foo\_\_proto\_\_并不一致。正如前面已经提到过，当被foo被创建的时候，foo的原型链指向了Foo.prototype了。
+有趣的现象是，Foo.\_\_proto\_\_和foo\_\_proto\_\_并不一致。正如前面已经提到过，当被foo被创建的时候，foo的原型链指向了Foo.prototype了，而Foo其实是被Function创建的。
 
 ###原型链和变量查找
 
@@ -134,6 +138,7 @@ tags: JavaScript 原型
 
 #####参考资料
 
++ [Quora:What is the difference between "__proto__" and "prototype"?](http://www.quora.com/JavaScript-programming-language/What-is-the-difference-between-__proto__-and-prototype)
 + [http://www.mollypages.org/misc/js.mp](http://www.mollypages.org/misc/js.mp)
 + [http://www.laruence.com/2010/05/13/1462.html](http://www.laruence.com/2010/05/13/1462.html)
-+ [http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
++ [http://www.ruanyifeng.com](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
