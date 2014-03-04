@@ -1,39 +1,51 @@
 ---
 layout: default
-title: Leeon's Blog|迎着阳光
+title: 私研
 ---
 
-<div class="row">
-    <div class="col-md-12 home-banner">
-        
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-5 post-box">
-        <div class="row">
-            <div class="col-md-12">
-            <a href="/categories/"><img src="lib/img/post.jpg" alt=""></a>
-            <div class="meta long" style="opacity: 1;">
-                <h3>文字</h3>
-                <p class="description">平時寫過的技術文章和生活隨筆...</p>
-            </div>                
-            </div>
-        </div>
+{% for post in paginator.posts %}
+  {% if post.categories[0] == "post" %}
+  <article>
+    <section class="post-title post-list-title">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    </section>
+    <section class="post-body">
+      <span class="post-avatar">
+         <img src="/assets/images/people/{{ post.author }}.jpg">
+      </span>
+      <span class="post-meta">
+         <span class="author"><a href="/people/{{ post.author }}.html">{{ post.author }}</a></span>
+         <span>{{ post.date | date_to_string }}</span>
+      </span>
+      <div class="post-content">
+        {{ post.content  | | split:'<!-- break -->' | first }}
+        <br>
+        <p>阅读全文 full post ==><a rel="nofollow" href="{{ post.url }}">http://octsky.com{{ post.url }}</a></p>
+       </div>
+     </section>
+  </article>
+  {% endif %}
+{% endfor %}
 
-        <div class="row">
-            <div class="col-md-12">
-                <a href=""><img id="yoiware" src="lib/img/yoiware-big.jpg" alt=""></a>
-            </div>
-        </div>
 
-    </div>
-    <div class="col-md-5 post-box">
-        <a target=_blank href="http://www.flickr.com/photos/octobershiner"><img src="lib/img/photo.jpg" alt=""></a>
-        <div class="meta long" style="opacity: 1;">
-            <h3>攝影</h3>
-            <p class="description">照片可以記錄時間...</p>
-        </div>  
-    </div>
-    <div class="col-md-1"></div>
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1%}
+     <a href="/" title="Previous Page">前页</a>
+    {% else %}
+     <a href="/page{{ paginator.previous_page }}" class="previous">前页</a>
+     {% endif %}
+  {% else %}
+    <span class="previous"></span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="next">后页</a>
+  {% else %}
+    <span class="next "></span>
+  {% endif %}
 </div>
+
+
+
+

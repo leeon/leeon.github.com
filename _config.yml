@@ -1,19 +1,11 @@
+name: 私研
+markdown: rdiscount
+pygments: true
 
-auto:	          true
+auto: true
+permalink: /:categories/:title
 
-markdown:         rdiscount
-pygments:         true
-paginate:         1
-permalink:        /:categories/:year/:month/:day/:title/
+paginate: 20
+paginate_path: "page:num"
 
-title:            "Li Yang"
-url:              http://octsky.com
-feed:             /feed.xml
-author:
-    name:         leeon
-    twitter:      twitter.com/realliyang
-    key:          octobershiner
-description:      ""
-copyright:        "CopryRight Yoiware 2014 by GitHub and Jekyll"
-headdesc:         "Liyang Personal Page"
-headkeys:         "李阳,思考,读书,计算机,经济,摄影,音乐,写作"
+url: octsky.com

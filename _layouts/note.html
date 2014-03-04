@@ -1,88 +1,46 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<!-- <html> -->
-<head>
-  <title>{{ page.title }}</title>
-  {% include header.html %}
-  <script type="text/javascript">
-        var BYB = {};
-  </script>
-  <script type="text/javascript">
-    BYB.includeScript = function(file,callback){
-    var _doc = document.getElementsByTagName('head')[0];
-    var js = document.createElement('script');
-    js.setAttribute('type', 'text/javascript');
-    js.setAttribute('src', file);
-    _doc.appendChild(js);
-    
-    if (!/*@cc_on!@*/0) { //if not IE
-    //Firefox2、Firefox3、Safari3.1+、Opera9.6+ support js.onload
-    js.onload = function () {
-    callback();
-    }
-    } else {
-    //IE6、IE7 support js.onreadystatechange
-    js.onreadystatechange = function () {
-    if (js.readyState == 'loaded' || js.readyState == 'complete') {
-    callback();
-    }
-    }
-    }
-    return false;
-    }
-  </script>
-  <meta content="{{ page.description }}" name="description"/>
-  <meta content="{% for tag in page.tags %}{{ tag }},{% endfor %}" name="keywords"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
-  <meta property="og:title" content="{{ page.title }}" />
-  <meta property="og:description" content="{{ page.description }}" />
-</head>
-<body>
-{% include banner.html %}
-<div class="container">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}|{{ site.name}}</title>
+        <meta name="viewport" content="width=device-width">
 
-  <div class="row main">
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-    <!-- The left part -->
-    <div class="col-md-9">    
-        <!-- 标签行 -->
-        <div id="breadcrumbs">
-          <ol>
-            <li><a href="#">{{ page.tagline }}</a></li>
-            <li class="current">—更新{{page.update}}―</li>
-          </ol>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          {% include header.html %}
+
+          <div class="container">
+            <article>
+                <section class="post-title">
+                    <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+                </section>
+                <section class="post-body">
+                    <span class="post-avatar">
+                        <img src="/assets/images/people/{{ page.author }}.jpg">
+                    </span>
+                    <span class="post-meta">
+                         <span class="author"><a href="/people/{{ page.author }}.html">{{ page.author }}</a></span>
+                         <span>{{ page.date | date_to_string }}</span>
+                    </span>
+                    <div class="post-content">
+                         {{ content }}
+                    </div>
+                    
+                </section>
+            </article>
+
+          
+          </div>
+          {% include footer.html %}
         </div>
-        
-        <!-- some -->
-        <div class="asset-header">
-           <div class="asset-meta"></div>
-        </div>
-    
-        <div class="title"><a href="{{ page.url }}">{{ page.title }}</a></div>
-        <div class="content">
-          {{ content }}
-        </div>
-
-    </div>
-
-    <!-- The right part -->
-    <div class="col-md-3">
-      <!-- 暂时留空 -->
-    </div>
-
-  </div><!--end row-->
-
-    
-  <!--google image avatar-->
-  <a href="https://plus.google.com/u/0/116611495107032888078/?rel=author"></a>
-
-  <!--share box-->
-  <!-- <a href="http://www.jiathis.com/share/" class="blog-top affix jiathis">Like</a>  -->
-  <script type="text/javascript" src="http://v1.jiathis.com/code/jia.js" charset="utf-8"></script>
-  {% include footer.html %}
-
-</div>
-
-</body>
+    </body>
 </html>

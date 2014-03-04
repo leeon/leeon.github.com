@@ -1,0 +1,35 @@
+---
+layout: default
+title: Pape
+---
+
+
+{% for post in site.categories.page %}
+  <article class="page-item">
+    <section class="post-title post-list-title">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+   </section>
+   <section class="post-body">
+    <span class="post-avatar">
+       <img src="/assets/images/people/{{ post.author }}.jpg">
+     </span>
+     <span class="post-meta">
+       <span class="author"><a href="/people/{{ post.author }}.html">发起人:{{ post.author }}</a></span>
+       <span class="label">开始时间</span>{{ post.start }}
+       <span class="label">结束时间</span>{{ post.end }}
+       <span class="label">地点</span>{{ post.place }}
+
+    </span>
+    <div class="post-content">
+         {{ post.content  | | split:'<!-- break -->' | first }}
+         <br>
+      <p>页面详情 full page ==><a rel="nofollow" href="{{ post.url }}">http://octsky.com{{ post.url }}</a></p>
+      <div class="divider"> </div>
+    </div>
+
+     </section>
+  </article>     
+{% endfor %}
+
+
+
