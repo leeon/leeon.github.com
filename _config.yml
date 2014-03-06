@@ -5,7 +5,7 @@ pygments: true
 auto: true
 permalink: /:categories/:title
 
-paginate: 20
+paginate: 30
 paginate_path: "page:num"
 
 url: octsky.com

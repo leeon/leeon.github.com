@@ -19,8 +19,7 @@ title: 私研
       </span>
       <div class="post-content">
         {{ post.content  | | split:'<!-- break -->' | first }}
-        <br>
-        <p>阅读全文 full post ==><a rel="nofollow" href="{{ post.url }}">http://octsky.com{{ post.url }}</a></p>
+        阅读全文 full post ==><a rel="nofollow" href="{{ post.url }}">http://octsky.com{{ post.url }}</a>
        </div>
      </section>
   </article>
