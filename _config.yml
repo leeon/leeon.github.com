@@ -9,3 +9,4 @@ paginate: 30
 paginate_path: "page:num"
 
 url: octsky.com
+cdn: http://octsky.qiniudn.com
