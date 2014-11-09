@@ -1,0 +1,46 @@
+# Build settings
+markdown: kramdown
+highlighter: pygments
+
+# Site settings
+title: "Zephyrus"
+description: null
+email: atleeon@gmail.com
+
+#blog logo
+logo: "http://cdn4atleeon.qiniudn.com/image/site/logo.jpg"
+# blog cover
+cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
+
+name: 'Leeon'
+author: 'Leeon'
+author_image: "http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg"
+
+paginate:	5
+
+url: "http://atleeon.com" # the base hostname & protocol for your site
+baseurl: ""
+
+# social icons and sharing options
+social:
+  - icon:	twitter
+    url:	https://twitter.com/atleeon
+    desc: Follow me on twitter
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+
+
+  - icon:	github
+    url:	https://github.com/leeon
+    desc:	Fork me on github
+    share_url:
+    share_title:
+    share_link:
+
+#  - icon:	google-plus
+#    url:	https://google.com/???
+#    desc:	Add me on google+
+#    share_url:
+#    share_title:
+#    share_link:

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>JavaScript中的原型和原型链</title>
+  <meta name="description" content="" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="canonical" href="http://atleeon.com/code/2013/10/05/javascript-prototype.html">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+<!--  <link rel="stylesheet" href=""> -->
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="/assets/js/index.js"></script>
+  <script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+<!-- 
+<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/logo.jpg)"></span></a>
+ -->
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">JavaScript中的原型和原型链</h1>
+          </div>
+        </div>
+        <br>
+        <!-- 无封面时不显示正文 -->
+        
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          <blockquote>
+  <p>假设读者已经掌握基本的JavaScript语言基础和面向对象知识</p>
+</blockquote>
+
+<p>受了太多<a href="http://en.wikipedia.org/wiki/Object-oriented_programming">OO</a>思想的影响,提到一种编程语言，就容易想到它有类吗？他支持继承吗？</p>
+
+<!-- break -->
+<p>在JavaScript语言中，上面的答案是『没有类，但是支持继承』。JavaScript的设计中是没有<strong>class</strong>的概念的，其实<strong>继承</strong>也是后来随着面向对象的大趋势发展而引入的。没有类如何实现继承？所以JavaScript引入了<strong>原型</strong>的概念。</p>
+
+<p>那么请先记住一句话 「Everything is an Object」.</p>
+
+<h3 id="section">原型和原型链</h3>
+
+<p>类似JavaScript这样基于原型继承的语言,有个特点是每个object都会有自己的一个神秘『引用』,当自己找不到一些属性的时候,就会通过这个『引用』去寻找。而这个『引用』指向的也是一个object，因此这个object也有自己的『引用』，就形成了一个『递归』。</p>
+
+<p>好，上面说的『引用』就是<strong>原型</strong>，这个『递归』形成了<strong>原型链</strong>。</p>
+
+<p>JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了__proto__这个神奇的属性让开发者可以访问到object的原型。注意__proto__是不符合ECMA标准的，因此不要使用他。但是我们可以通过__proto__来了解JavaScript的原型机制。</p>
+
+<h3 id="prototypeproto">prototype和__proto__</h3>
+
+<p>关于这两个概念，明确以下几个关键点就可以掌握</p>
+
+<ol>
+  <li>prototype是只属于function的，而__proto__属于所有object的.</li>
+  <li>__proto__是真正的原型</li>
+  <li>function的prototype属性表示该function所创建的对象的原型。</li>
+</ol>
+
+<p>例如下面的代码</p>
+
+<pre><code>function Foo(){}
+var foo = new Foo()
+
+console.log(Foo.prototype) // {}  means object
+console.log(foo.prototype) // undifined
+console.log(Foo.__proto__) // Function.prototype
+console.log(foo.__proto__) // Foo.prototype
+</code></pre>
+
+<p>第一和第二条log演示了关键点1，第三条说明了演示了关键点2，最后一条演示了关键点3。当foo被创建的时候，会有这样的操作：</p>
+
+<pre><code>foo.__proto__ = Foo.prototype
+</code></pre>
+
+<h3 class="center" id="section-1">图谱</h3>
+<p><img src="http://www.mollypages.org/misc/jsobj.jpg" alt="" style="max-width:700px" /></p>
+
+<p class="center">神图</p>
+
+<p>这就是JavaScript中的原型链图谱，这张图也很好的解释了一直缠绕不清的「function」和「object」关系。可以看到中间背景为蓝色的部分标记了Function,你可能会诧异，Object怎么也是function了,我的理解是JavaScript把可以创建对象的对象都当做function对待，比如Foo和Object都可以创建对象实例：</p>
+
+<pre><code>var f = new Foo()
+var o = new Object()
+console.log(typeof Object) //Function
+</code></pre>
+
+<p>有了这样的理解接下来就比较好讲解了，如何读这张图：比如foo 经过__proto__到Foo.prototype的虚线表示foo.__proto__是Foo.prototype.</p>
+
+<blockquote>
+  <p>插入一个constructor的概念，任何对象或者函数也好，都是被创建的，既然被创建，那么就一定有自己的构造函数，constructor就是构造函数，</p>
+</blockquote>
+
+<p>解读这张图最好的方式就是用代码实际的实验</p>
+
+<pre><code>//code to explian js prototype chain
+//@author leeon
+//@run node test.js
+function Foo () {}
+Foo.prototype.info = "Foo.prototype"
+Object.prototype.info = "Object.prototype"
+Function.prototype.info ="Function.prototype"
+var f1 = new Foo()
+var o1 = new Object()
+</code></pre>
+
+<p>为了直观的看到结果，我们先设置好几个原型的信息。首先按照图中的线路进行验证：</p>
+
+<pre><code>//validate basic 
+console.log(f1.__proto__) //Foo.prototype
+console.log(Foo.prototype) //Foo.prototype
+console.log(Foo.constructor) //Function
+console.log(Foo.__proto__) //Function.prototype
+console.log('---------')
+console.log(o1.__proto__)  //Object.prototype
+console.log(Object.prototype) //Object.prototype
+console.log(Object.constructor) //Fucntion
+console.log(Object.__proto__) //Function
+console.log('---------')
+console.log(Function.prototype)  //Function.prototype
+console.log(Function.constructor) //Function
+console.log(Function.__proto__) //Function
+</code></pre>
+
+<p>有趣的现象是，Foo.__proto__和foo__proto__并不一致。正如前面已经提到过，当被foo被创建的时候，foo的原型链指向了Foo.prototype了，而Foo其实是被Function创建的。</p>
+
+<h3 id="section-2">原型链和变量查找</h3>
+
+<p>看下面的例子会有怎样的结果：</p>
+
+<pre><code> function Foo(){}
+ var foo = new Foo()
+ Foo.prototype.info = "123"
+ console.log(foo.info)
+ console.log(Foo.info) 结果很意外，Foo.info竟然是undefined。其实，仔细思考就会发现，肯定是undefined，前面提到过解释器搜索变量，是根据原型链进行的，而观察图中的Foo的原型链中却没有Foo.prototype.对于这样的设计我自己的理解是JavaScript还是区分了类型和实例的概念，Foo是一个类型或者函数，而foo是一个实例。如果直接按照下面访问就可以获得info:
+
+console.log(Foo.prototype.info)
+</code></pre>
+
+<h3 id="section-3">继续探索</h3>
+<p>接下来看看图中没有的曲线是什么效果，前面已经提到过，所以很容易猜到，f1.prototype是undefined了。那么他的构造函数有没有呢？</p>
+
+<pre><code>//if a instance of function has prototype or constructor
+console.log(f1.prototype) //undefined
+console.log(f1.constructor) //Foo
+
+//if a instance of object has prototype or constructor
+console.log(o1.prototype)
+console.log(o1.constructor)
+</code></pre>
+
+<p>答案是Foo,没错，一切的对象都有来源的，这个来源就是constructor了，就连Foo作为一个类型本身都是来自Function创建的的，正如他的__proto__指向了Function.prototype。</p>
+
+<p>下面的代码告诉你了原型链的尽头是神马，图中也有：</p>
+
+<pre><code>//see a chain 
+console.log(Foo.__proto__.__proto__.__proto__) //null
+</code></pre>
+
+<h3 id="section-4">结束</h3>
+
+<p>最后让我们以JavaScript中经典的『鸡蛋问题』结尾吧:</p>
+
+<pre><code>console.log(Function instanceof Object)  //TRUE
+console.log(Object instanceof Function)  //TRUE
+</code></pre>
+
+<blockquote>
+  <p>提示：instanceof判断A是不是属于类型B，要看B在不在他的原型链中，Object.prototypes是一个object,Function.prototype是一个function.看图说话。</p>
+</blockquote>
+
+<h5 id="section-5">参考资料</h5>
+
+<ul>
+  <li><a href="http://www.quora.com/JavaScript-programming-language/What-is-the-difference-between-__proto__-and-prototype">Quora:What is the difference between “<strong>proto</strong>” and “prototype”?</a></li>
+  <li><a href="http://www.mollypages.org/misc/js.mp">http://www.mollypages.org/misc/js.mp</a></li>
+  <li><a href="http://www.laruence.com/2010/05/13/1462.html">http://www.laruence.com/2010/05/13/1462.html</a></li>
+  <li><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html">http://www.ruanyifeng.com</a></li>
+</ul>
+
+<p>以上。</p>
+
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            
+              
+                <a class="icon-twitter" href="http://twitter.com/share?text=JavaScript%E4%B8%AD%E7%9A%84%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE&amp;url=http://atleeon.com/code/2013/10/05/javascript-prototype"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+                <i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+                </a>
+              
+            
+              
+            
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <h5 class="index-headline featured"><span>戳</span></h5>
+            <section class="author">
+              <div class="author-image" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg)">Blog Logo</div>
+              <h4>Leeon</h4>
+              <p class="bio"></p>
+              <hr>
+              <p class="published">写于 
+                <time datetime="2013-10-05 00:00">
+                    2013 年 10 月 05 日
+                </time>
+              </p>
+            </section>
+          </div>
+          
+          <div class="isRight">
+            <h5 class="index-headline featured"><span> 乱步 </span></h5>
+            <footer class="site-footer">
+              
+              <p class="published" style="text-align: center;">
+                  <a href="/code/2013/04/08/subl-sourceinsight-replacement.html" class="pre"> 『 Mac上用Sublime Text2取代Source Insight查看源码 』</a>
+              </p>
+              
+              <hr>
+              
+              <p class="published" style="text-align: center;">
+                <a href="/code/2013/10/17/js-array.html" class="next"> 『 Javascript中多变的Array 』</a>
+              </p>
+              
+
+              <!-- <a class="subscribe" href="/feed.xml"> <span class="tooltip">  -->
+              </div>
+            </footer>
+          </div>
+        </div>
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image"  style="background-image: url(/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg)">
+        Image
+      </div>
+      <div class="inner">
+        <h1 class="blog-title">Zephyrus</h1>
+        <h2 class="blog-description"></h2>
+        <a href="/" class="btn">去 首页</a>
+      </div>
+    </div>
+  </body>
+</html>

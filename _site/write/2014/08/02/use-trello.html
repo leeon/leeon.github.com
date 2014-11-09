@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>使用Trello进行任务管理</title>
+  <meta name="description" content="" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="canonical" href="http://atleeon.com/write/2014/08/02/use-trello.html">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+<!--  <link rel="stylesheet" href=""> -->
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="/assets/js/index.js"></script>
+  <script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+<!-- 
+<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/logo.jpg)"></span></a>
+ -->
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">使用Trello进行任务管理</h1>
+          </div>
+        </div>
+        <br>
+        <!-- 无封面时不显示正文 -->
+        
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          <h1 id="section">任务管理</h1>
+<p>在 Apple Store 里面搜索关键字 『todo』可以得到大约有上千个应用，它们或重或轻，虽说“总有一款适合你”，但是找到一个完全适合自身的仍然很困难。这很正常，毕竟每个人的生活习惯、工作方式都不相同。</p>
+
+<h3 id="section-1">个人</h3>
+<p>一般我们描述个人的时间管理主要有四个要素 who does what when and where (with whom)。围绕这四个要素的时间管理方式很多，比如 GTD (Get things done)：首先收集 你要做的各种事情，统一放到自己的Inbox里面；处理这些事情，<em>两分钟以内可以完成的事情</em>立刻去解决，其他的任务进行整理分类；组织代办的任务，也就是将任务组合或者分类，建立任务之间的依赖；定期回顾自己的任务列表。当然最重要的就是最后的执行了。</p>
+
+<p>上面简短描述了个人时间管理以及GTD的工作流。其实具体步骤并不重要，关键在于找到一种方式来：</p>
+
+<blockquote>
+  <p>有效的组织自己的任务，并且保证执行。</p>
+</blockquote>
+
+<p>一般做时间管理，都会选择一款甚至多款GTD类应用，我曾用过的GTD类工具最包括最早从Google calendar到之后的Evernote,Wunderlist,Focus等。当然还有很多非常流行的todo类工具包括Any.do Clear等。我的建议是尽量少的依赖个人todo工具。</p>
+
+<h3 id="section-2">团队</h3>
+<p>做项目其实就是多人的时间管理，大家组成了团队。项目管理 ( 本文限定在软件工程领域 ) 比时间管理的范畴更大。这个领域中最著名的软件莫过于Microsoft Project. 它的功能覆盖了时间管理，资源管理，风险管理诸多方面，但是对于现在大多数团队特别是学生或初创团队来讲太“重”了。原因主要有两个：</p>
+
+<ul>
+  <li>学习成本高，属于专业软件，需要学习很多新概念</li>
+  <li>更适合瀑布模型开发传统软件，不适合容易变更任务的互联网产品项目</li>
+</ul>
+
+<p>本文介绍的团队协作工具叫做<a href="https://trello.com/leeon/recommend">Trello</a>，它的原型就是敏捷开发常用到的白板。所以Trello用起来很接近现实，浅显易懂。</p>
+
+<p class="center"><img src="http://img.chinawin.net/it/433/81005/2.jpg" alt="敏捷开发白板" style="max-width:400px" /></p>
+
+<p class="center">敏捷开发常用到的白板</p>
+
+<hr />
+
+<h1 id="trello">认识Trello</h1>
+<p>Trello中有几个基础的概念，理解了也就会使用Trello进行简单的任务管理了。</p>
+
+<h4 id="member">Member</h4>
+<p>一个自然人，项目中的每一个成员都是member</p>
+
+<h4 id="organization">Organization</h4>
+<p>团队，可以包含一个或多个Member，用来分组</p>
+
+<h4 id="board">Board</h4>
+<p>项目白板，就像上面图中的白板一样，这个白板可以分配权限，比如可以把一块board读写权限分配给一个organization，这个组里的成员就都可以阅读和编辑这块白板。在白板里面可以创建不同的List。</p>
+
+<h4 id="list">List</h4>
+<p>任务清单，可以用于任务分类，比如按时间分类，或按照工作性质分类，看具体的需求。前面提到的GTD中的组织其实就是体现在这里。</p>
+
+<h4 id="card">Card</h4>
+<p>具体的任务卡片，就像上面图片中的纸条，写着具体时间地点参与者和具体事项</p>
+
+<hr />
+
+<h1 id="section-3">动手实践</h1>
+
+<p>下面的Slide里面对Trello的基本使用做了介绍，包含了基本的board，list和card的用法。</p>
+
+<script async="" class="speakerdeck-embed" data-id="86b96360fd0101313e764e83437af169" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<h1 id="section-4">我的偏好</h1>
+<p>根据自己的习惯，在使用Trello的时候，自己制定了一些规则，当然具体的使用方式还是要看实际的使用场景。原则上，我不会在Trello上记录琐碎的事情，比如吃饭，买东西之类的，这些零碎的东西会记录在之前提到的qq日历或印象笔记中。</p>
+
+<h3 id="section-5">创建分组，为工作分类</h3>
+<p>我的Trello上有三个Organization，分别是公司，自己的团队，以及个人（可以为自己的个人相关的项目创建一个organization，方便对board进行分类管理）,每个organization下面都有多个Board。我的习惯是任何一个计划性的事情都要创建一个Board。</p>
+
+<p>何为计划性的事情呢？比如要学习一门语言，或者健身学习手绘之类的，这些事情不是一天两天就完成的，需要自己制定好计划有组织的去执行。</p>
+
+<h3 id="section-6">标签分类保持一致</h3>
+<p>Trello里面的label非常有用，你可以用它来标明一个事情的优先级，也可以利用标签过滤，迅速的找到某个优先级的任务，因为每个项目的标签都可以分别定义，所以不容易管理。我的习惯是让所有项目的标签含义保持一致，比如绿色表示做完的，红色表示非常重要，蓝色表示正在做的，黄色表示警告等。</p>
+
+<h3 id="memberlabeldue-date">为每一个任务分配member,label,due-date</h3>
+<p>如果一个任务没有指派member，很容易就被忽视了。指派后的任务，发生变更或者评论，任务成员都会收到通知。label可以用来直观的看到哪些任务是完成的，哪些任务是正在做的。日期的作用有两个：一是提醒，二是可以在个人卡片页面看到所有任务的排期，更方便管理自己的时间分配。</p>
+
+<h3 id="review-list">创建Review List</h3>
+<p>大多事情都需要做好review，时常回顾重要的任务，分析feedback，是一个内化的过程。对重要的事情，我一般会多次的review，因此创建一个Review List，将一些完成的任务拖拽到里面，邀请一起review的member.</p>
+
+<blockquote>
+  <p>保持大脑清醒，保持自律，工具只是辅助。</p>
+</blockquote>
+
+
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            
+              
+                <a class="icon-twitter" href="http://twitter.com/share?text=%E4%BD%BF%E7%94%A8Trello%E8%BF%9B%E8%A1%8C%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86&amp;url=http://atleeon.com/write/2014/08/02/use-trello"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+                <i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+                </a>
+              
+            
+              
+            
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <h5 class="index-headline featured"><span>戳</span></h5>
+            <section class="author">
+              <div class="author-image" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg)">Blog Logo</div>
+              <h4>Leeon</h4>
+              <p class="bio"></p>
+              <hr>
+              <p class="published">写于 
+                <time datetime="2014-08-02 00:00">
+                    2014 年 08 月 02 日
+                </time>
+              </p>
+            </section>
+          </div>
+          
+          <div class="isRight">
+            <h5 class="index-headline featured"><span> 乱步 </span></h5>
+            <footer class="site-footer">
+              
+              <p class="published" style="text-align: center;">
+                  <a href="/write/2014/07/07/make-a-uniqlo-box.html" class="pre"> 『 制作一个日系废纸筒 』</a>
+              </p>
+              
+              <hr>
+              
+
+              <!-- <a class="subscribe" href="/feed.xml"> <span class="tooltip">  -->
+              </div>
+            </footer>
+          </div>
+        </div>
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image"  style="background-image: url(/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg)">
+        Image
+      </div>
+      <div class="inner">
+        <h1 class="blog-title">Zephyrus</h1>
+        <h2 class="blog-description"></h2>
+        <a href="/" class="btn">去 首页</a>
+      </div>
+    </div>
+  </body>
+</html>

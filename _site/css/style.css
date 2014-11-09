@@ -1,0 +1,13 @@
+.post .post-content img.center {
+  font-size: 15px;
+  font-style: italic;
+  color: #bdc3c7;
+  text-align: center;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+
+.post .post-content p.center{
+    text-align: center;
+}

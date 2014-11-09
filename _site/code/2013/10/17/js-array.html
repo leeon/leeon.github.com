@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Javascript中多变的Array</title>
+  <meta name="description" content="" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="canonical" href="http://atleeon.com/code/2013/10/17/js-array.html">
+
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+<!--  <link rel="stylesheet" href=""> -->
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="/assets/js/index.js"></script>
+  <script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+<!-- 
+<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/logo.jpg)"></span></a>
+ -->
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">Javascript中多变的Array</h1>
+          </div>
+        </div>
+        <br>
+        <!-- 无封面时不显示正文 -->
+        
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          <h1 id="question">Question</h1>
+
+<p>本着<strong>良好</strong>的编程习惯，定义了一个数组：</p>
+
+<pre><code>var mArray = new Array(2);
+</code></pre>
+
+<p>然后用array的push操作，打印数组就发现了问题：</p>
+
+<pre><code>mArray.push(1);
+mArray.push(2);
+console.log(mArray.length) //4
+console.log(mArray) //[,,1,2]
+</code></pre>
+
+<p>原来贵语言如此的让人难以捉摸，一会再分析原因。首先说JavaScript中数组的几个特性：</p>
+
+<h1 id="section">多类型</h1>
+
+<p>JavaScript的数组支持多种数据类型混合，十分和谐，比如：</p>
+
+<pre><code>var mutiArray = [1,2,"go"];
+</code></pre>
+
+<h1 id="section-1">动态扩容</h1>
+
+<p>所以初始化容量在JavaScript中是可选的</p>
+
+<pre><code>var incArray = [];
+incArray[3] = 3;
+console.log(incArray.length) //4
+</code></pre>
+
+<h1 id="stack--queue-">Stack &amp; Queue ..</h1>
+
+<p>数组提供了丰富的方法，完全可以用数组来实现数据结构中常用的栈和队列。</p>
+
+<pre><code>var stack = new Array();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.pop();
+console.log(stack);//[1,2]
+
+var queue = new Array();
+queue.push(1);
+queue.push(2);
+queue.shift();
+console.log(queue);//[2]
+</code></pre>
+
+<p>当然这篇文章不是API，还有一些很实用的方法没有介绍到，比如<code>slice</code>,<code>join</code>等。</p>
+
+<h1 id="length">神奇的length</h1>
+<p>我们知道一般语言中的数组都有一个length属性，要么是通过array.length获得，要么是len(array),但是有一点是相同的，就是这个<code>length</code>是只读的。JavaScript这的<code>Array.length</code>偏偏就不是只读的，它还是可以修改的。。</p>
+
+<p>比如将一个数组裁剪，控制为长度为20,就可以通过直接修改其length属性来实现，很凶残，当然也可以用同样语句对一个数组扩容。</p>
+
+<pre><code>if(someLongArray.length &gt; 20){
+    someLongArray.length = 29;
+}
+</code></pre>
+
+<p>同样在进行栈的相关操作的时候，length也在不断的变化，当调用<code>push</code>的时候，length就+1，调用<code>pop</code>的时候，length就-1.</p>
+
+<h1 id="solution">Solution</h1>
+
+<p>所以前面的问题就知道原因了</p>
+
+<pre><code>var mArray = new Array(2);
+</code></pre>
+
+<p>初始化了数组，length是2，然后每一次调用push长度都加一了。数组中前两个元素实际上是<code>undefined</code></p>
+
+<p><strong>所以得到一个教训，若要使用JavaScript数组的Stack特性，就约束开发只使用相关的栈操作；同理适用于队列，也适用于只使用数组基本功能的情况。</strong></p>
+
+
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            
+              
+                <a class="icon-twitter" href="http://twitter.com/share?text=Javascript%E4%B8%AD%E5%A4%9A%E5%8F%98%E7%9A%84Array&amp;url=http://atleeon.com/code/2013/10/17/js-array"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+                <i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+                </a>
+              
+            
+              
+            
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <h5 class="index-headline featured"><span>戳</span></h5>
+            <section class="author">
+              <div class="author-image" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg)">Blog Logo</div>
+              <h4>Leeon</h4>
+              <p class="bio"></p>
+              <hr>
+              <p class="published">写于 
+                <time datetime="2013-10-17 00:00">
+                    2013 年 10 月 17 日
+                </time>
+              </p>
+            </section>
+          </div>
+          
+          <div class="isRight">
+            <h5 class="index-headline featured"><span> 乱步 </span></h5>
+            <footer class="site-footer">
+              
+              <p class="published" style="text-align: center;">
+                  <a href="/code/2013/10/05/javascript-prototype.html" class="pre"> 『 JavaScript中的原型和原型链 』</a>
+              </p>
+              
+              <hr>
+              
+              <p class="published" style="text-align: center;">
+                <a href="/code/2013/10/24/implementation-of-android-inputmethod.html" class="next"> 『 实现一个Android输入法 』</a>
+              </p>
+              
+
+              <!-- <a class="subscribe" href="/feed.xml"> <span class="tooltip">  -->
+              </div>
+            </footer>
+          </div>
+        </div>
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image"  style="background-image: url(/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg)">
+        Image
+      </div>
+      <div class="inner">
+        <h1 class="blog-title">Zephyrus</h1>
+        <h2 class="blog-description"></h2>
+        <a href="/" class="btn">去 首页</a>
+      </div>
+    </div>
+  </body>
+</html>
