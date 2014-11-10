@@ -17,10 +17,11 @@
 
   <link rel="canonical" href="http://atleeon.com/code/2014/03/14/trans-python-metaclass.html">
 
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="http://cdn4atleeon.qiniudn.com/image/site/favicon.ico">
 <!--  <link rel="stylesheet" href=""> -->
   <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
   <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
@@ -29,13 +30,13 @@
 
   <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
   <script type="text/javascript" src="/assets/js/index.js"></script>
-  <script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+  <!-- <script type="text/javascript" src="/assets/js/readingTime.min.js"></script> -->
 </head>
 
   <body itemscope itemtype="http://schema.org/Article">
     <!-- header start -->
 <!-- 
-<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/logo.jpg)"></span></a>
+<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg)"></span></a>
  -->
 <!-- header end -->
 
@@ -52,7 +53,7 @@
         
         <section class="post-content">
           <div class="post-reading">
-            <span class="post-reading-time"></span> read
+            <span class="post-reading-time"></span> atleeon.com
           </div>
           <a name="topofpage"></a>
           <p>翻译一篇来自StackOverflow的回答，原问题地址<a href="http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python">What is a metaclass in Python</a>. 投票最高的答案非常完整描述了Python Metaclass机制。说起元类，大致可以才想到其作用，关于类的类。<strong>元</strong>或者<strong>meta</strong>常用来表示关于一个事物本身的属性。比如一份学生名单，这份数据的格式doc, 字数1000字，这就是这份数据的元数据，而文本描述的学生信息就是具体的数据本身，元数据描述了这份数据。你有可能听说过元编程,道理也是一样，编写去生产代码的程序。那么元类呢？</p>
@@ -494,6 +495,13 @@ print(guy.age)
             
               
             
+              
+                <a class="icon-weibo" href="http://service.weibo.com/share/share.php?title=Python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB&amp;url=http://atleeon.com/code/2014/03/14/trans-python-metaclass"
+                  onclick="window.open(this.href, 'weibo-share', 'width=550,height=255');return false;">
+                <i class="fa fa-weibo"></i><span class="hidden">weibo</span>
+                </a>
+              
+            
           </section>
         </footer>
         <div class="bottom-teaser cf">
@@ -517,13 +525,19 @@ print(guy.age)
             <footer class="site-footer">
               
               <p class="published" style="text-align: center;">
-                  <a href="/code/2014/03/06/javascript-scoping-hoisting.html" class="pre"> 『 JavaScript Scoping and Hoisting 』</a>
+                  <a href="/code/2014/03/06/javascript-scoping-hoisting.html" class="pre">
+                    <i class="fa fa-caret-left"></i>
+                    JavaScript Scoping and Hoisting 
+                  </a>
               </p>
               
-              <hr>
+
               
               <p class="published" style="text-align: center;">
-                <a href="/write/2014/05/13/listen-to-wind.html" class="next"> 『 且听风吟 』</a>
+                <a href="/write/2014/05/13/listen-to-wind.html" class="next"> 
+                  且听风吟 
+                  <i class="fa fa-caret-right"></i>
+                </a>
               </p>
               
 
@@ -541,7 +555,7 @@ print(guy.age)
       <div class="inner">
         <h1 class="blog-title">Zephyrus</h1>
         <h2 class="blog-description"></h2>
-        <a href="/" class="btn">去 首页</a>
+        <a href="/" class="btn">首 页</a>
       </div>
     </div>
   </body>

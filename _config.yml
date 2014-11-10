@@ -8,7 +8,7 @@ description: null
 email: atleeon@gmail.com
 
 #blog logo
-logo: "http://cdn4atleeon.qiniudn.com/image/site/logo.jpg"
+logo: "http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg"
 # blog cover
 cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
 
@@ -37,6 +37,14 @@ social:
     share_url:
     share_title:
     share_link:
+
+  - icon:  weibo
+    url:    https://weibo.com/843168299
+    desc:   Follow me on weibo
+    share_url: http://service.weibo.com/share/share.php
+    share_title: ?title=
+    share_link: "&amp;url="
+
 
 #  - icon:	google-plus
 #    url:	https://google.com/???

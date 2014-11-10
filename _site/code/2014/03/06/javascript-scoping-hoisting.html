@@ -17,10 +17,11 @@
 
   <link rel="canonical" href="http://atleeon.com/code/2014/03/06/javascript-scoping-hoisting.html">
 
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="http://cdn4atleeon.qiniudn.com/image/site/favicon.ico">
 <!--  <link rel="stylesheet" href=""> -->
   <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
   <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
@@ -29,13 +30,13 @@
 
   <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
   <script type="text/javascript" src="/assets/js/index.js"></script>
-  <script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+  <!-- <script type="text/javascript" src="/assets/js/readingTime.min.js"></script> -->
 </head>
 
   <body itemscope itemtype="http://schema.org/Article">
     <!-- header start -->
 <!-- 
-<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/logo.jpg)"></span></a>
+<a href="http://atleeon.com" class="logo-readium"><span class="logo" style="background-image: url(http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg)"></span></a>
  -->
 <!-- header end -->
 
@@ -52,7 +53,7 @@
         
         <section class="post-content">
           <div class="post-reading">
-            <span class="post-reading-time"></span> read
+            <span class="post-reading-time"></span> atleeon.com
           </div>
           <a name="topofpage"></a>
           <blockquote>
@@ -288,6 +289,13 @@ function foo(a, b, c) {
             
               
             
+              
+                <a class="icon-weibo" href="http://service.weibo.com/share/share.php?title=JavaScript+Scoping+and+Hoisting&amp;url=http://atleeon.com/code/2014/03/06/javascript-scoping-hoisting"
+                  onclick="window.open(this.href, 'weibo-share', 'width=550,height=255');return false;">
+                <i class="fa fa-weibo"></i><span class="hidden">weibo</span>
+                </a>
+              
+            
           </section>
         </footer>
         <div class="bottom-teaser cf">
@@ -311,13 +319,19 @@ function foo(a, b, c) {
             <footer class="site-footer">
               
               <p class="published" style="text-align: center;">
-                  <a href="/code/2014/03/01/javascript-event.html" class="pre"> 『 JavaScript 中的DOM事件 』</a>
+                  <a href="/code/2014/03/01/javascript-event.html" class="pre">
+                    <i class="fa fa-caret-left"></i>
+                    JavaScript 中的DOM事件 
+                  </a>
               </p>
               
-              <hr>
+
               
               <p class="published" style="text-align: center;">
-                <a href="/code/2014/03/14/trans-python-metaclass.html" class="next"> 『 Python中的元类 』</a>
+                <a href="/code/2014/03/14/trans-python-metaclass.html" class="next"> 
+                  Python中的元类 
+                  <i class="fa fa-caret-right"></i>
+                </a>
               </p>
               
 
@@ -335,7 +349,7 @@ function foo(a, b, c) {
       <div class="inner">
         <h1 class="blog-title">Zephyrus</h1>
         <h2 class="blog-description"></h2>
-        <a href="/" class="btn">去 首页</a>
+        <a href="/" class="btn">首 页</a>
       </div>
     </div>
   </body>

@@ -10,11 +10,11 @@
 
         $(".post-content").fitVids();
         
-        // Calculates Reading Time
-        $('.post-content').readingTime({
-            readingTimeTarget: '.post-reading-time',
-            wordCountTarget: '.post-word-count',
-        });
+        // // Calculates Reading Time
+        // $('.post-content').readingTime({
+        //     readingTimeTarget: '.post-reading-time',
+        //     wordCountTarget: '.post-word-count',
+        // });
         
         // Creates Captions from Alt tags
         $(".post-content img").each(function() {

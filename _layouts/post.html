@@ -76,7 +76,7 @@
         {% endif %}
         <section class="post-content">
           <div class="post-reading">
-            <span class="post-reading-time"></span> read
+            <span class="post-reading-time"></span> atleeon.com
           </div>
           <a name="topofpage"></a>
           {{content}}
@@ -114,13 +114,19 @@
             <footer class="site-footer">
               {% if page.previous %}
               <p class="published" style="text-align: center;">
-                  <a href="{{page.previous.url}}" class="pre"> 『 {{page.previous.title}} 』</a>
+                  <a href="{{page.previous.url}}" class="pre">
+                    <i class="fa fa-caret-left"></i>
+                    {{page.previous.title}} 
+                  </a>
               </p>
               {% endif %}
-              <hr>
+
               {% if page.next %}
               <p class="published" style="text-align: center;">
-                <a href="{{page.next.url}}" class="next"> 『 {{page.next.title}} 』</a>
+                <a href="{{page.next.url}}" class="next"> 
+                  {{page.next.title}} 
+                  <i class="fa fa-caret-right"></i>
+                </a>
               </p>
               {% endif %}
 
@@ -138,7 +144,7 @@
       <div class="inner">
         <h1 class="blog-title">{{ site.title }}</h1>
         <h2 class="blog-description">{{ site.description }}</h2>
-        <a href="/" class="btn">去 首页</a>
+        <a href="/" class="btn">首 页</a>
       </div>
     </div>
   </body>
