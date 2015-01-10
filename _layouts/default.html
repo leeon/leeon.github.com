@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
-
-  {% include head.html %}
-
-  <body>
-
+{% include head.html %}
+<body class="{% if site.animated %}animated fade-in-down{% endif %}">
+  <div class="site-wrap">
     {% include header.html %}
 
-    <!-- content start -->
-
-    <div class="page-content">
-      <div class="wrapper">
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
         {{ content }}
+	{% if page.no_duoshuo %}
+		<!-- we don't need duoshuo -->
+	{% else %}	
+	{% include duoshuo.html %}
+      	{%endif%}
       </div>
     </div>
+  </div>
 
-    <!-- content end -->
-
-    {% include footer.html %}
-
-  </body>
-
+  <!-- {% include footer.html %} -->
+</body>
 </html>

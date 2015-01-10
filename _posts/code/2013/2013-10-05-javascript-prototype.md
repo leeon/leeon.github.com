@@ -49,6 +49,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
 
 
 ###图谱
+
 {:.center}
 ![](http://www.mollypages.org/misc/jsobj.jpg){:style="max-width:700px"}
 
@@ -77,6 +78,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
 	var f1 = new Foo()
 	var o1 = new Object()
 	
+
 为了直观的看到结果，我们先设置好几个原型的信息。首先按照图中的线路进行验证：
 
     //validate basic 
@@ -94,6 +96,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
 	console.log(Function.constructor) //Function
 	console.log(Function.__proto__) //Function
 	
+
 有趣的现象是，Foo.\_\_proto\_\_和foo\_\_proto\_\_并不一致。正如前面已经提到过，当被foo被创建的时候，foo的原型链指向了Foo.prototype了，而Foo其实是被Function创建的。
 
 ###原型链和变量查找
@@ -105,6 +108,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
 	 Foo.prototype.info = "123"
 	 console.log(foo.info)
 	 console.log(Foo.info)
+
 结果很意外，Foo.info竟然是undefined。其实，仔细思考就会发现，肯定是undefined，前面提到过解释器搜索变量，是根据原型链进行的，而观察图中的Foo的原型链中却没有Foo.prototype.对于这样的设计我自己的理解是JavaScript还是区分了类型和实例的概念，Foo是一个类型或者函数，而foo是一个实例。如果直接按照下面访问就可以获得info:
 
     console.log(Foo.prototype.info)

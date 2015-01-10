@@ -1,54 +1,38 @@
-# Build settings
-markdown: kramdown
-highlighter: pygments
-
 # Site settings
-title: "Zephyrus"
-description: null
-email: atleeon@gmail.com
+title:       Zephyrus 
+email:       leeon@outlook.com 
+author:      Li Yang
+description: "Li Yang Personal site."
+baseurl:     ""
+url:         "http://atleeon.com"
 
-#blog logo
-logo: "http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg"
-# blog cover
-cover: "http://cdn4atleeon.qiniudn.com/image/site/Winterfell_Exterior.jpg"
+#Duoshuo short Name / 多说的shortname
+duoshuo: 
 
-name: 'Leeon'
-author: 'Leeon'
-author_image: "http://cdn4atleeon.qiniudn.com/image/site/author/leeon/leeon.jpg"
+#Baidu analytics / 百度统计(异步的js码，注意使用异步版本的)
+baidu_analyze: 
 
-paginate:	5
+# Google analytics
+google_analytics:
 
-url: "http://atleeon.com" # the base hostname & protocol for your site
-baseurl: ""
+# Optional features
+animated:           true
+show_related_posts: false
+show_post_footers:  true
 
-# social icons and sharing options
-social:
-  - icon:	twitter
-    url:	https://twitter.com/atleeon
-    desc: Follow me on twitter
-    share_url: http://twitter.com/share
-    share_title: ?text=
-    share_link: "&amp;url="
+# Social icons
+show_social_icons: false
+github_username: 
+twitter_username: 
+google_plus_id:
+linkedin_username:
+bitcoin_url:
+paypal_url:
+flattr_button:
 
-
-  - icon:	github
-    url:	https://github.com/leeon
-    desc:	Fork me on github
-    share_url:
-    share_title:
-    share_link:
-
-  - icon:  weibo
-    url:    http://weibo.com/843168299
-    desc:   Follow me on weibo
-    share_url: http://service.weibo.com/share/share.php
-    share_title: ?title=
-    share_link: "&amp;url="
-
-
-#  - icon:	google-plus
-#    url:	https://google.com/???
-#    desc:	Add me on google+
-#    share_url:
-#    share_title:
-#    share_link:
+# Build settings
+markdown:     kramdown
+permalink:    pretty
+paginate:     10
+sass:
+  compressed: true
