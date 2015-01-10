@@ -32,6 +32,3 @@ tags: 故事
 
 {:.center}
 Photo by searna
-
-
-以上。
