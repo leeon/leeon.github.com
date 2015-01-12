@@ -12,9 +12,8 @@ tags: JavaScript 事件 event
 
 <!-- break -->
 
-##Basic Concepts
 
-###document
+##Document
 首先回顾一下DOM(Document Object Model)相关的一些基本概念。HTML文档是一棵树的形式组织的，不同的标签被转换成一个节点,这是有了这些节点，JavaScript才能自如的操作页面元素。比如下面的代码：
 
     <html>
@@ -40,12 +39,13 @@ DOM结构
     var elem = document.getElementById('button');
     var newELem = document.createElement("div");
 
-###window
+##Window
 window是JavaScript中的全局变量，所有的全局变量都作为window的属性存在。使用window也可以监控浏览器的窗口事件。例如下面的代码可以关闭浏览器窗口：
 
     window.close();
     
-###EventTarget
+
+##EventTarget
 
 > EventTarget is a DOM interface implemented by objects that can receive DOM events and have listeners for them.
 
@@ -151,7 +151,5 @@ addEventListener方法默认关闭事件捕获，开启事件冒泡。如果阻�
 
 推荐阅读 [W3c DOM Event architecture](http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture)
 
-
-以上。
 
 

@@ -23,8 +23,9 @@ html, body {
 
 img {
   width: 100%;
-  max-width: 100%;
+  max-width: 100% !important;
 }
+
 
 .site-wrap {
   min-height: 100%;
@@ -242,14 +243,16 @@ pre code {
   border-radius: 3px; }
  
 pre {
-  background-color: #f8f8f8;
-  border: 1px solid #cccccc;
+  background-color:rgb(237, 244, 237);
+  /*border: 1px solid #cccccc;*/
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 3px; 
   margin-bottom: 30px;
+  margin-left:-1rem;
+  margin-right:-1rem;
   }
 
   pre code, pre tt {
@@ -328,7 +331,7 @@ h6,
 
   .h1,
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .h2,
@@ -338,7 +341,7 @@ h6,
 
   .h3,
   h3 {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 
   .h4,
@@ -377,7 +380,7 @@ h6,
 @media screen and (max-width: 48em) {
   .h1,
   h1 {
-    font-size: 2.827rem;
+    font-size: 1.999rem;
   }
 
   .h2,
@@ -387,7 +390,7 @@ h6,
 
   .h3,
   h3 {
-    font-size: 1.413rem;
+    font-size: 1.999rem;
   }
 
   .h4,

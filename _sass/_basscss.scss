@@ -125,7 +125,16 @@ strong, .bold {
 }
 
 .measure {
-  max-width: 48rem;
+  max-width: 52rem;
+  padding: 1rem;
+}
+
+
+.passage{
+    border-radius: 5px;
+    border-bottom-color: rgba(176, 184, 191, 0.7);
+    background-color: #fff;
+    border: 1px solid rgba(176, 184, 191, 0.3);
 }
 
 .measure-narrow {
@@ -682,7 +691,7 @@ strong, .bold {
 
 body {
   color: #333333;
-  background-color: #fff;
+  background-color: #FAFAFA;
 }
 
 a {

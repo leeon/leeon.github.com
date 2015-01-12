@@ -27,9 +27,7 @@ Execution context 包含了主要三个部分，Variable object,Scope Chain和th
 ![](http://dmitrysoshnikov.com/wp-content/uploads/execution-context.png){:style="max-width:400px"}
 
 
-##VO & AO
-
-####Variable Object （VO）
+##Variable Object （VO）
 
 vo是一个与context相关联的一个特殊的object。所谓关联，就是VO存储着在当前context中声明的变量和函数声明（注：是FD而非FE）,当程序试图寻找某一个变量的时候，就会首先检查VO.
 
@@ -58,7 +56,7 @@ vo是一个与context相关联的一个特殊的object。所谓关联，就是VO
     delete temp2; //true
     
     
-####Activation Object （AO）
+##Activation Object （AO）
 
 在函数环境中，VO就变成了AO. 并且增加了函数参数的列表。如下面的代码对应的AO。
 
@@ -148,8 +146,5 @@ JavaScript代码运行分为两个阶段，`entering the execution` 和 `code ex
 ##Conclusion
 
 以上是JavaScript中几个基本的但是很重要的概念，有助于理解它的基本运行机制。此外还有一些重要的概念，比如函数、原型链、事件机制等。本文大部分参考了 Dmitry Soshnikov 的[ECMA-262 Series](http://dmitrysoshnikov.com/).
-
-
-以上。
 
 
