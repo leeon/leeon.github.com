@@ -23,7 +23,7 @@ html, body {
 
 img {
   width: 100%;
-  max-width: 100% !important;
+  /*max-width: 100% !important;*/
 }
 
 
@@ -99,8 +99,8 @@ body {
 }
 
 .posts .post {
-  margin-bottom: 0.75em;
-  padding-bottom: .375em;
+  margin-bottom: 0.25em;
+  padding-bottom: .175em;
   border-bottom: thin solid #f3f3f3;
 }
 
@@ -365,7 +365,7 @@ h6,
   }
 
   .posts .post {
-    margin-bottom: 1.333em;
+    margin-bottom: 0.23em;
     padding-bottom: 0.666em;
     border-bottom: thin solid #f3f3f3;
   }

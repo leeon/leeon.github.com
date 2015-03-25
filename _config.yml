@@ -1,8 +1,8 @@
 # Site settings
-title:       Zephyrus 
+title:       atleeon weblog
 email:       leeon@outlook.com 
 author:      Li Yang
-description: "Li Yang Personal site."
+description: "李阳的博客，关于技术、设计、摄影和生活."
 baseurl:     ""
 url:         "http://atleeon.com"
 
