@@ -40,7 +40,7 @@ tags: 读书 互联网 创业 工具
 > 图片较大，可以右键--新的标签页打开，放大
 
 {:.center}
-![l笔记](http://cdn4atleeon.qiniudn.com/image/write/2014/%E5%88%9B%E4%B8%9A%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%9C%A8%E7%9F%A5%E4%B9%8E%E8%81%8A%E4%BB%80%E4%B9%88.png){:style="max-width:400px"}
+![笔记](http://cdn4atleeon.qiniudn.com/image/write/2014/%E5%88%9B%E4%B8%9A%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%9C%A8%E7%9F%A5%E4%B9%8E%E8%81%8A%E4%BB%80%E4%B9%88.png){:style="max-width:400px"}
 
 {:.center}
 读书笔记
