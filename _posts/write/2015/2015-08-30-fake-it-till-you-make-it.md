@@ -13,7 +13,7 @@ WWDC 2014 上，Apple的原型设计团队分享了公司内部的一套App开�
 
 说起做一个App，通常简单的想法是，我有一个很cool的idea，按照这个想法做成App，接下来的要关心的事情就是数钱了：）
 
-{:.center}
+
 ![](http://7fv96s.com1.z0.glb.clouddn.com/image/2015/write/wwdc2014/1.png){:style="max-width:700px"}
 
 

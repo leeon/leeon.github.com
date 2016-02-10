@@ -23,9 +23,10 @@
                 <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
                 </div>
                 <div class="meta">
-                  <time class="published" datetime="{{ page.date | date: "%F" }}">李阳 写于{{ page.date | date: "%m %d, %Y" }}</time>
-       
-
+                  <time class="published" datetime="{{ page.date | date: "%F" }}">{{ page.date | date: "%B %d, %Y" }}</time>
+                  {% for category in page.categories limit:1 %}
+                    <a href="#">{{ category }}</a>
+                  {% endfor %}
         <!--
         <a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
         -->
@@ -48,27 +49,13 @@
                 </ul>
               </footer>
            </article>
-  					<ul class="actions pagination">
-  					  {% if page.previous %}
-  	  				  <li><a href="{{ page.previous.url }}" class="button big previous">Previous|上一篇</a></li>
-  						{% else %}
-  						  <li><a href="#" class="disabled button big previous">Previous Post</a></li>
-  						{% endif %}
-							{% if page.next %}
-  						  <li><a href="{{ page.next.url }}" class="button big next">Next|下一篇</a></li>
-  						{% else %}
-  						  <li><a href="#" class="disabled button big next">Next Post</a></li>
-  						{% endif %}
-  					</ul>
 					</div>
 
 				<!-- Sidebar -->
 					<section id="sidebar">
 
-						<!-- Posts List -->
-
-						<!-- About -->
-					  {% include discuss.html %}
+						<!-- Intro -->
+						{% include intro.html %}
 
 						<!-- Footer -->
 						{% include footer.html %}

@@ -1,40 +1,19 @@
 # Site settings
-title:       atleeon
-email:       leeon@outlook.com 
-author:      Li Yang
-description: "李阳的博客，关于技术、设计、摄影和生活."
-baseurl:     ""
-url:         "http://atleeon.com"
-
-#Duoshuo short Name / 多说的shortname
-duoshuo: 
-
-#Baidu analytics / 百度统计(异步的js码，注意使用异步版本的)
-baidu_analyze: b89eeb1e30f9da66c71c727631aaa630
-
-# Google analytics
-google_analytics:
-
-# Optional features
-animated:           true
-show_related_posts: false
-show_post_footers:  true
-
-# Social icons
-show_social_icons: false
-github_username: 
-twitter_username: 
-google_plus_id:
-linkedin_username:
-bitcoin_url:
-paypal_url:
-flattr_button:
+title: atleeon
+email: atleeon@gmail.com
+description: > 
+  互联网，跑步，读书和摄影。
+  IT,Runner,Reading and photography.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://atleeon.com" # the base hostname & protocol for your site
+twitter_username: atleeon
+github_username:  leeon
 
 # Build settings
-markdown:     kramdown
-permalink:    pretty
-paginate:     10
-sass:
-  compressed: true
+markdown: kramdown
+
+paginate: 5
+
+author: Li Yang
 
 gems: [jekyll-paginate]

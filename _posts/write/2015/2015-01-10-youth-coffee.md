@@ -4,10 +4,8 @@ title:     青春咖啡馆
 category:  write
 description: 您找到幸福了么
 tags: 故事
+image: http://cdn4atleeon.qiniudn.com/image/2015/write/youth_coffee.jpg
 ---
-
-{:.center}
-![](http://cdn4atleeon.qiniudn.com/image/2015/write/youth_coffee.jpg){:style="max-width:700px"}
 
 下午到南山书城，联系完晚会的舞蹈服装，留下来看看书，发现这本《青春咖啡馆》。我还没有读过莫迪亚诺的小说。恰好点了杯咖啡，于是坐下来读完了它。
 
