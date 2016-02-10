@@ -17,3 +17,6 @@ paginate: 5
 author: Li Yang
 
 gems: [jekyll-paginate]
+
+#Baidu analytics / 百度统计(异步的js码，注意使用异步版本的)
+baidu_analyze: b89eeb1e30f9da66c71c727631aaa630
