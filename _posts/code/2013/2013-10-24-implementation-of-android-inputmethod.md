@@ -26,7 +26,7 @@ tags: Android 输入法
 如果你之前没有做过输入法的相关东西，你应该先阅读这篇介绍性的文章[Onscreen Input Methods](http://android-developers.blogspot.com/2009/04/updating-applications-for-on-screen.html)。此外，SDK中包含的Soft Keyboard sample app项目里面有样例代码，你可以修改它们，然后开始创建自己的输入法。
 
 
-#输入法的生命周期
+# 输入法的生命周期
 
 下图描述了一个输入法的生命周期：
 
@@ -38,7 +38,7 @@ Android输入法生命周期
 
 接下来的部分描述了如何实现遵循这一生命周期，实现输入法代码和界面。
 
-#在application manifest中声明IME组件
+# 在application manifest中声明IME组件
 
 在Android系统中，输入法是一个包含指定的IME服务的Android应用，应用的mainifest文件必须声明此服务，请求所需的权限，提供和`action.view.InputMethod`匹配的`intent filter`，并且提供包含输入法一些参数的元数据。此外，若想提供一个允许用户修改输入法行为的设置界面，你要定义一个能从系统设置中启动的`settings`activity。
 
@@ -67,7 +67,7 @@ Android输入法生命周期
 你也可以在输入法界面中直接提供用户设置。
 
 
-#输入法API
+# 输入法API
 
 输入法相关的类可以在`android.inputmethodservice`和`android.view.inputmethodpackages`中找到。 `KeyEvent`类在处理键盘字符中非常重要。
 
@@ -83,11 +83,11 @@ Android输入法生命周期
 
 继承自`View`，用来渲染绘制一个键盘，并且响应用户的输入事件。键盘的布局就是用一个`Keyboard`的实例来实现的，你可以通过创建一个xml文件来实现。
 
-#设计输入法的用户界面
+# 设计输入法的用户界面
 
 输入法中主要有两种可视化的元素：输入界面和候选界面。你只需要实现和你设计的输入法有关的界面。
 
-###输入界面
+### 输入界面
 
 输入法界面是用户输入文本的地方，可以是敲击键盘键位，手写，或者手势的形式。当输入法第一次调用显示的时候，系统会调用`onCreateInputView()`。在方法实现中，你可以创建想显示的布局，并将创建的布局实例返回给系统，下面的代码片段是一个实现`onCreateInputView()`方法的例子：
 
@@ -104,21 +104,21 @@ Android输入法生命周期
 在这个例子中，`MyKeyboardView`是一个用来生成一个键盘的典型的例子.如果你要创建一个传统的QWERTY键盘，可以查看[Soft Keyboard sample app](https://developer.android.com/tools/samples/index.html)作为一个如何继承`KeyboardView`类的样例。
 
 
-###候选界面
+### 候选界面
 
 候选界面是输入法为用户提示预测纠错和建议选词的地方。在输入法的生命周期中，当候选界面准备显示的时候，系统会调用`OnCreateCandidateView()`，你在实现此方法的时候，要返回用来显示建议词的界面，如果不想显示任何界面，就返回`null`。（此方法默认返回null,如果不希望显示就不必实现此方法）
 
 关于实现给用户提供建议的例子，可以查看[Soft Keyboard sample app](https://developer.android.com/tools/samples/index.html)。
 
-###界面设计要考虑的事情
+### 界面设计要考虑的事情
 
 这部分介绍一些关于输入法界面设计的东西。
 
-####处理不同屏幕尺寸
+#### 处理不同屏幕尺寸
 
 你的输入法界面必须能够适应不同的屏幕尺寸，并且可以处理横屏和竖屏。在非全屏输入模式中，给应用留有足够的空间来显示文本框以及相关的内容，所以输入法不能占用超过一半的屏幕空间。在全屏输入的模式中，这就不是问题了。
 
-####处理不同的输入类型
+#### 处理不同的输入类型
 
 Android中的文本域允许开发者指定一个具体的输入类型，比如自由格式的文本，数字，URL，邮箱地址和查询字符串等。当你实现一个新的输入法的时候，你需要去检测每一个输入域的类型，并且为他提供合适的输入法实例。当然，你不需要去检测用户输入的数据在特定的输入类型中的合理性，那是应用的开发者的责任。
 
@@ -167,11 +167,11 @@ Android中的文本域允许开发者指定一个具体的输入类型，比如�
 
 **注意:**在你实现的输入法中，输入密码的时候，请确保正确的处理文本，在输入界面和候选界面中都要隐藏密码，同时，你不应该在设备中存储密码。要了解更多，参考[安全性设计](https://developer.android.com/guide/practices/security.html)指引。
 
-#从输入法向应用程序发送文本
+# 从输入法向应用程序发送文本
 
 当用户使用你开发的输入法输入文本时，你可以发送独立的键盘事件或者编辑光标所在的文本，来将文本发送到应用程序。在任何一种情况中，你可以使用一个**InputConncetion**实例来发送文本，可以通过调用**InputMethodService.getCurrentInputConnection()**来获得实例。
 
-###编辑光标所在文本
+### 编辑光标所在文本
 
 在一个文本框中处理文本的时候，**BaseInputConnection**类中包含了一些有用的方法：
 
@@ -198,7 +198,7 @@ Android中的文本域允许开发者指定一个具体的输入类型，比如�
     ic.commitText("Hello", 1);
     ic.commitText("!", 1);
     
-###发送前组织文本
+### 发送前组织文本
 
 如果你的输入法支持文本预测或者需要多个步骤来组成一个符号或者单词，你可以在文本编辑区域展示这个过程，直到用户最终提交了这个单词，然后你可以用完整的文本替换掉部分的编辑中的文本。你可以在间断的通过`InputConnection#setComposingText()`提交文本。
 
@@ -222,7 +222,7 @@ Android中的文本域允许开发者指定一个具体的输入类型，比如�
 {:.center}
 ![](http://developer.android.com/resources/articles/images/inputmethod_composing_text_3.png){:style="max-width:200px"}
 
-###监听硬键盘事件
+### 监听硬键盘事件
 
 输入法窗口没有明确的焦点，它会首先接收来自硬键盘的事件，并且决定是处理事件还是继续向应用传递转发事件。例如，你可能会使用方向键在输入法界面中进行候选词的选择操作，也可能使用退格键来取消所有的从输入法窗口生成的弹出界面。
 
@@ -230,7 +230,7 @@ Android中的文本域允许开发者指定一个具体的输入类型，比如�
 
 记得调用`super()`方法，如果你不想自己处理这些事件。
 
-#创建输入法子类型
+# 创建输入法子类型
 
 子类型允许输入法展现不同的输入模式，同时在一个输入法中支持不同语言。一个子类型可能是：
 
@@ -278,7 +278,7 @@ Android中的文本域允许开发者指定一个具体的输入类型，比如�
 在任何的英语区域，这段代码会将子类型显示的名字设置为『英语（美国）』，或者对应其他区域的语言。
 
 
-###通过通知栏选择输入法的子类型
+### 通过通知栏选择输入法的子类型
 
 Android系统会管理所有输入法定义的子类型。输入法子类型作为定义他们的输入法的一种模式存在。在通知栏，用户可以选择当前使用的输入法的可用子类型，如下面的截图所示：
 
@@ -288,14 +288,14 @@ Android系统会管理所有输入法定义的子类型。输入法子类型作�
 {:.center}
 ![](http://developer.android.com/resources/articles/images/inputmethod_subtype_preferences.png){:style="max-width:200px"}
 
-###通过系统设置选择输入法子类型
+### 通过系统设置选择输入法子类型
 
 在系统设置的`语言与输入`设置面板中，用户可以选择子类型如何被使用。在Soft Keyboard的例子中，`InputMethodSettingsFragment.java`文件实现了一个输入法设置中的子类型激活开关。请参照Android SDK中输入法的例子，获得更多关于输入法子类型的信息。
 
 {:.center}
 ![](http://developer.android.com/resources/articles/images/inputmethod_subtype_settings.png){:style="max-width:200px"}
 
-#输入法注意事项
+# 输入法注意事项
 
 在开发你自己的输入法时，还有一些要注意的问题：
 

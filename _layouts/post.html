@@ -1,80 +1,115 @@
 <!DOCTYPE HTML>
-<!--
-	Future Imperfect by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
+<!-- <html> -->
+<head>
+  <title>{{ page.title }}|{{ site.title }}</title>
   {% include header.html %}
-	<body>
+  <script type="text/javascript">
+        var BYB = {};
+  </script>
+  <script type="text/javascript">
+    BYB.includeScript = function(file,callback){
+    var _doc = document.getElementsByTagName('head')[0];
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('src', file);
+    _doc.appendChild(js);
+    
+    if (!/*@cc_on!@*/0) { //if not IE
+    //Firefox2、Firefox3、Safari3.1+、Opera9.6+ support js.onload
+    js.onload = function () {
+    callback();
+    }
+    } else {
+    //IE6、IE7 support js.onreadystatechange
+    js.onreadystatechange = function () {
+    if (js.readyState == 'loaded' || js.readyState == 'complete') {
+    callback();
+    }
+    }
+    }
+    return false;
+    }
+  </script>
+  <meta content="{{ page.description }}" name="description"/>
+  <meta content="{% for tag in page.tags %}{{ tag }},{% endfor %}" name="keywords"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+</head>
+<body>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				{% include head.html %}
-				<!-- Main -->
-					<div id="main">
+<article id="main" itemscope itemtype="http://schema.org/Article">
+<div class="container">
 
-						<!-- Post -->
-            <article class="post">
-              <header>
-                <div class="title">
-                  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-                <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
-                </div>
-                <div class="meta">
-                  <time class="published" datetime="{{ page.date | date: "%F" }}">李阳 写于{{ page.date | date: "%m %d, %Y" }}</time>
-       
+<div class="main clearfix">
+  <div class="title" itemprop="name">{{ page.title }}</div>
+  <div class="hidden" itemprop="author">GuoJing</div>
+  <div class="hidden" itemprop="description">{{ page.description }}</div>
 
-        <!--
-        <a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
-        -->
-                </div>
-              </header>
-              {% if page.image %}
-                <a href="{{ page.url }}" class="image featured"><img src="{{page.image}}" alt="" /></a>
-              {% endif %}
-              {{ content }}
-              <footer>
-                <ul class="stats">
-                {% for tag in page.tags limit:3 %}
-                  <li><a href="#">{{ tag }}</a></li>
-                {% endfor %}
-        <!--
-        <li><a href="#">General</a></li>
-        <li><a href="#" class="icon fa-heart">28</a></li>
-        <li><a href="#" class="icon fa-comment">128</a></li>
-        -->
-                </ul>
-              </footer>
-           </article>
-  					<ul class="actions pagination">
-  					  {% if page.previous %}
-  	  				  <li><a href="{{ page.previous.url }}" class="button big previous">Previous|上一篇</a></li>
-  						{% else %}
-  						  <li><a href="#" class="disabled button big previous">Previous Post</a></li>
-  						{% endif %}
-							{% if page.next %}
-  						  <li><a href="{{ page.next.url }}" class="button big next">Next|下一篇</a></li>
-  						{% else %}
-  						  <li><a href="#" class="disabled button big next">Next Post</a></li>
-  						{% endif %}
-  					</ul>
-					</div>
+  <!--
+  <div class="info">
+      <i>Written {{ page.date | date:"%Y-%m-%d"}}</i>
+  </div>
+-->
 
-				<!-- Sidebar -->
-					<section id="sidebar">
+  <div class="content {{ page.categories }}_content_css" itemprop="articleBody">
+    {{ content }}
+  </div>
 
-						<!-- Posts List -->
+<!--   <hr>
+  <div class="eof">EOF</div>
+  <hr> -->
 
-						<!-- About -->
-					  {% include discuss.html %}
+<!--   <div class="forb">
+  {% for tag in page.tags %}
+  <a href="/tags/#{{ tag }}">#{{ tag }}</a>
+  {% endfor %}
+  </div> -->
 
-						<!-- Footer -->
-						{% include footer.html %}
-					</section>
-			</div>
-		<!-- Scripts -->
-		{% include scripts.html %}
-	</body>
+<!--   <div class="suggest">
+    {% if page.previous %}
+        <a href="{{page.previous.url}}" class="pre">&lt; {{page.previous.title}}</a>
+    {% endif %}
+    
+    {% if page.next %}
+        <a href="{{page.next.url}}" class="next">{{page.next.title}} &gt;</a>
+    {% endif %}
+    </div> -->
+</div>
+</article>
+
+<!--
+<div class="comments {{ page.categories }}_comments_css">
+<div id="disqus_container"> 
+    {% if page.not_comment %}
+    <span class="comment">该文章已关闭评论。</span>
+    {% else %}
+    <a href="#" class="comment" onclick="return false;">点击评论或查看评论。</a>
+    {% endif %}    
+    <div id="disqus_thread"></div>
+</div>
+</div>
+-->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#disqus_container .comment').on('click',function(){
+            $(this).html('加载中...');
+    var disqus_shortname = '{{site.author.key}}';
+            var that = this;
+            BYB.includeScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(){$(that).remove()});
+        });
+});
+</script>
+</div>
+{% include footer.html %}
+
+<!--
+  Copryright {{site.author.name}} 未经允许，严禁直接从Github上转载我的文章，所有文章遵循CC协议，允许复制和转载，但需要保留原作者链接。
+  该文章{{ page.title }}写于{{ page.date | date:"%Y年%m月%d日"}}。
+-->
+</body>
 </html>

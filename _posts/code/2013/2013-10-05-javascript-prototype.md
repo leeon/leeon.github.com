@@ -15,7 +15,7 @@ tags: JavaScript 原型
 那么请先记住一句话 「Everything is an Object」.
 
 
-###原型和原型链
+### 原型和原型链
 
 类似JavaScript这样基于原型继承的语言,有个特点是每个object都会有自己的一个神秘『引用』,当自己找不到一些属性的时候,就会通过这个『引用』去寻找。而这个『引用』指向的也是一个object，因此这个object也有自己的『引用』，就形成了一个『递归』。
 
@@ -24,7 +24,7 @@ tags: JavaScript 原型
 JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_proto\_\_这个神奇的属性让开发者可以访问到object的原型。注意\_\_proto\_\_是不符合ECMA标准的，因此不要使用他。但是我们可以通过\_\_proto\_\_来了解JavaScript的原型机制。
 
 
-###prototype和\_\_proto\_\_
+### prototype和\_\_proto\_\_
 
 关于这两个概念，明确以下几个关键点就可以掌握
 
@@ -48,7 +48,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
     foo.__proto__ = Foo.prototype
 
 
-###图谱
+### 图谱
 
 {:.center}
 ![](http://www.mollypages.org/misc/jsobj.jpg){:style="max-width:700px"}
@@ -99,7 +99,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
 
 有趣的现象是，Foo.\_\_proto\_\_和foo\_\_proto\_\_并不一致。正如前面已经提到过，当被foo被创建的时候，foo的原型链指向了Foo.prototype了，而Foo其实是被Function创建的。
 
-###原型链和变量查找
+### 原型链和变量查找
 
 看下面的例子会有怎样的结果：
 
@@ -114,7 +114,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
     console.log(Foo.prototype.info)
 
 
-###继续探索
+### 继续探索
 接下来看看图中没有的曲线是什么效果，前面已经提到过，所以很容易猜到，f1.prototype是undefined了。那么他的构造函数有没有呢？
 
     //if a instance of function has prototype or constructor
@@ -132,7 +132,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
     //see a chain 
     console.log(Foo.__proto__.__proto__.__proto__) //null
     
-###结束
+### 结束
 
 最后让我们以JavaScript中经典的『鸡蛋问题』结尾吧:
 
@@ -143,7 +143,7 @@ JavaScript事实上隐藏了对于原型的访问，但是Mozilla使用了\_\_pr
 
 
 
-#####参考资料
+##### 参考资料
 
 + [Quora:What is the difference between "__proto__" and "prototype"?](http://www.quora.com/JavaScript-programming-language/What-is-the-difference-between-__proto__-and-prototype)
 + [http://www.mollypages.org/misc/js.mp](http://www.mollypages.org/misc/js.mp)

@@ -1,20 +1,18 @@
-# Site settings
-title: atleeon
-email: atleeon@gmail.com
-description: > 
-  互联网，跑步，读书和摄影。
-  IT,Runner,Reading and photography.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://atleeon.com" # the base hostname & protocol for your site
-twitter_username: atleeon
-github_username:  leeon
+markdown:         kramdown
+highlighter:      rouge
+permalink:        /posts/:title/
 
-# Build settings
-markdown: kramdown
-
-paginate: 5
-
-author: Li Yang
+title:            "Leoon Sketch"
+url:              http://www.atleeon.com
+feed:             /feed.xml
+author:
+    name:         LiYang
+    twitter:      twitter.com/atleeon
+    key:          atleeon
+description:      "咖啡"
+copyright:        "CopryRight Liyang 2013-2016 by GitHub and Jekyll"
+headdesc:         "leeon 写东西的地方"
+headkeys:         "摄影,大数据,推荐系统,数据挖掘,机器学习,数学,读书,电影,音乐"
 
 gems: [jekyll-paginate]
 

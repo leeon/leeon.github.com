@@ -5,7 +5,7 @@ category: code
 tags: java 
 ---
 
-##Intro
+## Intro
 `Object`是Java中最原始的类，在Object中，有默认的`hashCode`和`equals`方法实现，二者是相互关联的。
 <!-- break -->
 JDK中`Object.java`定义了这两个方法：
@@ -22,7 +22,7 @@ JDK中`Object.java`定义了这两个方法：
 
 而equals方法则是简单的直接比较两个对象的地址。
 
-##Missleading
+## Missleading
 
 看到这这里可能会有疑问，一些教程说**Java中 == 表示比较对象的内存地址，而equals比较具体的内容**,这个说法其实不准确。equals的存在的作用在于允许程序员自己根据需要定义比较方法，由程序员自己决定两个对象满足什么条件算作是**相等**。一些书上这么写是因为使用`String`类的 == 和equals举例的。String.equals()只比较字符串的**具体内容**是由它的实现决定的。
 
@@ -91,7 +91,7 @@ String类继承自Object,并且覆写了其equals方法,使用的就是简单的
     }
 
 
-##Bad Case
+## Bad Case
 
 一般在处理自定义的类的时候，做到这一步就结束了，但是却留下了隐患，继续刚才的例子，现在要管理一些用户，进行集合的操作。比如用户分组：
 
@@ -143,7 +143,7 @@ String类继承自Object,并且覆写了其equals方法,使用的就是简单的
 执行就会发现，equals方法其实都没有被调用，上面的条件里就已经直接为`false`了。hash值不同的原因很简单，因为我们没有覆写hashCode方法，所以调用默认实现，创建的新对象就会有不同的hash值。解决办法是动手实现hashCode()。查阅官方文档会发现一个常被忽略的原则，那就是下面的the hashCode and equals contract in Java。
 
 
-##the hashCode and equals contract in Java
+## the hashCode and equals contract in Java
 
 > + If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.
 
@@ -157,7 +157,7 @@ String类继承自Object,并且覆写了其equals方法,使用的就是简单的
 
 也就是说，当你为一个自定义类覆写equals方法时，也要记得覆写相应的hashCode方法，保持一致。
 
-##Solution
+## Solution
 
 实际编码中，如果你使用eclipse环境开发，创建自己定义的类后，可以使用IDE提供的generate code 功能，自动生成两个方法，比如hashCode()：
     

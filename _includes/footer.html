@@ -1,9 +1,11 @@
-<section id="footer">
-  <ul class="icons">
-  	<li><a target=_blank href="https://twitter.com/{{ site.twitter_username }}" class="fa-twitter"><span class="label">Twitter</span></a></li>
-		<li><a target=_blank href="https://github.com/{{ site.github_username }}" class="fa-github"><span class="label">GitHub</span></a></li>
-		<li><a target=_blank href="https://500px.com/atleeonplus" class="fa-500px"><span class="label">RSS</span></a></li>
-		<li><a target=_blank href="mailto:{{ site.email }}" class="fa-envelope"><span class="label">Email</span></a></li>
-	</ul>
-  <p class="copyright">Copyright &copy; 2016 {{ site.author }}</p>
-</section>
+<div class="footer">
+
+
+<!-- {% if page.disable_footer %} -->
+<!-- footer disabled-->
+<!-- {% else %} -->
+{% include about.html %}
+<!-- {% endif %} -->
+
+
+</div>

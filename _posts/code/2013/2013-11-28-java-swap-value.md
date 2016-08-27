@@ -8,7 +8,7 @@ tags: java
 > 晚上看到一篇非常有意思的文章《[Swapping of two numbers](http://www.roseindia.net/java/beginners/swapping.shtml)》,讲的是如何用Java语言实现swap方法。看到作者的代码，实在逗坏了，而且这篇文章在Google搜索如何实现Java swap中排名非常靠前，如果感兴趣可以看一下文章以及评论。
 
 <!-- break -->
-##Bad Swap
+## Bad Swap
 实际上类似作者的交换代码，在Java中是无效的。原因是Java中参数传递是**严格**的按照`value`传递的。所以只改变参数**本身**的数值，并不会影响外面。这一点很好理解。
 
     public void badSwap(int a, int b){
@@ -18,7 +18,7 @@ tags: java
     }
 
 
-##What about swap two object?
+## What about swap two object?
 
 Java的对象实例是用reference来维护的，那么交换两个对象实例会不会有效呢？比如下面的代码结果会怎么样？
 
@@ -74,7 +74,7 @@ Java的对象实例是用reference来维护的，那么交换两个对象实例�
     
 在方法的内部，赋值操作影响了外面的对象，而交换操作没有效果。原因在`arg1.x`是通过引用实际上操作了方法外面的对象。而交换操作仍然只是改改变arg1参数本身的值.不会影响外面。
 
-##Summary
+## Summary
 
 解释上面例子的两个基本的Rule是：
 
@@ -85,7 +85,7 @@ Java的对象实例是用reference来维护的，那么交换两个对象实例�
 
 在C语言中，可以使用传递指针的方式实现有效的`Swap()`,原因在于C提供了直接的`取地址`和`引用地址`的操作。Java则没有提供直接操作内存地址的操作，因此不容易实现形如`swap(Object x,Object y)`的方法。
 
-##Solution
+## Solution
 在Java中实现交换，经常借助于数组，一般形式为 
     
     public static void exec(Object[] a, int x, int y);

@@ -5,13 +5,13 @@ category: code
 tags: JavaScript 函数
 ---
 
-##Intro
+## Intro
 
 之前一直在前端使用JavaScript,主要是操作DOM实现网页中特定的效果。接触Node.js后，JavaScript就开始在Server和Desktop上发挥作用。本文梳理一下JavaScript的一些语法上的几个核心概念,并通过一些例子来加深理解。
 
 <!-- break -->
 
-##Execution context
+## Execution context
 
 Execution context (简称EC) 是一个虚拟的概念，区分了不同的代码片段以及执行环境。JavaScript中的代码环境主要有三种，分别是Global Code, Function Code和Eval Code. 其中Global code是`.js`文件中直接执行的代码，或者`<script>`标签中的内容。Function code是进入函数调用时候进入的代码环境。Eval code 是指使用`eval()`的代码内容。
 
@@ -27,7 +27,7 @@ Execution context 包含了主要三个部分，Variable object,Scope Chain和th
 ![](http://dmitrysoshnikov.com/wp-content/uploads/execution-context.png){:style="max-width:400px"}
 
 
-##Variable Object （VO）
+## Variable Object （VO）
 
 vo是一个与context相关联的一个特殊的object。所谓关联，就是VO存储着在当前context中声明的变量和函数声明（注：是FD而非FE）,当程序试图寻找某一个变量的时候，就会首先检查VO.
 
@@ -56,7 +56,7 @@ vo是一个与context相关联的一个特殊的object。所谓关联，就是VO
     delete temp2; //true
     
     
-##Activation Object （AO）
+## Activation Object （AO）
 
 在函数环境中，VO就变成了AO. 并且增加了函数参数的列表。如下面的代码对应的AO。
 
@@ -74,7 +74,7 @@ vo是一个与context相关联的一个特殊的object。所谓关联，就是VO
 JavaScript代码运行分为两个阶段，`entering the execution` 和 `code execution`.VO/AO在第一个阶段会被初始化，所以FD函数声明，会在第一个阶段加入到VO/AO，而FE函数表达式则不会。 
 
 
-##Scope Chain
+## Scope Chain
 
 作用域链是用于JavaScript寻找变量的结构，由一系列的对象组成，如果一个变量在自己所在的Scope中找不到，也就是自己VO/AO没有，（可以看出，自己的VO/AO）是作用域链的顶端）就去父节点的VO/AO去寻找。根据这个原理，JavaScript中的作用域和其他高级编程语言（利用Block区分作用域）不同，通过函数调用决定作用域链，因为函数调用会创建新的VO/AO.本Scope内不存在的变量叫做`free variable`.
 
@@ -138,12 +138,12 @@ JavaScript代码运行分为两个阶段，`entering the execution` 和 `code ex
     data[2]();
 
 
-##This
+## This
 
 **this** 是context中的一个属性，并不属于任何变量，因此也不能被赋值。在全局环境中，this就表示global.在函数中，this的值取决于调用当前函数的context.
 
 
-##Conclusion
+## Conclusion
 
 以上是JavaScript中几个基本的但是很重要的概念，有助于理解它的基本运行机制。此外还有一些重要的概念，比如函数、原型链、事件机制等。本文大部分参考了 Dmitry Soshnikov 的[ECMA-262 Series](http://dmitrysoshnikov.com/).
 

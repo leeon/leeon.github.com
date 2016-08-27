@@ -5,7 +5,7 @@ category: code
 tags: Mac Sublime 源码 工具
 ---
 
-##前言
+## 前言
 
 曾经在博客园上写了这么一篇博文[《查看源代码不方便？我有利器》](http://www.cnblogs.com/octobershiner/archive/2012/03/16/2400805.html)，Source Insight是一款很好的软件，到腾讯实习的时候就发现很多同事再用，后来发现在Mac OS 上面没有Source Insight了，但是还有看源码的需求。怎么办呢？
 
@@ -22,7 +22,7 @@ tags: Mac Sublime 源码 工具
 
 
 
-##Step 1 open a project
+## Step 1 open a project
 
 Sublime Text 2打开一个project可以通过以下的方式
 
@@ -48,6 +48,6 @@ Sublime Text2检索文件的效率非常之高，即使一个jdk源码包，他�
 
 不知道jekyll的插入视频解决方案，所以直接优酷[连接](http://v.youku.com/v_show/id_XNTM5OTExNjI0.html)
 
-##END
+## END
 
 此外新版本的sublime Text2中右侧的小预览条也非常的方便，省去滚动鼠标滚轮的事了。

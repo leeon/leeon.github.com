@@ -4,13 +4,16 @@ title:     青春咖啡馆
 category:  write
 description: 您找到幸福了么
 tags: 故事
-image: http://cdn4atleeon.qiniudn.com/image/2015/write/youth_coffee.jpg
 ---
+
+{:.center}
+![noliao](http://cdn4atleeon.qiniudn.com/image/2015/write/youth_coffee.jpg)
+
 
 下午到南山书城，联系完晚会的舞蹈服装，留下来看看书，发现这本《青春咖啡馆》。我还没有读过莫迪亚诺的小说。恰好点了杯咖啡，于是坐下来读完了它。
 
 
-##故事
+## 故事
 画面，从巴黎塞纳河左岸的孔岱咖啡馆开始。
 
 第一位叙述者是这个咖啡馆里的一个普通客人，用他的话说就是“都在十九到二十五岁之间”。叙述者眼里有一个特殊的人，大家叫她“露姬”。
@@ -30,7 +33,7 @@ image: http://cdn4atleeon.qiniudn.com/image/2015/write/youth_coffee.jpg
 
 
 
-##感触
+## 感触
 
 《青春咖啡馆》确实给了我全新的阅读小说的感受，这并非一篇悬疑小说，但开篇我们的目标就是寻找这位特殊的“露姬”。第一位叙述者和第二位叙述者，从种种“线索”中，也描绘出了那个年代的巴黎咖啡馆里的人们，以及外面的街区。而露姬描述自己的经历的时候，我们才发现，她并非特殊，她是这个“城市流浪者”的一员。
 

@@ -6,14 +6,14 @@ tags: JavaScript 事件 event
 ---
 
 
-##Intro
+## Intro
 
 本文描述的 事件 是W3C定义的API, 这些事件应用在JavaScript对于DOM的操作（Node.js中也有相应的事件机制）。事件主要是监控发生在DOM元素上面的行为，当一个元素的状态改变的时候，比如点击了页面上的某个标签，就会触发事件。
 
 <!-- break -->
 
 
-##Document
+## Document
 首先回顾一下DOM(Document Object Model)相关的一些基本概念。HTML文档是一棵树的形式组织的，不同的标签被转换成一个节点,这是有了这些节点，JavaScript才能自如的操作页面元素。比如下面的代码：
 
     <html>
@@ -39,13 +39,13 @@ DOM结构
     var elem = document.getElementById('button');
     var newELem = document.createElement("div");
 
-##Window
+## Window
 window是JavaScript中的全局变量，所有的全局变量都作为window的属性存在。使用window也可以监控浏览器的窗口事件。例如下面的代码可以关闭浏览器窗口：
 
     window.close();
     
 
-##EventTarget
+## EventTarget
 
 > EventTarget is a DOM interface implemented by objects that can receive DOM events and have listeners for them.
 
@@ -58,7 +58,7 @@ EventTarget提供三个重要的方法：
 + canceled = !target.dispatchEvent(event);
 
 
-##Using built-in events
+## Using built-in events
 
 大多数场景下，我们只需要使用内置的事件类型就足够了。DOM API提供的事件比较丰富，常用的有:
 
@@ -92,7 +92,7 @@ EventTarget提供三个重要的方法：
 
 这里`e`是，作为Event Handler函数，默认传入的参数，代表事件本身，并且可以通过他获得事件的一些属性。
 
-##Creating and triggering events
+## Creating and triggering events
 
         var button = document.getElementById('button');
         var event = new Event('go');
@@ -108,7 +108,7 @@ EventTarget提供三个重要的方法：
 上面的代码创建了一个自定义事件，并且绑定到了`button`这个dom元素上，最后手动触发事件执行。这种方法大部分的现代浏览器都支持。注意addEventListener()最后一个参数，false表示不使用事件捕获，后面介绍。
 
 
-##Event Capture & Bubble
+## Event Capture & Bubble
 
 前面提到了事件捕获，事件捕获是一种事件传递的机制，DOM中主要有两种事件的传递机制:**事件捕获**和**事件冒泡**。前者的浏览器支持不完整，后者比较完整。
 
@@ -124,7 +124,7 @@ addEventListener方法默认关闭事件捕获，开启事件冒泡。如果阻�
     
     event.stopPropagation();
     
-##Event delegation
+## Event delegation
 
 事件委托是什么概念呢？一个常用的场景是列表管理。列表里有很多元素，并且是动态变化的（比如web版的文件管理器）.
     
@@ -145,7 +145,7 @@ addEventListener方法默认关闭事件捕获，开启事件冒泡。如果阻�
 
 注意：事件委托的前提是使用事件冒泡。
 
-##Conclusion
+## Conclusion
 
 本文介绍了JavaScript DOM事件的一些基础的概念，Event是DOM的核心内容，理解基本的概念可以更好的使用一些高级的框架。
 
